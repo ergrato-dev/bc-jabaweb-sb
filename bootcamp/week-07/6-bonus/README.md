@@ -6,10 +6,12 @@ Crear formularios de Login y Registro en React que se conecten con tu API Spring
 
 **Duración estimada**: 60-90 minutos
 
+> 💡 **Este es contenido bonus** - Diseñado para estudiantes que deseen profundizar en la integración frontend-backend. No es requisito para completar el bootcamp.
+
 **Prerrequisitos**:
 - Conocimientos básicos de React (componentes, useState, useEffect)
-- API con Spring Security + JWT funcionando (Semana 7 del bootcamp)
-- CORS configurado (Week 06 bonus)
+- API con Spring Security + JWT funcionando (contenido principal de esta semana)
+- CORS configurado (bonus Week 06)
 
 ---
 
@@ -620,7 +622,8 @@ button[type="submit"]:disabled {
 ### 6.1 Asegurar que la API está corriendo
 
 ```bash
-# En el directorio de tu API
+# En el directorio del proyecto de la semana
+cd ../3-proyecto
 docker compose up
 ```
 
@@ -663,4 +666,4 @@ En este ejercicio usamos `localStorage` para simplicidad. En producción, consid
 
 ## ➡️ Siguiente
 
-Continúa con [Week 08: Full Stack Auth](../week-08-full-stack-auth/README.md) para integrar todo con Docker.
+En la **Semana 08** encontrarás el bonus de integración full-stack con Docker, donde unirás backend + frontend + base de datos en un solo `docker-compose.yml`.

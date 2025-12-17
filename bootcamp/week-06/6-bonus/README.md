@@ -6,6 +6,8 @@ Aprender a consumir tu API REST desde un navegador web usando JavaScript vanilla
 
 **Duración estimada**: 30-45 minutos
 
+> 💡 **Este es contenido bonus** - Diseñado para estudiantes que deseen profundizar en la integración frontend-backend. No es requisito para completar el bootcamp.
+
 ---
 
 ## ¿Qué es CORS?
@@ -63,6 +65,7 @@ public class CorsConfig {
         // Orígenes permitidos (en desarrollo, permitir localhost)
         config.setAllowedOrigins(Arrays.asList(
             "http://localhost:5500",  // Live Server
+            "http://localhost:5173",  // Vite dev server
             "http://localhost:3000",  // React dev server
             "http://127.0.0.1:5500"
         ));
@@ -89,6 +92,8 @@ public class CorsConfig {
 ## Parte 2: Cliente JavaScript
 
 ### 2.1 Crear index.html
+
+Crea el archivo `index.html` en esta carpeta (`6-bonus/`):
 
 ```html
 <!DOCTYPE html>
@@ -162,6 +167,8 @@ public class CorsConfig {
 ```
 
 ### 2.2 Crear api-client.js
+
+Crea el archivo `api-client.js` en esta carpeta:
 
 ```javascript
 // Configuración de la API
@@ -248,7 +255,7 @@ console.log('API Client cargado. URL base:', API_BASE_URL);
 ### 3.1 Iniciar tu API
 
 ```bash
-cd tu-proyecto-spring-boot
+cd ../3-proyecto
 docker compose up
 ```
 
@@ -263,7 +270,6 @@ Verifica que funciona: http://localhost:8080/api/products
 
 **Opción B: Python HTTP Server**
 ```bash
-cd bonus-frontend/week-06-cors-basics
 python -m http.server 5500
 ```
 
@@ -319,4 +325,4 @@ Access to fetch at 'http://localhost:8080/api/products' from origin
 
 ## ➡️ Siguiente
 
-Continúa con [Week 07: React Auth](../week-07-react-auth/README.md) (requiere conocimientos de React)
+Si tienes conocimientos de React, continúa con el bonus de la **Semana 07** para crear formularios de Login y Registro.
