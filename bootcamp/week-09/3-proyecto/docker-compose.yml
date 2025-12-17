@@ -1,0 +1,84 @@
+version: "3.8"
+
+services:
+  # Aplicación Spring Boot
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finalproject-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME:-finalproject}
+      - DB_USER=${DB_USER:-dev}
+      - DB_PASSWORD=${DB_PASSWORD:-dev123}
+      - JWT_SECRET=${JWT_SECRET:-my-super-secret-key-that-should-be-at-least-256-bits-long-for-hs256}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # Base de datos PostgreSQL
+  db:
+    image: postgres:16-alpine
+    container_name: finalproject-db
+    environment:
+      - POSTGRES_DB=${DB_NAME:-finalproject}
+      - POSTGRES_USER=${DB_USER:-dev}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-dev123}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - backend
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${DB_USER:-dev} -d ${DB_NAME:-finalproject}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  # PgAdmin para administración (solo desarrollo)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: finalproject-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL:-admin@admin.com}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD:-admin}
+      - PGADMIN_CONFIG_SERVER_MODE=False
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    networks:
+      - backend
+    restart: unless-stopped
+    profiles:
+      - dev
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

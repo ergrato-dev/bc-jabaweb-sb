@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <rect width="800" height="500" fill="#1a1a2e" />
+
+    <text x="400" y="35" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="22" font-weight="bold">Checklist del Proyecto Final</text>
+
+    <!-- Estructura Column -->
+    <rect x="30" y="60" width="180" height="200" rx="8" fill="#2d3748" />
+    <rect x="30" y="60" width="180" height="35" rx="8" fill="#48bb78" />
+    <text x="120" y="85" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">🏗️ Estructura</text>
+
+    <text x="45" y="115" fill="#48bb78" font-family="Arial, sans-serif" font-size="10">✓
+        Arquitectura capas</text>
+    <text x="45" y="135" fill="#48bb78" font-family="Arial, sans-serif" font-size="10">✓ DTOs y
+        Mappers</text>
+    <text x="45" y="155" fill="#48bb78" font-family="Arial, sans-serif" font-size="10">✓ Entidades
+        JPA</text>
+    <text x="45" y="175" fill="#48bb78" font-family="Arial, sans-serif" font-size="10">✓ Global
+        Exception</text>
+    <text x="45" y="195" fill="#48bb78" font-family="Arial, sans-serif" font-size="10">✓
+        Validaciones</text>
+    <text x="45" y="215" fill="#48bb78" font-family="Arial, sans-serif" font-size="10">✓ Perfiles
+        Config</text>
+    <text x="45" y="235" fill="#aaaaaa" font-family="Arial, sans-serif" font-size="9">Semanas: 2, 3,
+        4</text>
+
+    <!-- Seguridad Column -->
+    <rect x="225" y="60" width="180" height="200" rx="8" fill="#2d3748" />
+    <rect x="225" y="60" width="180" height="35" rx="8" fill="#e53e3e" />
+    <text x="315" y="85" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">🔐 Seguridad</text>
+
+    <text x="240" y="115" fill="#e53e3e" font-family="Arial, sans-serif" font-size="10">✓ JWT
+        Authentication</text>
+    <text x="240" y="135" fill="#e53e3e" font-family="Arial, sans-serif" font-size="10">✓ Registro
+        /register</text>
+    <text x="240" y="155" fill="#e53e3e" font-family="Arial, sans-serif" font-size="10">✓ Login
+        /login</text>
+    <text x="240" y="175" fill="#e53e3e" font-family="Arial, sans-serif" font-size="10">✓ Roles
+        (USER/ADMIN)</text>
+    <text x="240" y="195" fill="#e53e3e" font-family="Arial, sans-serif" font-size="10">✓
+        @PreAuthorize</text>
+    <text x="240" y="215" fill="#e53e3e" font-family="Arial, sans-serif" font-size="10">✓ Secrets en
+        .env</text>
+    <text x="240" y="235" fill="#aaaaaa" font-family="Arial, sans-serif" font-size="9">Semana: 7</text>
+
+    <!-- Base de Datos Column -->
+    <rect x="420" y="60" width="180" height="200" rx="8" fill="#2d3748" />
+    <rect x="420" y="60" width="180" height="35" rx="8" fill="#336791" />
+    <text x="510" y="85" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">🗄️ Base de Datos</text>
+
+    <text x="435" y="115" fill="#4299e1" font-family="Arial, sans-serif" font-size="10">✓ PostgreSQL
+        Docker</text>
+    <text x="435" y="135" fill="#4299e1" font-family="Arial, sans-serif" font-size="10">✓ 3+
+        Entidades</text>
+    <text x="435" y="155" fill="#4299e1" font-family="Arial, sans-serif" font-size="10">✓ Relaciones
+        JPA</text>
+    <text x="435" y="175" fill="#4299e1" font-family="Arial, sans-serif" font-size="10">✓ Queries
+        Custom</text>
+    <text x="435" y="195" fill="#4299e1" font-family="Arial, sans-serif" font-size="10">✓ Paginación</text>
+    <text x="435" y="215" fill="#4299e1" font-family="Arial, sans-serif" font-size="10">✓ Volumen
+        persist.</text>
+    <text x="435" y="235" fill="#aaaaaa" font-family="Arial, sans-serif" font-size="9">Semanas: 4, 5</text>
+
+    <!-- Testing Column -->
+    <rect x="615" y="60" width="160" height="200" rx="8" fill="#2d3748" />
+    <rect x="615" y="60" width="160" height="35" rx="8" fill="#9f7aea" />
+    <text x="695" y="85" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">🧪 Testing</text>
+
+    <text x="630" y="115" fill="#9f7aea" font-family="Arial, sans-serif" font-size="10">✓ JUnit 5</text>
+    <text x="630" y="135" fill="#9f7aea" font-family="Arial, sans-serif" font-size="10">✓ Mockito</text>
+    <text x="630" y="155" fill="#9f7aea" font-family="Arial, sans-serif" font-size="10">✓ MockMvc</text>
+    <text x="630" y="175" fill="#9f7aea" font-family="Arial, sans-serif" font-size="10">✓
+        TestContainers</text>
+    <text x="630" y="195" fill="#9f7aea" font-family="Arial, sans-serif" font-size="10">✓ Coverage
+        ≥70%</text>
+    <text x="630" y="215" fill="#9f7aea" font-family="Arial, sans-serif" font-size="10">✓ Auth tests</text>
+    <text x="630" y="235" fill="#aaaaaa" font-family="Arial, sans-serif" font-size="9">Semana: 8</text>
+
+    <!-- Docker Row -->
+    <rect x="30" y="280" width="275" height="100" rx="8" fill="#2d3748" />
+    <rect x="30" y="280" width="275" height="35" rx="8" fill="#0db7ed" />
+    <text x="167" y="305" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">🐳 Docker</text>
+
+    <text x="45" y="335" fill="#0db7ed" font-family="Arial, sans-serif" font-size="10">✓ Dockerfile
+        multi-stage</text>
+    <text x="45" y="355" fill="#0db7ed" font-family="Arial, sans-serif" font-size="10">✓
+        docker-compose.yml funcional</text>
+    <text x="185" y="335" fill="#0db7ed" font-family="Arial, sans-serif" font-size="10">✓
+        Healthchecks</text>
+    <text x="185" y="355" fill="#0db7ed" font-family="Arial, sans-serif" font-size="10">✓ Networks</text>
+    <text x="45" y="375" fill="#aaaaaa" font-family="Arial, sans-serif" font-size="9">Semanas: 1, 2,
+        4, 5, 8</text>
+
+    <!-- Documentación Row -->
+    <rect x="320" y="280" width="275" height="100" rx="8" fill="#2d3748" />
+    <rect x="320" y="280" width="275" height="35" rx="8" fill="#ed8936" />
+    <text x="457" y="305" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">📚 Documentación</text>
+
+    <text x="335" y="335" fill="#ed8936" font-family="Arial, sans-serif" font-size="10">✓ README.md
+        completo</text>
+    <text x="335" y="355" fill="#ed8936" font-family="Arial, sans-serif" font-size="10">✓
+        Swagger/OpenAPI</text>
+    <text x="475" y="335" fill="#ed8936" font-family="Arial, sans-serif" font-size="10">✓
+        Instrucciones deploy</text>
+    <text x="475" y="355" fill="#ed8936" font-family="Arial, sans-serif" font-size="10">✓ Postman
+        (opcional)</text>
+    <text x="335" y="375" fill="#aaaaaa" font-family="Arial, sans-serif" font-size="9">Semana: 6</text>
+
+    <!-- Presentación Row -->
+    <rect x="610" y="280" width="165" height="100" rx="8" fill="#2d3748" />
+    <rect x="610" y="280" width="165" height="35" rx="8" fill="#ffd700" />
+    <text x="692" y="305" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">🎤 Presentación</text>
+
+    <text x="625" y="335" fill="#ffd700" font-family="Arial, sans-serif" font-size="10">✓ Demo
+        funcional</text>
+    <text x="625" y="355" fill="#ffd700" font-family="Arial, sans-serif" font-size="10">✓ Defensa
+        técnica</text>
+    <text x="625" y="375" fill="#ffd700" font-family="Arial, sans-serif" font-size="10">✓ 5-10
+        minutos</text>
+
+    <!-- Bottom message -->
+    <rect x="200" y="410" width="400" height="70" rx="10" fill="#ffd700" />
+    <text x="400" y="440" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif"
+        font-size="14" font-weight="bold">🎯 Criterio de Aprobación</text>
+    <text x="400" y="465" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif"
+        font-size="12">docker-compose up → API funcional → Tests ≥70%</text>
+</svg>

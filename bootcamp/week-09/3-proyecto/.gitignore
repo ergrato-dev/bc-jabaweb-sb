@@ -1,0 +1,46 @@
+# Build artifacts
+target/
+*.jar
+*.war
+*.class
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+*.code-workspace
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+*~
+
+# Environment files (contains secrets!)
+.env
+*.env.local
+*.env.*.local
+
+# Test outputs
+test-output/
+surefire-reports/
+
+# Coverage
+jacoco.exec
+coverage/
+
+# Temp files
+*.tmp
+*.bak

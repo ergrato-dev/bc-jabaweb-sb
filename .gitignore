@@ -181,6 +181,14 @@ surefire-reports/
 failsafe-reports/
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# 🎓 BOOTCAMP - SOLUCIONES Y DOCUMENTACIÓN INTERNA
+# ═══════════════════════════════════════════════════════════════════════════════
+# Excluir carpetas de soluciones (solo para instructores)
+**/docs/
+**/SOLUCIONES.md
+**/soluciones/
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # 📋 MISCELÁNEO
 # ═══════════════════════════════════════════════════════════════════════════════
 # Archivos generados por Lombok

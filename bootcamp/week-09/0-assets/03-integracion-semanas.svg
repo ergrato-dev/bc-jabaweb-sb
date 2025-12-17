@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+    <rect width="900" height="500" fill="#1a1a2e" />
+
+    <text x="450" y="35" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="22" font-weight="bold">Integración de Semanas del Bootcamp</text>
+
+    <!-- Week boxes -->
+    <!-- Week 1 -->
+    <rect x="50" y="70" width="120" height="90" rx="8" fill="#0db7ed" />
+    <text x="110" y="95" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 1</text>
+    <text x="110" y="115" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Docker</text>
+    <text x="110" y="130" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Fundamentos</text>
+    <text x="110" y="145" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">REST</text>
+
+    <!-- Week 2 -->
+    <rect x="190" y="70" width="120" height="90" rx="8" fill="#6db33f" />
+    <text x="250" y="95" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 2</text>
+    <text x="250" y="115" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Spring Boot</text>
+    <text x="250" y="130" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Dockerfile</text>
+    <text x="250" y="145" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Endpoints</text>
+
+    <!-- Week 3 -->
+    <rect x="330" y="70" width="120" height="90" rx="8" fill="#48bb78" />
+    <text x="390" y="95" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 3</text>
+    <text x="390" y="115" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Arquitectura</text>
+    <text x="390" y="130" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Capas</text>
+    <text x="390" y="145" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">DTOs</text>
+
+    <!-- Week 4 -->
+    <rect x="470" y="70" width="120" height="90" rx="8" fill="#336791" />
+    <text x="530" y="95" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 4</text>
+    <text x="530" y="115" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">JPA</text>
+    <text x="530" y="130" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">PostgreSQL</text>
+    <text x="530" y="145" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Docker</text>
+
+    <!-- Week 5 -->
+    <rect x="610" y="70" width="120" height="90" rx="8" fill="#9f7aea" />
+    <text x="670" y="95" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 5</text>
+    <text x="670" y="115" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Relaciones</text>
+    <text x="670" y="130" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">JPA</text>
+    <text x="670" y="145" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Redes</text>
+
+    <!-- Week 6 -->
+    <rect x="750" y="70" width="120" height="90" rx="8" fill="#ed8936" />
+    <text x="810" y="95" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 6</text>
+    <text x="810" y="115" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Swagger</text>
+    <text x="810" y="130" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">OpenAPI</text>
+    <text x="810" y="145" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">CORS</text>
+
+    <!-- Week 7 -->
+    <rect x="190" y="180" width="120" height="90" rx="8" fill="#e53e3e" />
+    <text x="250" y="205" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 7</text>
+    <text x="250" y="225" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Security</text>
+    <text x="250" y="240" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">JWT</text>
+    <text x="250" y="255" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Auth</text>
+
+    <!-- Week 8 -->
+    <rect x="610" y="180" width="120" height="90" rx="8" fill="#4299e1" />
+    <text x="670" y="205" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11" font-weight="bold">Semana 8</text>
+    <text x="670" y="225" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Testing</text>
+    <text x="670" y="240" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">TestContainers</text>
+    <text x="670" y="255" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="9">Docker</text>
+
+    <!-- Arrows pointing to Week 9 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ffd700" />
+        </marker>
+    </defs>
+
+    <!-- Arrows from each week -->
+    <path d="M110 160 L380 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+    <path d="M250 160 L400 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+    <path d="M390 160 L430 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+    <path d="M530 160 L470 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+    <path d="M670 160 L500 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+    <path d="M810 160 L520 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+    <path d="M250 270 L400 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+    <path d="M670 270 L500 310" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arrowhead)" />
+
+    <!-- Week 9 - Central and larger -->
+    <rect x="300" y="310" width="300" height="150" rx="12" fill="#ffd700" />
+    <rect x="310" y="320" width="280" height="130" rx="8" fill="#1a1a2e" />
+    <text x="450" y="355" text-anchor="middle" fill="#ffd700" font-family="Arial, sans-serif"
+        font-size="18" font-weight="bold">🎯 Semana 9</text>
+    <text x="450" y="385" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="14" font-weight="bold">PROYECTO FINAL</text>
+    <text x="450" y="410" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif"
+        font-size="11">INTEGRADOR</text>
+    <text x="450" y="435" text-anchor="middle" fill="#aaaaaa" font-family="Arial, sans-serif"
+        font-size="10">Todas las tecnologías combinadas</text>
+
+    <!-- Output arrow -->
+    <path d="M450 460 L450 480" stroke="#ffd700" stroke-width="3" marker-end="url(#arrowhead)" />
+
+    <!-- Final product -->
+    <text x="450" y="495" text-anchor="middle" fill="#ffd700" font-family="Arial, sans-serif"
+        font-size="12" font-weight="bold">🚀 API REST Profesional Lista para Producción</text>
+</svg>
