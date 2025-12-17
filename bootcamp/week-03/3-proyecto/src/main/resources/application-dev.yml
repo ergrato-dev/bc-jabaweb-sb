@@ -1,0 +1,58 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# PERFIL DE DESARROLLO (dev)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Este archivo se carga cuando: spring.profiles.active=dev
+#
+# Características del perfil dev:
+#   - Logs más detallados (DEBUG)
+#   - Hot reload habilitado
+#   - Errores detallados en respuestas
+#   - Swagger habilitado
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+spring:
+  # =========================================================================
+  # HOT RELOAD (DevTools)
+  # =========================================================================
+  # Reinicia la app automáticamente cuando cambias código
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LOGGING - DESARROLLO
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# En desarrollo queremos ver más detalles para debugging.
+
+logging:
+  level:
+    # =========================================================================
+    # TODO 28: Configurar niveles de logging para desarrollo
+    # =========================================================================
+    #
+    # Niveles disponibles (de más a menos verboso):
+    #   TRACE > DEBUG > INFO > WARN > ERROR
+    #
+    # Para desarrollo:
+    #   - Nuestro paquete: DEBUG (ver detalles de nuestra lógica)
+    #   - Spring Web: DEBUG (ver peticiones HTTP entrantes)
+    #   - Root: INFO (default para todo lo demás)
+    #
+    # DESCOMENTA y completa:
+    # root: ???
+    # com.bootcamp.taskmanager: ???
+    # org.springframework.web: ???
+
+# ═══════════════════════════════════════════════════════════════════════════
+# CONFIGURACIÓN DEL SERVIDOR - DESARROLLO
+# ═══════════════════════════════════════════════════════════════════════════
+
+server:
+  error:
+    # En desarrollo, mostrar stack trace completo
+    include-stacktrace: always

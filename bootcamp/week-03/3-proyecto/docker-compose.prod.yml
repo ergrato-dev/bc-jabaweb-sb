@@ -1,0 +1,93 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# DOCKER COMPOSE - Producción (prod)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Este archivo está configurado para entornos de producción/staging.
+#
+# Diferencias con docker-compose.yml (dev):
+#   - Perfil 'prod' activo
+#   - Sin volúmenes de desarrollo
+#   - Variables de entorno desde archivo .env
+#   - Configuración de restart automático
+#
+# Para ejecutar:
+#   docker-compose -f docker-compose.prod.yml up -d
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+services:
+  # =========================================================================
+  # SERVICIO: API (Spring Boot) - PRODUCCIÓN
+  # =========================================================================
+  api:
+    build: .
+    container_name: taskmanager-api-prod
+
+    ports:
+      - "8080:8080"
+
+    # =========================================================================
+    # TODO 41: Configurar variables de entorno para producción
+    # =========================================================================
+    #
+    # En producción las variables sensibles vienen del archivo .env
+    # que NO se sube a Git (está en .gitignore).
+    #
+    # Sintaxis ${VARIABLE} lee del archivo .env o del sistema operativo.
+
+    environment:
+      # TODO: Activar perfil de producción
+      # - SPRING_PROFILES_ACTIVE=???
+
+      # Memoria JVM para producción
+      - JAVA_OPTS=-Xmx512m -Xms256m
+
+    # =========================================================================
+    # TODO 42: Configurar política de reinicio
+    # =========================================================================
+    #
+    # 'restart' define qué hacer si el contenedor falla:
+    #   - no: No reiniciar (default)
+    #   - always: Siempre reiniciar
+    #   - on-failure: Solo si falla (exit code != 0)
+    #   - unless-stopped: Siempre, excepto si lo detienes manualmente
+    #
+    # DESCOMENTA:
+    # restart: ???
+
+    # =========================================================================
+    # HEALTHCHECK - Verificar que la app está respondiendo
+    # =========================================================================
+    #
+    # Docker ejecutará este comando periódicamente para verificar
+    # que el contenedor está "healthy" (saludable).
+
+    healthcheck:
+      # Comando para verificar salud (curl al endpoint de health)
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8080/actuator/health",
+        ]
+      # Esperar 30s antes del primer check
+      interval: 30s
+      # Tiempo máximo para el check
+      timeout: 10s
+      # Intentos antes de marcar como unhealthy
+      retries: 3
+      # Tiempo de gracia al iniciar
+      start_period: 40s
+# ═══════════════════════════════════════════════════════════════════════════
+# ARCHIVO .env (crear por separado)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Para producción, crea un archivo .env junto a docker-compose.prod.yml:
+#
+#   SPRING_PROFILES_ACTIVE=prod
+#   # Futuras variables de BD, secrets, etc.
+#
+# ⚠️  NUNCA subas .env a Git. Está en .gitignore por defecto.

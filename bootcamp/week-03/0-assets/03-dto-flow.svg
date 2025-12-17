@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+    <defs>
+        <style>
+            .title { font: bold 22px 'Segoe UI', sans-serif; fill: #4fc3f7; }
+            .subtitle { font: bold 14px 'Segoe UI', sans-serif; fill: #fff; }
+            .text { font: 12px 'Segoe UI', sans-serif; fill: #b0bec5; }
+            .code { font: 11px 'Consolas', monospace; fill: #81c784; }
+            .arrow { stroke: #4fc3f7; stroke-width: 2; fill: none; }
+            .arrow-head { fill: #4fc3f7; }
+            .validation { fill: #ff9800; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="450" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" class="title">Flujo de DTOs y Validación</text>
+
+    <!-- Client -->
+    <rect x="50" y="60" width="120" height="60" rx="8" fill="#37474f" />
+    <text x="110" y="85" text-anchor="middle" class="subtitle">🌐 Cliente</text>
+    <text x="110" y="105" text-anchor="middle" class="text">JSON Request</text>
+
+    <!-- Arrow to Controller -->
+    <line x1="170" y1="90" x2="220" y2="90" class="arrow" />
+    <polygon points="230,90 220,85 220,95" class="arrow-head" />
+
+    <!-- Controller Box -->
+    <rect x="230" y="50" width="160" height="140" rx="8" fill="#0d47a1" />
+    <text x="310" y="75" text-anchor="middle" class="subtitle">Controller</text>
+
+    <!-- Request DTO -->
+    <rect x="245" y="90" width="130" height="45" rx="4" fill="#263238" />
+    <text x="310" y="110" text-anchor="middle" class="text" style="fill:#ffb74d;">TaskRequest</text>
+    <text x="310" y="125" text-anchor="middle" class="code">@Valid @RequestBody</text>
+
+    <!-- Validation indicator -->
+    <rect x="245" y="145" width="130" height="35" rx="4" fill="#e65100" />
+    <text x="310" y="168" text-anchor="middle" class="text" style="fill:#fff;">✓ Bean Validation</text>
+
+    <!-- Arrow to Service -->
+    <line x1="390" y1="120" x2="440" y2="120" class="arrow" />
+    <polygon points="450,120 440,115 440,125" class="arrow-head" />
+    <text x="420" y="110" text-anchor="middle" class="text">DTO</text>
+
+    <!-- Service Box -->
+    <rect x="450" y="50" width="160" height="140" rx="8" fill="#1565c0" />
+    <text x="530" y="75" text-anchor="middle" class="subtitle">Service</text>
+
+    <!-- Mapper -->
+    <rect x="465" y="90" width="130" height="35" rx="4" fill="#263238" />
+    <text x="530" y="113" text-anchor="middle" class="text" style="fill:#81c784;">Mapper</text>
+
+    <!-- Entity in Service -->
+    <rect x="465" y="135" width="130" height="45" rx="4" fill="#37474f" />
+    <text x="530" y="155" text-anchor="middle" class="text" style="fill:#64b5f6;">Task (Entity)</text>
+    <text x="530" y="170" text-anchor="middle" class="code">Lógica de negocio</text>
+
+    <!-- Arrow to Repository -->
+    <line x1="610" y1="155" x2="660" y2="155" class="arrow" />
+    <polygon points="670,155 660,150 660,160" class="arrow-head" />
+    <text x="640" y="145" text-anchor="middle" class="text">Entity</text>
+
+    <!-- Repository Box -->
+    <rect x="670" y="100" width="110" height="70" rx="8" fill="#1976d2" />
+    <text x="725" y="125" text-anchor="middle" class="subtitle">Repository</text>
+    <text x="725" y="145" text-anchor="middle" class="text">💾 Persistencia</text>
+    <text x="725" y="160" text-anchor="middle" class="code">save(entity)</text>
+
+    <!-- Return Flow -->
+    <text x="400" y="230" text-anchor="middle" class="subtitle" style="fill:#4fc3f7;">← Flujo de
+        Retorno →</text>
+
+    <!-- Repository return -->
+    <rect x="670" y="260" width="110" height="50" rx="8" fill="#1976d2" />
+    <text x="725" y="285" text-anchor="middle" class="text">Entity saved</text>
+    <text x="725" y="300" text-anchor="middle" class="code">return Task</text>
+
+    <!-- Arrow from Repository -->
+    <line x1="660" y1="285" x2="610" y2="285" class="arrow" />
+    <polygon points="600,285 610,280 610,290" class="arrow-head" />
+
+    <!-- Service return -->
+    <rect x="450" y="250" width="160" height="70" rx="8" fill="#1565c0" />
+    <text x="530" y="275" text-anchor="middle" class="subtitle">Service</text>
+    <rect x="465" y="285" width="130" height="25" rx="4" fill="#263238" />
+    <text x="530" y="303" text-anchor="middle" class="text" style="fill:#81c784;">mapToResponse()</text>
+
+    <!-- Arrow from Service -->
+    <line x1="440" y1="285" x2="390" y2="285" class="arrow" />
+    <polygon points="380,285 390,280 390,290" class="arrow-head" />
+    <text x="415" y="275" text-anchor="middle" class="text">DTO</text>
+
+    <!-- Controller return -->
+    <rect x="230" y="250" width="160" height="70" rx="8" fill="#0d47a1" />
+    <text x="310" y="275" text-anchor="middle" class="subtitle">Controller</text>
+    <rect x="245" y="285" width="130" height="25" rx="4" fill="#263238" />
+    <text x="310" y="303" text-anchor="middle" class="text" style="fill:#ffb74d;">TaskResponse</text>
+
+    <!-- Arrow to Client -->
+    <line x1="220" y1="285" x2="170" y2="285" class="arrow" />
+    <polygon points="160,285 170,280 170,290" class="arrow-head" />
+
+    <!-- Client response -->
+    <rect x="50" y="255" width="120" height="60" rx="8" fill="#37474f" />
+    <text x="110" y="280" text-anchor="middle" class="subtitle">🌐 Cliente</text>
+    <text x="110" y="300" text-anchor="middle" class="text">JSON Response</text>
+
+    <!-- Legend -->
+    <rect x="50" y="360" width="700" height="75" rx="6" fill="#263238" />
+    <text x="400" y="385" text-anchor="middle" class="subtitle">Separación de Responsabilidades</text>
+
+    <rect x="70" y="400" width="90" height="25" rx="4" fill="#ffb74d" />
+    <text x="115" y="418" text-anchor="middle" class="text" style="fill:#1e1e1e;">Request DTO</text>
+
+    <rect x="180" y="400" width="90" height="25" rx="4" fill="#64b5f6" />
+    <text x="225" y="418" text-anchor="middle" class="text" style="fill:#1e1e1e;">Entity</text>
+
+    <rect x="290" y="400" width="100" height="25" rx="4" fill="#ffb74d" />
+    <text x="340" y="418" text-anchor="middle" class="text" style="fill:#1e1e1e;">Response DTO</text>
+
+    <text x="440" y="418" class="text">→ Cliente nunca ve la Entity directamente</text>
+</svg>

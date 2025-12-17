@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =============================================================================
+     POM.XML - Task Manager API - Semana 03
+     =============================================================================
+     Esta semana agregamos:
+     - Spring Boot Validation (Bean Validation para DTOs)
+     - Estructura en capas (Controller → Service → Repository)
+
+     📚 Documentación: https://docs.spring.io/spring-boot/docs/current/reference/html/
+     🔍 Dependencias: https://mvnrepository.com/
+     ============================================================================= -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent de Spring Boot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath />
+    </parent>
+
+    <!-- Coordenadas del proyecto -->
+    <groupId>com.bootcamp</groupId>
+    <artifactId>task-manager</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>task-manager</name>
+    <description>Task Manager API - Semana 03: Arquitectura en Capas</description>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- =================================================================
+             Spring Boot Starter Web (ya lo conoces de Week-02)
+             ================================================================= -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- =================================================================
+             TODO 1: Agregar Spring Boot Starter Validation
+             =================================================================
+             Esta es la NUEVA dependencia de esta semana.
+
+             Habilita Bean Validation con anotaciones:
+               - @Valid      → Activa validación en @RequestBody
+               - @NotNull    → Campo requerido (no null)
+               - @NotBlank   → String requerido y no vacío
+               - @Size       → Limitar longitud de strings
+               - @Min/@Max   → Valores numéricos mínimos/máximos
+               - @Email      → Formato de email válido
+               - @Pattern    → Expresión regular personalizada
+
+             🔍 Busca en mvnrepository: "spring-boot-starter-validation"
+
+             📚 Documentación Bean Validation:
+                https://beanvalidation.org/2.0/spec/
+
+             💡 NOTA: Sin esta dependencia, @Valid no funcionará.
+        -->
+        <!--
+        <dependency>
+            <groupId>???</groupId>
+            <artifactId>???</artifactId>
+        </dependency>
+        -->
+
+
+        <!-- =================================================================
+             Spring Boot Actuator (endpoints de monitoreo)
+             ================================================================= -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- =================================================================
+             DevTools para desarrollo
+             ================================================================= -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- =================================================================
+             Spring Boot Starter Test
+             ================================================================= -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

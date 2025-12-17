@@ -1,0 +1,39 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# PERFIL POR DEFECTO (sin activar dev ni prod)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Este archivo se carga SIEMPRE, sin importar qué perfil esté activo.
+# Contiene configuración común a todos los entornos.
+#
+# Luego se carga application-{profile}.yml que SOBRESCRIBE o AGREGA valores.
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+spring:
+  application:
+    name: task-manager
+
+  # =========================================================================
+  # TODO 27: Configurar perfil activo por defecto
+  # =========================================================================
+  #
+  # El perfil activo determina qué archivo application-{profile}.yml se carga.
+  #
+  # Para desarrollo local usamos 'dev'.
+  # En Docker/producción se sobrescribe con variable de entorno.
+  #
+  # DESCOMENTA y completa:
+  # profiles:
+  #   active: ???
+
+# ═══════════════════════════════════════════════════════════════════════════
+# CONFIGURACIÓN DEL SERVIDOR
+# ═══════════════════════════════════════════════════════════════════════════
+
+server:
+  port: 8080
+
+  # Configuración de errores (para desarrollo)
+  error:
+    include-message: always
+    include-binding-errors: always

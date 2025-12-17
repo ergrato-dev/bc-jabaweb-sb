@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <defs>
+        <style>
+            .title { font: bold 22px 'Segoe UI', sans-serif; fill: #4fc3f7; }
+            .subtitle { font: bold 14px 'Segoe UI', sans-serif; fill: #fff; }
+            .text { font: 12px 'Segoe UI', sans-serif; fill: #b0bec5; }
+            .code { font: 11px 'Consolas', monospace; fill: #81c784; }
+            .arrow { stroke: #4fc3f7; stroke-width: 2; fill: none; }
+            .arrow-head { fill: #4fc3f7; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="400" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" class="title">Perfiles de Configuración Spring</text>
+
+    <!-- Code (immutable) -->
+    <rect x="300" y="50" width="200" height="50" rx="8" fill="#37474f" />
+    <text x="400" y="75" text-anchor="middle" class="subtitle">📦 CÓDIGO</text>
+    <text x="400" y="92" text-anchor="middle" class="text">(inmutable)</text>
+
+    <!-- Arrows down -->
+    <line x1="300" y1="100" x2="150" y2="140" class="arrow" />
+    <polygon points="145,148 145,138 155,143" class="arrow-head" />
+
+    <line x1="400" y1="100" x2="400" y2="140" class="arrow" />
+    <polygon points="400,150 395,140 405,140" class="arrow-head" />
+
+    <line x1="500" y1="100" x2="650" y2="140" class="arrow" />
+    <polygon points="655,148 645,143 655,138" class="arrow-head" />
+
+    <!-- DEV Profile -->
+    <rect x="50" y="150" width="180" height="130" rx="8" fill="#1565c0" />
+    <text x="140" y="175" text-anchor="middle" class="subtitle">🔧 application-dev.yml</text>
+    <rect x="65" y="185" width="150" height="85" rx="4" fill="#263238" />
+    <text x="140" y="205" text-anchor="middle" class="code">DB: localhost:5432</text>
+    <text x="140" y="225" text-anchor="middle" class="code">Log: DEBUG</text>
+    <text x="140" y="245" text-anchor="middle" class="code">ddl-auto: create</text>
+    <text x="140" y="265" text-anchor="middle" class="code">Port: 8080</text>
+
+    <!-- TEST Profile -->
+    <rect x="310" y="150" width="180" height="130" rx="8" fill="#7b1fa2" />
+    <text x="400" y="175" text-anchor="middle" class="subtitle">🧪 application-test.yml</text>
+    <rect x="325" y="185" width="150" height="85" rx="4" fill="#263238" />
+    <text x="400" y="205" text-anchor="middle" class="code">DB: H2 memory</text>
+    <text x="400" y="225" text-anchor="middle" class="code">Log: WARN</text>
+    <text x="400" y="245" text-anchor="middle" class="code">ddl-auto: create</text>
+    <text x="400" y="265" text-anchor="middle" class="code">Port: random</text>
+
+    <!-- PROD Profile -->
+    <rect x="570" y="150" width="180" height="130" rx="8" fill="#c62828" />
+    <text x="660" y="175" text-anchor="middle" class="subtitle">🚀 application-prod.yml</text>
+    <rect x="585" y="185" width="150" height="85" rx="4" fill="#263238" />
+    <text x="660" y="205" text-anchor="middle" class="code">DB: ${DB_URL}</text>
+    <text x="660" y="225" text-anchor="middle" class="code">Log: ERROR</text>
+    <text x="660" y="245" text-anchor="middle" class="code">ddl-auto: validate</text>
+    <text x="660" y="265" text-anchor="middle" class="code">Port: ${PORT}</text>
+
+    <!-- Activation -->
+    <rect x="100" y="310" width="600" height="75" rx="8" fill="#263238" />
+    <text x="400" y="335" text-anchor="middle" class="subtitle">Activar perfil</text>
+
+    <text x="150" y="360" class="code">SPRING_PROFILES_ACTIVE=prod</text>
+    <text x="400" y="360" class="code">--spring.profiles.active=dev</text>
+    <text x="650" y="360" class="code">docker-compose.yml</text>
+
+    <text x="150" y="378" text-anchor="middle" class="text">Variable de entorno</text>
+    <text x="400" y="378" text-anchor="middle" class="text">Argumento CLI</text>
+    <text x="650" y="378" text-anchor="middle" class="text">Docker</text>
+</svg>

@@ -1,0 +1,75 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# DOCKER COMPOSE - Desarrollo (dev)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Este archivo orquesta los servicios necesarios para desarrollo.
+#
+# Para ejecutar:
+#   docker-compose up --build
+#
+# Para detener:
+#   docker-compose down
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+services:
+  # =========================================================================
+  # SERVICIO: API (Spring Boot)
+  # =========================================================================
+  api:
+    # TODO 37: Configurar la construcción de la imagen
+    #
+    # 'build: .' indica que debe construir usando el Dockerfile del directorio actual
+    # DESCOMENTA:
+    # build: .
+
+    # Nombre del contenedor (opcional pero útil para identificarlo)
+    container_name: taskmanager-api
+
+    # TODO 38: Mapear puertos
+    #
+    # Formato: "puerto_host:puerto_contenedor"
+    # Queremos acceder a la API en http://localhost:8080
+    # DESCOMENTA y completa:
+    # ports:
+    #   - "???:8080"
+
+    # =========================================================================
+    # VARIABLES DE ENTORNO
+    # =========================================================================
+    #
+    # Las variables de entorno sobrescriben valores de application.yml
+    # Esto permite configurar la app sin modificar código.
+
+    environment:
+      # TODO 39: Activar el perfil de desarrollo
+      #
+      # SPRING_PROFILES_ACTIVE determina qué perfil usar.
+      # Esto sobrescribe spring.profiles.active del application.yml
+      # DESCOMENTA:
+      # - SPRING_PROFILES_ACTIVE=???
+
+      # Configuración adicional (opcional)
+      - JAVA_OPTS=-Xmx256m
+
+    # =========================================================================
+    # TODO 40: Configurar volumen para hot reload (OPCIONAL)
+    # =========================================================================
+    #
+    # Los volúmenes permiten sincronizar archivos entre host y contenedor.
+    # Esto es útil para desarrollo: cambias código y se refleja sin rebuild.
+    #
+    # ⚠️  Para Spring Boot, hot reload requiere spring-boot-devtools
+    #     y puede ser lento. En este bootcamp hacemos rebuild completo.
+    #
+    # DESCOMENTA si quieres experimentar:
+    # volumes:
+    #   - ./src:/app/src
+    #   - ./pom.xml:/app/pom.xml
+# ═══════════════════════════════════════════════════════════════════════════
+# REDES (Networks)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Docker Compose crea una red por defecto.
+# En la Semana 04, cuando agreguemos PostgreSQL, crearemos redes explícitas
+# para que los servicios se comuniquen entre sí.

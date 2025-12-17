@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <defs>
+        <style>
+            .title { font: bold 22px 'Segoe UI', sans-serif; fill: #4fc3f7; }
+            .subtitle { font: bold 14px 'Segoe UI', sans-serif; fill: #fff; }
+            .text { font: 12px 'Segoe UI', sans-serif; fill: #b0bec5; }
+            .code { font: 11px 'Consolas', monospace; fill: #81c784; }
+            .arrow { stroke: #4fc3f7; stroke-width: 2; fill: none; }
+            .arrow-head { fill: #4fc3f7; }
+            .error { fill: #f44336; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="500" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" class="title">Manejo Global de Excepciones</text>
+
+    <!-- Request -->
+    <rect x="50" y="60" width="100" height="50" rx="6" fill="#37474f" />
+    <text x="100" y="90" text-anchor="middle" class="text">HTTP Request</text>
+
+    <!-- Arrow to Controller -->
+    <line x1="150" y1="85" x2="190" y2="85" class="arrow" />
+    <polygon points="200,85 190,80 190,90" class="arrow-head" />
+
+    <!-- Controller -->
+    <rect x="200" y="55" width="150" height="60" rx="6" fill="#0d47a1" />
+    <text x="275" y="80" text-anchor="middle" class="subtitle">Controller</text>
+    <text x="275" y="100" text-anchor="middle" class="code">getTask(id)</text>
+
+    <!-- Arrow to Service -->
+    <line x1="350" y1="85" x2="390" y2="85" class="arrow" />
+    <polygon points="400,85 390,80 390,90" class="arrow-head" />
+
+    <!-- Service -->
+    <rect x="400" y="55" width="150" height="60" rx="6" fill="#1565c0" />
+    <text x="475" y="80" text-anchor="middle" class="subtitle">Service</text>
+    <text x="475" y="100" text-anchor="middle" class="code">findById(id)</text>
+
+    <!-- Arrow to Repository -->
+    <line x1="550" y1="85" x2="590" y2="85" class="arrow" />
+    <polygon points="600,85 590,80 590,90" class="arrow-head" />
+
+    <!-- Repository -->
+    <rect x="600" y="55" width="150" height="60" rx="6" fill="#1976d2" />
+    <text x="675" y="80" text-anchor="middle" class="subtitle">Repository</text>
+    <text x="675" y="100" text-anchor="middle" class="code">Not Found!</text>
+
+    <!-- Exception thrown -->
+    <rect x="500" y="140" width="200" height="50" rx="6" fill="#c62828" />
+    <text x="600" y="165" text-anchor="middle" class="subtitle" style="fill:#fff;">⚠️ throw
+        ResourceNotFoundException</text>
+    <text x="600" y="180" text-anchor="middle" class="text" style="fill:#ffcdd2;">"Task not found:
+        abc-123"</text>
+
+    <!-- Arrow up from repository -->
+    <line x1="675" y1="115" x2="675" y2="130" stroke="#f44336" stroke-width="2" />
+    <line x1="675" y1="130" x2="600" y2="130" stroke="#f44336" stroke-width="2" />
+    <line x1="600" y1="130" x2="600" y2="135" stroke="#f44336" stroke-width="2" />
+    <polygon points="600,145 595,135 605,135" class="error" />
+
+    <!-- Exception bubbles up -->
+    <path d="M 500 165 L 250 165 L 250 250" stroke="#f44336" stroke-width="2" fill="none"
+        stroke-dasharray="5,5" />
+    <polygon points="250,260 245,250 255,250" class="error" />
+    <text x="375" y="155" text-anchor="middle" class="text" style="fill:#f44336;">Exception bubbles
+        up</text>
+
+    <!-- GlobalExceptionHandler -->
+    <rect x="100" y="260" width="600" height="100" rx="8" fill="#4a148c" />
+    <text x="400" y="290" text-anchor="middle" class="subtitle">@RestControllerAdvice -
+        GlobalExceptionHandler</text>
+
+    <rect x="120" y="305" width="250" height="45" rx="4" fill="#263238" />
+    <text x="245" y="325" text-anchor="middle" class="code">@ExceptionHandler</text>
+    <text x="245" y="342" text-anchor="middle" class="code">(ResourceNotFoundException.class)</text>
+
+    <rect x="390" y="305" width="290" height="45" rx="4" fill="#263238" />
+    <text x="535" y="325" text-anchor="middle" class="text">Captura → Transforma → Retorna</text>
+    <text x="535" y="342" text-anchor="middle" class="code">ResponseEntity&lt;ErrorResponse&gt;</text>
+
+    <!-- Arrow to Response -->
+    <line x1="400" y1="360" x2="400" y2="390" class="arrow" />
+    <polygon points="400,400 395,390 405,390" class="arrow-head" />
+
+    <!-- Error Response -->
+    <rect x="200" y="400" width="400" height="85" rx="8" fill="#37474f" />
+    <text x="400" y="425" text-anchor="middle" class="subtitle">HTTP 404 - ErrorResponse</text>
+    <text x="250" y="445" class="code">{"status": 404,</text>
+    <text x="250" y="460" class="code"> "error": "Not Found",</text>
+    <text x="250" y="475" class="code"> "message": "Task not found: abc-123"}</text>
+
+    <!-- Status code indicator -->
+    <rect x="520" y="415" width="60" height="30" rx="4" fill="#f44336" />
+    <text x="550" y="436" text-anchor="middle" class="subtitle">404</text>
+
+    <!-- Benefits -->
+    <rect x="620" y="400" width="160" height="85" rx="6" fill="#1b5e20" />
+    <text x="700" y="420" text-anchor="middle" class="subtitle">✓ Beneficios</text>
+    <text x="700" y="440" text-anchor="middle" class="text">Código limpio</text>
+    <text x="700" y="455" text-anchor="middle" class="text">Respuestas consistentes</text>
+    <text x="700" y="470" text-anchor="middle" class="text">Un solo lugar</text>
+</svg>

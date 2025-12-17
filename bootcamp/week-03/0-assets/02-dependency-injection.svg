@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <defs>
+        <style>
+            .title { font: bold 22px 'Segoe UI', sans-serif; fill: #4fc3f7; }
+            .subtitle { font: bold 16px 'Segoe UI', sans-serif; fill: #fff; }
+            .text { font: 13px 'Segoe UI', sans-serif; fill: #b0bec5; }
+            .code { font: 12px 'Consolas', monospace; fill: #81c784; }
+            .arrow { stroke: #4fc3f7; stroke-width: 2; fill: none; }
+            .arrow-head { fill: #4fc3f7; }
+            .bad { fill: #f44336; }
+            .good { fill: #4caf50; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="500" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" class="title">Inyección de Dependencias (DI)</text>
+
+    <!-- WITHOUT DI Section -->
+    <rect x="30" y="60" width="350" height="190" rx="8" fill="#2d2d2d" stroke="#f44336"
+        stroke-width="2" />
+    <text x="205" y="85" text-anchor="middle" class="subtitle">❌ SIN Inyección de Dependencias</text>
+
+    <!-- Without DI - Classes -->
+    <rect x="50" y="100" width="140" height="50" rx="6" fill="#37474f" />
+    <text x="120" y="130" text-anchor="middle" class="text">TaskController</text>
+
+    <rect x="220" y="100" width="140" height="50" rx="6" fill="#37474f" />
+    <text x="290" y="130" text-anchor="middle" class="text">TaskServiceImpl</text>
+
+    <!-- Without DI - Arrow creates -->
+    <line x1="190" y1="125" x2="210" y2="125" class="arrow" stroke="#f44336" />
+    <polygon points="220,125 210,120 210,130" class="bad" />
+    <text x="205" y="115" text-anchor="middle" class="text" style="fill:#f44336;font-size:11px;">new</text>
+
+    <!-- Without DI - Code -->
+    <text x="50" y="175" class="code">// Acoplamiento fuerte</text>
+    <text x="50" y="195" class="code">private TaskService service</text>
+    <text x="50" y="215" class="code"> = new TaskServiceImpl();</text>
+    <text x="50" y="240" class="text" style="fill:#f44336;">⚠️ Difícil de testear y cambiar</text>
+
+    <!-- WITH DI Section -->
+    <rect x="420" y="60" width="350" height="190" rx="8" fill="#2d2d2d" stroke="#4caf50"
+        stroke-width="2" />
+    <text x="595" y="85" text-anchor="middle" class="subtitle">✅ CON Inyección de Dependencias</text>
+
+    <!-- With DI - Spring Container -->
+    <rect x="440" y="100" width="310" height="70" rx="6" fill="#0d47a1" />
+    <text x="595" y="125" text-anchor="middle" class="subtitle">Spring Container (IoC)</text>
+    <text x="595" y="145" text-anchor="middle" class="text">Crea y gestiona los beans</text>
+
+    <!-- With DI - Classes -->
+    <rect x="460" y="190" width="100" height="40" rx="4" fill="#37474f" />
+    <text x="510" y="215" text-anchor="middle" class="text">Controller</text>
+
+    <rect x="630" y="190" width="100" height="40" rx="4" fill="#37474f" />
+    <text x="680" y="215" text-anchor="middle" class="text">ServiceImpl</text>
+
+    <!-- With DI - Arrows inject -->
+    <line x1="510" y1="170" x2="510" y2="185" class="arrow" stroke="#4caf50" />
+    <polygon points="510,190 505,180 515,180" class="good" />
+
+    <line x1="680" y1="170" x2="680" y2="185" class="arrow" stroke="#4caf50" />
+    <polygon points="680,190 675,180 685,180" class="good" />
+
+    <text x="595" y="175" text-anchor="middle" class="text" style="fill:#4caf50;font-size:11px;">
+        inyecta</text>
+
+    <!-- How it works -->
+    <text x="400" y="290" text-anchor="middle" class="subtitle">¿Cómo funciona?</text>
+
+    <!-- Step boxes -->
+    <rect x="50" y="310" width="170" height="80" rx="6" fill="#263238" />
+    <text x="135" y="335" text-anchor="middle" class="text" style="fill:#fff;">1. Component Scan</text>
+    <text x="135" y="355" text-anchor="middle" class="text">Busca @Component</text>
+    <text x="135" y="375" text-anchor="middle" class="text">@Service @Repository</text>
+
+    <rect x="250" y="310" width="170" height="80" rx="6" fill="#263238" />
+    <text x="335" y="335" text-anchor="middle" class="text" style="fill:#fff;">2. Crear Beans</text>
+    <text x="335" y="355" text-anchor="middle" class="text">Instancia clases</text>
+    <text x="335" y="375" text-anchor="middle" class="text">en orden correcto</text>
+
+    <rect x="450" y="310" width="170" height="80" rx="6" fill="#263238" />
+    <text x="535" y="335" text-anchor="middle" class="text" style="fill:#fff;">3. Inyectar</text>
+    <text x="535" y="355" text-anchor="middle" class="text">Resuelve dependencias</text>
+    <text x="535" y="375" text-anchor="middle" class="text">vía constructor</text>
+
+    <rect x="650" y="310" width="120" height="80" rx="6" fill="#0d47a1" />
+    <text x="710" y="345" text-anchor="middle" class="text" style="fill:#fff;">4. Listo</text>
+    <text x="710" y="365" text-anchor="middle" class="text">App funcionando</text>
+
+    <!-- Arrows between steps -->
+    <line x1="220" y1="350" x2="240" y2="350" class="arrow" />
+    <polygon points="250,350 240,345 240,355" class="arrow-head" />
+
+    <line x1="420" y1="350" x2="440" y2="350" class="arrow" />
+    <polygon points="450,350 440,345 440,355" class="arrow-head" />
+
+    <line x1="620" y1="350" x2="640" y2="350" class="arrow" />
+    <polygon points="650,350 640,345 640,355" class="arrow-head" />
+
+    <!-- Best practice -->
+    <rect x="50" y="420" width="700" height="60" rx="6" fill="#1b5e20" />
+    <text x="400" y="448" text-anchor="middle" class="subtitle">💡 Mejor práctica: Inyección por
+        Constructor</text>
+    <text x="400" y="468" text-anchor="middle" class="code">public TaskController(TaskService
+        taskService) { this.taskService = taskService; }</text>
+</svg>

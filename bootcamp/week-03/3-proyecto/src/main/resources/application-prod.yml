@@ -1,0 +1,66 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# PERFIL DE PRODUCCIÓN (prod)
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Este archivo se carga cuando: spring.profiles.active=prod
+#
+# Características del perfil prod:
+#   - Logs mínimos (solo WARN y ERROR)
+#   - Sin información sensible en respuestas
+#   - Optimizaciones de rendimiento
+#   - Swagger deshabilitado (por seguridad)
+#
+# ⚠️  SEGURIDAD: Este perfil está diseñado para NO exponer información.
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+spring:
+  # Desactivar DevTools en producción
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LOGGING - PRODUCCIÓN
+# ═══════════════════════════════════════════════════════════════════════════
+
+logging:
+  level:
+    # =========================================================================
+    # TODO 29: Configurar niveles de logging para producción
+    # =========================================================================
+    #
+    # En producción queremos MENOS logs para:
+    #   - Reducir uso de disco
+    #   - Mejor rendimiento
+    #   - No exponer información sensible
+    #
+    # Configuración recomendada:
+    #   - Root: WARN (solo advertencias y errores)
+    #   - Nuestro paquete: INFO (ver eventos importantes)
+    #   - Spring: WARN (solo problemas)
+    #
+    # DESCOMENTA y completa:
+    # root: ???
+    # com.bootcamp.taskmanager: ???
+    # org.springframework: ???
+
+# ═══════════════════════════════════════════════════════════════════════════
+# CONFIGURACIÓN DEL SERVIDOR - PRODUCCIÓN
+# ═══════════════════════════════════════════════════════════════════════════
+
+server:
+  error:
+    # =========================================================================
+    # TODO 30: Configurar manejo de errores seguro para producción
+    # =========================================================================
+    #
+    # ⚠️  NUNCA exponer stack traces en producción
+    #     Pueden revelar: rutas, tecnologías, vulnerabilidades
+    #
+    # DESCOMENTA:
+    # include-stacktrace: ???     # 'never' - nunca mostrar
+    # include-message: ???        # 'never' - no mostrar mensajes internos
+    # include-binding-errors: ??? # 'never' - no mostrar errores de binding
