@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =============================================================================
+     POM.XML - Project Object Model
+     =============================================================================
+     Este archivo es el corazón de un proyecto Maven. Define:
+     - Identificación del proyecto (GAV: Group, Artifact, Version)
+     - Dependencias (librerías externas)
+     - Configuración de build (compilación, empaquetado)
+
+     📚 Documentación oficial: https://maven.apache.org/pom.html
+     🔍 Buscar dependencias: https://mvnrepository.com/
+     ============================================================================= -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Versión del modelo POM (siempre 4.0.0 para Maven 2/3) -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ==========================================================================
+         PARENT: Herencia de configuración
+         ==========================================================================
+         Spring Boot proporciona un "parent POM" que predefine:
+         - Versiones compatibles de todas las dependencias Spring
+         - Configuración de plugins por defecto
+         - Propiedades útiles
+
+         📚 Más info:
+    https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.build-systems.maven
+         ========================================================================== -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- TODO 1: Especifica la versión de Spring Boot
+             Visita https://spring.io/projects/spring-boot para ver la última versión estable
+             Formato: X.Y.Z (ejemplo: 3.2.0, 3.3.1)
+             Recomendado para el bootcamp: 3.2.0 o superior -->
+        <version>___SPRING_BOOT_VERSION___</version>
+        <relativePath /> <!-- Buscar parent en repositorio, no localmente -->
+    </parent>
+
+    <!-- ==========================================================================
+         COORDENADAS GAV (Group-Artifact-Version)
+         ==========================================================================
+         Identifican ÚNICAMENTE tu proyecto en el universo Maven.
+
+         Convención de groupId: dominio invertido de tu organización
+           - com.empresa.proyecto
+           - org.ejemplo.app
+
+         Convención de artifactId: nombre del proyecto en minúsculas con guiones
+           - mi-api
+           - todo-service
+
+         Convención de version:
+           - X.Y.Z-SNAPSHOT = versión en desarrollo
+           - X.Y.Z = versión release (estable)
+         ========================================================================== -->
+
+    <!-- TODO 2: Define el groupId de tu proyecto
+         Usa el formato de dominio invertido
+         Para el bootcamp: com.bootcamp -->
+    <groupId>___TU_GROUP_ID___</groupId>
+
+    <!-- TODO 3: Define el artifactId (nombre único del proyecto)
+         Usa minúsculas y guiones, sin espacios
+         Sugerencia para este proyecto: todo-api -->
+    <artifactId>___TU_ARTIFACT_ID___</artifactId>
+
+    <!-- TODO 4: Define la versión inicial de tu proyecto
+         Para desarrollo usa: 0.0.1-SNAPSHOT -->
+    <version>___TU_VERSION___</version>
+
+    <!-- Metadatos opcionales pero recomendados -->
+    <name>todo-api</name>
+    <description>API REST de Tareas - Bootcamp Week 02</description>
+
+    <!-- ==========================================================================
+         PROPIEDADES
+         ==========================================================================
+         Variables reutilizables en el POM.
+
+         java.version es reconocida por spring-boot-starter-parent para
+         configurar automáticamente el compilador de Java.
+         ========================================================================== -->
+    <properties>
+        <!-- TODO 5: Especifica la versión de Java
+             En el bootcamp usamos JDK 21
+             Opciones válidas: 17, 21, 22 -->
+        <java.version>___JAVA_VERSION___</java.version>
+    </properties>
+
+    <!-- ==========================================================================
+         DEPENDENCIAS
+         ==========================================================================
+         Librerías externas que tu proyecto necesita.
+         Maven las descarga automáticamente desde repositorios centrales.
+
+         🔍 DÓNDE BUSCAR DEPENDENCIAS:
+            - https://mvnrepository.com/ (el más usado)
+            - https://search.maven.org/
+
+         ESTRUCTURA de una dependencia:
+         ┌─────────────────────────────────────────────────────────┐
+         │ <dependency>                                            │
+         │     <groupId>org.ejemplo</groupId>    ← Quién lo creó   │
+         │     <artifactId>libreria</artifactId> ← Nombre          │
+         │     <version>1.0.0</version>          ← Versión*        │
+         │     <scope>compile</scope>            ← Cuándo se usa*  │
+         │ </dependency>                                           │
+         │                                                         │
+         │ * Opcional cuando usas spring-boot-starter-parent       │
+         └─────────────────────────────────────────────────────────┘
+
+         SCOPES comunes:
+           compile  (default) → Disponible siempre
+           test               → Solo para tests (src/test)
+           runtime            → Solo en ejecución, no en compilación
+           provided           → El servidor/contenedor lo proporciona
+         ========================================================================== -->
+    <dependencies>
+
+        <!-- =================================================================
+             TODO 6: Agregar Spring Boot Starter Web
+             =================================================================
+             Esta dependencia incluye TODO lo necesario para crear APIs REST:
+               - Spring MVC (controladores, @RestController, @GetMapping...)
+               - Tomcat embebido (servidor web en puerto 8080)
+               - Jackson (conversión automática Java ↔ JSON)
+
+             🔍 CÓMO ENCONTRARLA:
+                1. Ve a https://mvnrepository.com/
+                2. Busca: "spring-boot-starter-web"
+                3. Copia el groupId y artifactId
+
+             💡 NOTA: NO necesitas <version> porque spring-boot-starter-parent
+                ya define las versiones compatibles.
+        -->
+        <!--
+        <dependency>
+            <groupId>???</groupId>
+            <artifactId>???</artifactId>
+        </dependency>
+        -->
+
+
+        <!-- =================================================================
+             TODO 7: Agregar Spring Boot DevTools (OPCIONAL pero recomendado)
+             =================================================================
+             Habilita funcionalidades para desarrollo:
+               - Reinicio automático cuando cambias código
+               - LiveReload para el navegador
+
+             🔍 Busca en mvnrepository: "spring-boot-devtools"
+
+             ⚠️ IMPORTANTE: Usa estos elementos adicionales para que NO se
+                incluya en el JAR de producción:
+
+                <scope>runtime</scope>     ← Solo en ejecución
+                <optional>true</optional>  ← No se hereda a otros proyectos
+        -->
+        <!--
+        <dependency>
+            <groupId>???</groupId>
+            <artifactId>???</artifactId>
+            <scope>???</scope>
+            <optional>???</optional>
+        </dependency>
+        -->
+
+
+        <!-- =================================================================
+             TODO 8: Agregar Spring Boot Actuator (OPCIONAL)
+             =================================================================
+             Proporciona endpoints de monitoreo listos para usar:
+               - /actuator/health  → Estado de la aplicación (UP/DOWN)
+               - /actuator/info    → Información configurada
+               - /actuator/metrics → Métricas de rendimiento
+
+             🔍 Busca en mvnrepository: "spring-boot-starter-actuator"
+
+             Útil para: health checks en Docker, monitoreo en producción
+        -->
+        <!--
+        <dependency>
+            <groupId>???</groupId>
+            <artifactId>???</artifactId>
+        </dependency>
+        -->
+
+
+        <!-- =================================================================
+             TODO 9: Agregar Spring Boot Starter Test
+             =================================================================
+             Incluye todas las librerías para testing:
+               - JUnit 5 (framework de tests)
+               - Mockito (mocking de dependencias)
+               - AssertJ (assertions fluidas)
+               - Spring Test (testing de contexto Spring)
+
+             🔍 Busca en mvnrepository: "spring-boot-starter-test"
+
+             ⚠️ IMPORTANTE: Usa <scope>test</scope> porque estas librerías
+                solo se necesitan para ejecutar tests, no en producción.
+        -->
+        <!--
+        <dependency>
+            <groupId>???</groupId>
+            <artifactId>???</artifactId>
+            <scope>???</scope>
+        </dependency>
+        -->
+
+    </dependencies>
+
+    <!-- ==========================================================================
+         BUILD: Configuración de compilación y empaquetado
+         ==========================================================================
+         Define cómo Maven debe construir tu proyecto.
+
+         Los plugins extienden la funcionalidad de Maven.
+         El spring-boot-maven-plugin es ESENCIAL porque permite:
+           - Crear JARs ejecutables (java -jar app.jar)
+           - Comando: ./mvnw spring-boot:run
+         ========================================================================== -->
+    <build>
+        <plugins>
+            <!-- =============================================================
+                 TODO 10: Agregar Spring Boot Maven Plugin
+                 =============================================================
+                 Este plugin permite:
+                   - Empaquetar como JAR ejecutable
+                   - Ejecutar con: ./mvnw spring-boot:run
+
+                 🔍 Busca en mvnrepository: "spring-boot-maven-plugin"
+
+                 💡 NOTA: Igual que las dependencias, NO necesitas <version>
+                    porque está definida en el parent.
+            -->
+            <!--
+            <plugin>
+                <groupId>???</groupId>
+                <artifactId>???</artifactId>
+            </plugin>
+            -->
+        </plugins>
+    </build>
+
+</project>
+
+<!-- =============================================================================
+     REFERENCIA RÁPIDA DE COMANDOS MAVEN
+     =============================================================================
+     Ejecutar desde el directorio del proyecto (donde está pom.xml):
+
+     COMANDOS BÁSICOS:
+       ./mvnw clean              → Limpia archivos generados (target/)
+       ./mvnw compile            → Compila el código fuente
+       ./mvnw test               → Ejecuta los tests
+       ./mvnw package            → Crea el JAR en target/
+       ./mvnw install            → Instala en repositorio local (~/.m2)
+       ./mvnw spring-boot:run    → Ejecuta la aplicación Spring Boot
+
+     COMANDOS ÚTILES:
+       ./mvnw dependency:tree    → Muestra árbol de dependencias
+       ./mvnw help:effective-pom → Muestra el POM completo (con herencia)
+
+     COMBINACIONES COMUNES:
+       ./mvnw clean package              → Limpia y empaqueta
+       ./mvnw clean package -DskipTests  → Empaqueta sin ejecutar tests
+
+     =============================================================================
+     DÓNDE BUSCAR DEPENDENCIAS
+     =============================================================================
+
+     1. Maven Central Repository (el más usado):
+        https://mvnrepository.com/
+        → Busca por nombre, copia el XML de la dependencia
+
+     2. Spring Initializr (genera pom.xml completo):
+        https://start.spring.io/
+        → Selecciona dependencias, descarga proyecto con pom.xml listo
+
+     3. Documentación oficial de Spring Boot Starters:
+https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.build-systems.starters
+        → Lista completa de starters disponibles
+
+     ============================================================================= -->

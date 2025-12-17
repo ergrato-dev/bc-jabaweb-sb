@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+    <defs>
+        <style>
+            .bg { fill: #1e1e1e; }
+            .title { font-family: 'Segoe UI', sans-serif; font-size: 18px; fill: #ffffff;
+            font-weight: bold; }
+            .subtitle { font-family: 'Segoe UI', sans-serif; font-size: 14px; fill: #9cdcfe; }
+            .label { font-family: 'Segoe UI', sans-serif; font-size: 11px; fill: #d4d4d4; }
+            .label-bold { font-family: 'Segoe UI', sans-serif; font-size: 11px; fill: #ffffff;
+            font-weight: bold; }
+            .code { font-family: 'Consolas', monospace; font-size: 10px; fill: #ce9178; }
+            .size { font-family: 'Consolas', monospace; font-size: 10px; fill: #b5cea8; }
+            .layer-base { fill: #3d2626; stroke: #ce9178; stroke-width: 2; }
+            .layer-deps { fill: #263d26; stroke: #6a9f35; stroke-width: 2; }
+            .layer-app { fill: #26263d; stroke: #569cd6; stroke-width: 2; }
+            .layer-jar { fill: #3d3d26; stroke: #dcdcaa; stroke-width: 2; }
+            .arrow { stroke: #569cd6; stroke-width: 2; fill: none; marker-end: url(#arrowblue); }
+            .bracket { stroke: #808080; stroke-width: 1; fill: none; }
+        </style>
+        <marker id="arrowblue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#569cd6" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect class="bg" width="800" height="550" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" class="title">Dockerfile Multi-Stage para Spring Boot</text>
+
+    <!-- Stage 1: Build -->
+    <text x="50" y="70" class="subtitle">Stage 1: BUILD</text>
+    <rect x="50" y="80" width="300" height="200" rx="8" fill="#2d2d2d" stroke="#4d4d4d"
+        stroke-width="1" />
+
+    <!-- Build layers -->
+    <rect x="70" y="100" width="260" height="35" class="layer-base" />
+    <text x="200" y="122" text-anchor="middle" class="code">FROM eclipse-temurin:21-jdk AS build</text>
+
+    <rect x="70" y="145" width="260" height="35" class="layer-deps" />
+    <text x="200" y="160" text-anchor="middle" class="code">COPY pom.xml, mvnw</text>
+    <text x="200" y="173" text-anchor="middle" class="code">RUN ./mvnw dependency:go-offline</text>
+
+    <rect x="70" y="190" width="260" height="35" class="layer-app" />
+    <text x="200" y="205" text-anchor="middle" class="code">COPY src</text>
+    <text x="200" y="218" text-anchor="middle" class="code">RUN ./mvnw package</text>
+
+    <rect x="70" y="235" width="260" height="30" class="layer-jar" />
+    <text x="200" y="255" text-anchor="middle" class="label-bold">target/*.jar</text>
+
+    <!-- Arrow between stages -->
+    <path d="M 360 180 L 420 180" class="arrow" />
+    <text x="390" y="170" class="label">COPY --from=build</text>
+
+    <!-- Stage 2: Runtime -->
+    <text x="450" y="70" class="subtitle">Stage 2: RUNTIME</text>
+    <rect x="450" y="80" width="300" height="200" rx="8" fill="#2d2d2d" stroke="#569cd6"
+        stroke-width="2" />
+
+    <!-- Runtime layers -->
+    <rect x="470" y="100" width="260" height="50" class="layer-base" />
+    <text x="600" y="122" text-anchor="middle" class="code">FROM eclipse-temurin:21-jre-alpine</text>
+    <text x="600" y="138" text-anchor="middle" class="size">~180 MB</text>
+
+    <rect x="470" y="160" width="260" height="50" class="layer-jar" />
+    <text x="600" y="182" text-anchor="middle" class="code">COPY --from=build app.jar</text>
+    <text x="600" y="198" text-anchor="middle" class="size">~30 MB</text>
+
+    <rect x="470" y="220" width="260" height="40" rx="4" fill="#264f78" stroke="#4fc3f7"
+        stroke-width="2" />
+    <text x="600" y="245" text-anchor="middle" class="label-bold">ENTRYPOINT ["java", "-jar",
+        "app.jar"]</text>
+
+    <!-- Size comparison -->
+    <text x="400" y="320" text-anchor="middle" class="subtitle">Comparación de Tamaños</text>
+
+    <!-- Single stage bar -->
+    <rect x="100" y="340" width="400" height="40" rx="4" fill="#3d2626" stroke="#ce9178"
+        stroke-width="1" />
+    <text x="300" y="365" text-anchor="middle" class="label-bold">Single Stage (JDK + código +
+        Maven)</text>
+    <text x="520" y="365" class="size">~600 MB</text>
+
+    <!-- Multi-stage bar -->
+    <rect x="100" y="395" width="170" height="40" rx="4" fill="#26263d" stroke="#569cd6"
+        stroke-width="2" />
+    <text x="185" y="420" text-anchor="middle" class="label-bold">Multi-Stage (JRE + JAR)</text>
+    <text x="290" y="420" class="size">~210 MB</text>
+
+    <!-- Benefits -->
+    <text x="400" y="470" text-anchor="middle" class="subtitle">Beneficios del Multi-Stage Build</text>
+
+    <text x="100" y="500" class="label">✓ Imagen final más pequeña (solo JRE)</text>
+    <text x="100" y="520" class="label">✓ Sin código fuente ni herramientas de build</text>
+    <text x="450" y="500" class="label">✓ Builds reproducibles</text>
+    <text x="450" y="520" class="label">✓ Mejor caché de capas Docker</text>
+</svg>

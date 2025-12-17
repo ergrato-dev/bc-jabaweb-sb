@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <defs>
+        <style>
+            .bg { fill: #1e1e1e; }
+            .title { font-family: 'Segoe UI', sans-serif; font-size: 20px; fill: #ffffff;
+            font-weight: bold; }
+            .subtitle { font-family: 'Segoe UI', sans-serif; font-size: 14px; fill: #9cdcfe; }
+            .label { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #d4d4d4; }
+            .label-bold { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #ffffff;
+            font-weight: bold; }
+            .code { font-family: 'Consolas', monospace; font-size: 11px; fill: #ce9178; }
+            .box-spring { fill: #2d5016; stroke: #6a9f35; stroke-width: 2; }
+            .box-boot { fill: #1a3a5c; stroke: #4fc3f7; stroke-width: 2; }
+            .box-app { fill: #4a2c6a; stroke: #ce93d8; stroke-width: 2; }
+            .box-feature { fill: #2d2d2d; stroke: #569cd6; stroke-width: 1; rx: 4; }
+            .arrow { stroke: #6a9f35; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+        </style>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#6a9f35" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect class="bg" width="800" height="500" />
+
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" class="title">Arquitectura de Spring Boot</text>
+
+    <!-- Spring Framework (Base) -->
+    <rect x="50" y="350" width="700" height="100" rx="8" class="box-spring" />
+    <text x="400" y="380" text-anchor="middle" class="label-bold">Spring Framework</text>
+    <text x="150" y="410" text-anchor="middle" class="label">IoC Container</text>
+    <text x="300" y="410" text-anchor="middle" class="label">Spring MVC</text>
+    <text x="450" y="410" text-anchor="middle" class="label">Spring Data</text>
+    <text x="600" y="410" text-anchor="middle" class="label">Spring Security</text>
+    <text x="400" y="435" text-anchor="middle" class="code">Core Framework - Configuración manual</text>
+
+    <!-- Spring Boot (Middle) -->
+    <rect x="100" y="200" width="600" height="120" rx="8" class="box-boot" />
+    <text x="400" y="230" text-anchor="middle" class="label-bold">Spring Boot</text>
+
+    <!-- Features boxes -->
+    <rect x="120" y="245" width="130" height="55" class="box-feature" />
+    <text x="185" y="265" text-anchor="middle" class="label">Auto-configuración</text>
+    <text x="185" y="285" text-anchor="middle" class="code">@EnableAuto...</text>
+
+    <rect x="265" y="245" width="130" height="55" class="box-feature" />
+    <text x="330" y="265" text-anchor="middle" class="label">Starters</text>
+    <text x="330" y="285" text-anchor="middle" class="code">starter-web</text>
+
+    <rect x="410" y="245" width="130" height="55" class="box-feature" />
+    <text x="475" y="265" text-anchor="middle" class="label">Servidor Embebido</text>
+    <text x="475" y="285" text-anchor="middle" class="code">Tomcat/Jetty</text>
+
+    <rect x="555" y="245" width="130" height="55" class="box-feature" />
+    <text x="620" y="265" text-anchor="middle" class="label">Actuator</text>
+    <text x="620" y="285" text-anchor="middle" class="code">/health /metrics</text>
+
+    <!-- Your Application (Top) -->
+    <rect x="200" y="70" width="400" height="100" rx="8" class="box-app" />
+    <text x="400" y="100" text-anchor="middle" class="label-bold">Tu Aplicación</text>
+    <text x="400" y="125" text-anchor="middle" class="code">@SpringBootApplication</text>
+    <text x="400" y="150" text-anchor="middle" class="label">Controllers, Services, Repositories</text>
+
+    <!-- Arrows -->
+    <path d="M 400 170 L 400 198" class="arrow" />
+    <path d="M 400 320 L 400 348" class="arrow" />
+
+    <!-- Legend -->
+    <text x="50" y="480" class="subtitle">Spring Boot simplifica Spring Framework con configuración
+        automática</text>
+</svg>

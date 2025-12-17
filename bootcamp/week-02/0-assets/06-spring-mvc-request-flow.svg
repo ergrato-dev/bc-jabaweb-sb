@@ -1,0 +1,233 @@
+<svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="900" height="550" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="450" y="30" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18"
+        font-weight="bold">Flujo Request-Response en Spring MVC</text>
+
+    <!-- Client Section -->
+    <rect x="30" y="60" width="140" height="180" rx="10" fill="#2d2d2d" stroke="#4fc3f7"
+        stroke-width="2" />
+    <text x="100" y="85" text-anchor="middle" fill="#4fc3f7" font-family="sans-serif" font-size="13"
+        font-weight="bold">CLIENTE</text>
+
+    <!-- Client types -->
+    <rect x="45" y="100" width="50" height="45" rx="6" fill="#37474f" stroke="#546e7a"
+        stroke-width="1" />
+    <text x="70" y="125" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="16">🌐</text>
+    <text x="70" y="138" text-anchor="middle" fill="#ccc" font-family="sans-serif" font-size="8">
+        Browser</text>
+
+    <rect x="105" y="100" width="50" height="45" rx="6" fill="#37474f" stroke="#546e7a"
+        stroke-width="1" />
+    <text x="130" y="125" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="16">
+        📱</text>
+    <text x="130" y="138" text-anchor="middle" fill="#ccc" font-family="sans-serif" font-size="8">
+        Mobile</text>
+
+    <rect x="45" y="155" width="50" height="45" rx="6" fill="#37474f" stroke="#546e7a"
+        stroke-width="1" />
+    <text x="70" y="180" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="16">⌨️</text>
+    <text x="70" y="193" text-anchor="middle" fill="#ccc" font-family="sans-serif" font-size="8">
+        curl</text>
+
+    <rect x="105" y="155" width="50" height="45" rx="6" fill="#37474f" stroke="#546e7a"
+        stroke-width="1" />
+    <text x="130" y="180" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="16">
+        🔧</text>
+    <text x="130" y="193" text-anchor="middle" fill="#ccc" font-family="sans-serif" font-size="8">
+        Postman</text>
+
+    <text x="100" y="225" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9">Envía
+        Request</text>
+
+    <!-- Spring Boot Server Section -->
+    <rect x="220" y="60" width="650" height="350" rx="10" fill="#2d2d2d" stroke="#6DB33F"
+        stroke-width="2" />
+    <text x="545" y="85" text-anchor="middle" fill="#6DB33F" font-family="sans-serif" font-size="14"
+        font-weight="bold">🍃 SPRING BOOT SERVER (Tomcat Embebido)</text>
+
+    <!-- DispatcherServlet -->
+    <rect x="240" y="110" width="120" height="80" rx="8" fill="#1b5e20" stroke="#4caf50"
+        stroke-width="2" />
+    <text x="300" y="135" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11"
+        font-weight="bold">Dispatcher</text>
+    <text x="300" y="150" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11"
+        font-weight="bold">Servlet</text>
+    <text x="300" y="175" text-anchor="middle" fill="#a5d6a7" font-family="sans-serif" font-size="9">Front
+        Controller</text>
+
+    <!-- Controller -->
+    <rect x="420" y="110" width="120" height="80" rx="8" fill="#0d47a1" stroke="#2196f3"
+        stroke-width="2" />
+    <text x="480" y="140" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11"
+        font-weight="bold">@RestController</text>
+    <text x="480" y="160" text-anchor="middle" fill="#90caf9" font-family="sans-serif" font-size="9">
+        UserController</text>
+    <text x="480" y="175" text-anchor="middle" fill="#64b5f6" font-family="monospace" font-size="8">
+        @GetMapping</text>
+
+    <!-- Service -->
+    <rect x="600" y="110" width="120" height="80" rx="8" fill="#4a148c" stroke="#9c27b0"
+        stroke-width="2" />
+    <text x="660" y="140" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11"
+        font-weight="bold">@Service</text>
+    <text x="660" y="160" text-anchor="middle" fill="#ce93d8" font-family="sans-serif" font-size="9">
+        UserService</text>
+    <text x="660" y="175" text-anchor="middle" fill="#ba68c8" font-family="sans-serif" font-size="8">Lógica
+        de negocio</text>
+
+    <!-- Repository -->
+    <rect x="780" y="110" width="70" height="80" rx="8" fill="#e65100" stroke="#ff9800"
+        stroke-width="2" />
+    <text x="815" y="140" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="9"
+        font-weight="bold">@Repository</text>
+    <text x="815" y="160" text-anchor="middle" fill="#ffcc80" font-family="sans-serif" font-size="8">
+        JPA</text>
+    <text x="815" y="175" text-anchor="middle" fill="#ffb74d" font-family="sans-serif" font-size="7">
+        Database</text>
+
+    <!-- REQUEST FLOW (Top arrows - green) -->
+    <!-- 1. Client to Dispatcher -->
+    <path d="M 170 130 L 235 130" stroke="#4caf50" stroke-width="2" fill="none" />
+    <polygon points="230,125 240,130 230,135" fill="#4caf50" />
+    <text x="200" y="120" text-anchor="middle" fill="#4caf50" font-family="sans-serif" font-size="9"
+        font-weight="bold">1</text>
+
+    <!-- 2. Dispatcher to Controller -->
+    <path d="M 360 135 L 415 135" stroke="#4caf50" stroke-width="2" fill="none" />
+    <polygon points="410,130 420,135 410,140" fill="#4caf50" />
+    <text x="387" y="125" text-anchor="middle" fill="#4caf50" font-family="sans-serif" font-size="9"
+        font-weight="bold">2</text>
+
+    <!-- 3. Controller to Service -->
+    <path d="M 540 135 L 595 135" stroke="#4caf50" stroke-width="2" fill="none" />
+    <polygon points="590,130 600,135 590,140" fill="#4caf50" />
+    <text x="567" y="125" text-anchor="middle" fill="#4caf50" font-family="sans-serif" font-size="9"
+        font-weight="bold">3</text>
+
+    <!-- 4. Service to Repository -->
+    <path d="M 720 135 L 775 135" stroke="#4caf50" stroke-width="2" fill="none" />
+    <polygon points="770,130 780,135 770,140" fill="#4caf50" />
+    <text x="747" y="125" text-anchor="middle" fill="#4caf50" font-family="sans-serif" font-size="9"
+        font-weight="bold">4</text>
+
+    <!-- RESPONSE FLOW (Bottom arrows - orange) -->
+    <!-- 5. Repository to Service -->
+    <path d="M 775 175 L 720 175" stroke="#ff9800" stroke-width="2" fill="none" />
+    <polygon points="725,170 715,175 725,180" fill="#ff9800" />
+    <text x="747" y="185" text-anchor="middle" fill="#ff9800" font-family="sans-serif" font-size="9"
+        font-weight="bold">5</text>
+
+    <!-- 6. Service to Controller -->
+    <path d="M 595 175 L 540 175" stroke="#ff9800" stroke-width="2" fill="none" />
+    <polygon points="545,170 535,175 545,180" fill="#ff9800" />
+    <text x="567" y="185" text-anchor="middle" fill="#ff9800" font-family="sans-serif" font-size="9"
+        font-weight="bold">6</text>
+
+    <!-- 7. Controller to Dispatcher -->
+    <path d="M 415 175 L 360 175" stroke="#ff9800" stroke-width="2" fill="none" />
+    <polygon points="365,170 355,175 365,180" fill="#ff9800" />
+    <text x="387" y="185" text-anchor="middle" fill="#ff9800" font-family="sans-serif" font-size="9"
+        font-weight="bold">7</text>
+
+    <!-- 8. Dispatcher to Client -->
+    <path d="M 235 175 L 170 175" stroke="#ff9800" stroke-width="2" fill="none" />
+    <polygon points="175,170 165,175 175,180" fill="#ff9800" />
+    <text x="200" y="185" text-anchor="middle" fill="#ff9800" font-family="sans-serif" font-size="9"
+        font-weight="bold">8</text>
+
+    <!-- Flow Legend -->
+    <rect x="240" y="210" width="610" height="60" rx="6" fill="#37474f" />
+
+    <!-- Request Legend -->
+    <rect x="260" y="220" width="280" height="40" rx="4" fill="#1b3d1b" stroke="#4caf50"
+        stroke-width="1" />
+    <text x="270" y="238" fill="#4caf50" font-family="sans-serif" font-size="10" font-weight="bold">➜
+        REQUEST FLOW</text>
+    <text x="270" y="252" fill="#a5d6a7" font-family="monospace" font-size="9">GET /api/users/123</text>
+
+    <!-- Response Legend -->
+    <rect x="560" y="220" width="280" height="40" rx="4" fill="#3d2d1b" stroke="#ff9800"
+        stroke-width="1" />
+    <text x="570" y="238" fill="#ff9800" font-family="sans-serif" font-size="10" font-weight="bold">⬅
+        RESPONSE FLOW</text>
+    <text x="570" y="252" fill="#ffcc80" font-family="monospace" font-size="9">{"id":123,
+        "name":"Juan"}</text>
+
+    <!-- Detailed Step Descriptions -->
+    <text x="450" y="300" text-anchor="middle" fill="#ffffff" font-family="sans-serif"
+        font-size="12"
+        font-weight="bold">Pasos del Ciclo Request-Response</text>
+
+    <!-- Steps description boxes -->
+    <rect x="240" y="315" width="180" height="80" rx="6" fill="#1b5e20" stroke="#4caf50"
+        stroke-width="1" />
+    <text x="250" y="335" fill="#4caf50" font-family="sans-serif" font-size="10" font-weight="bold">1-2
+        DispatcherServlet</text>
+    <text x="250" y="350" fill="#a5d6a7" font-family="sans-serif" font-size="9">• Recibe HTTP
+        Request</text>
+    <text x="250" y="363" fill="#a5d6a7" font-family="sans-serif" font-size="9">• Busca
+        @RequestMapping</text>
+    <text x="250" y="376" fill="#a5d6a7" font-family="sans-serif" font-size="9">• Rutea al
+        Controller</text>
+    <text x="250" y="389" fill="#a5d6a7" font-family="sans-serif" font-size="9">• Convierte JSON ↔
+        Object</text>
+
+    <rect x="440" y="315" width="180" height="80" rx="6" fill="#0d47a1" stroke="#2196f3"
+        stroke-width="1" />
+    <text x="450" y="335" fill="#2196f3" font-family="sans-serif" font-size="10" font-weight="bold">2-3
+        Controller</text>
+    <text x="450" y="350" fill="#90caf9" font-family="sans-serif" font-size="9">• Recibe parámetros</text>
+    <text x="450" y="363" fill="#90caf9" font-family="sans-serif" font-size="9">• @PathVariable,
+        @RequestBody</text>
+    <text x="450" y="376" fill="#90caf9" font-family="sans-serif" font-size="9">• Valida con @Valid</text>
+    <text x="450" y="389" fill="#90caf9" font-family="sans-serif" font-size="9">• Delega a Service</text>
+
+    <rect x="640" y="315" width="210" height="80" rx="6" fill="#4a148c" stroke="#9c27b0"
+        stroke-width="1" />
+    <text x="650" y="335" fill="#9c27b0" font-family="sans-serif" font-size="10" font-weight="bold">3-4
+        Service → Repository</text>
+    <text x="650" y="350" fill="#ce93d8" font-family="sans-serif" font-size="9">• Aplica lógica de
+        negocio</text>
+    <text x="650" y="363" fill="#ce93d8" font-family="sans-serif" font-size="9">• Transacciones
+        @Transactional</text>
+    <text x="650" y="376" fill="#ce93d8" font-family="sans-serif" font-size="9">• Repository accede
+        a DB</text>
+    <text x="650" y="389" fill="#ce93d8" font-family="sans-serif" font-size="9">• Retorna Entity/DTO</text>
+
+    <!-- HTTP Protocol Box -->
+    <rect x="30" y="260" width="140" height="50" rx="6" fill="#37474f" stroke="#78909c"
+        stroke-width="1" />
+    <text x="100" y="280" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="10"
+        font-weight="bold">HTTP/HTTPS</text>
+    <text x="100" y="295" text-anchor="middle" fill="#b0bec5" font-family="sans-serif" font-size="9">Puerto
+        8080</text>
+
+    <!-- Response to Client Box -->
+    <rect x="30" y="320" width="140" height="75" rx="6" fill="#3d2d1b" stroke="#ff9800"
+        stroke-width="1" />
+    <text x="100" y="340" text-anchor="middle" fill="#ff9800" font-family="sans-serif"
+        font-size="10"
+        font-weight="bold">Response</text>
+    <text x="40" y="358" fill="#ffcc80" font-family="monospace" font-size="8">HTTP 200 OK</text>
+    <text x="40" y="372" fill="#ffcc80" font-family="monospace" font-size="8">Content-Type:</text>
+    <text x="40" y="384" fill="#ffcc80" font-family="monospace" font-size="8">application/json</text>
+
+    <!-- Footer -->
+    <text x="450" y="430" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">Spring
+        MVC usa el patrón Front Controller: DispatcherServlet coordina todo el flujo</text>
+
+    <!-- Annotation hints -->
+    <rect x="240" y="455" width="620" height="80" rx="8" fill="#263238" stroke="#546e7a"
+        stroke-width="1" />
+    <text x="250" y="475" fill="#4fc3f7" font-family="sans-serif" font-size="10" font-weight="bold">📌
+        Anotaciones Clave:</text>
+    <text x="250" y="495" fill="#81d4fa" font-family="monospace" font-size="9">@RestController =
+        @Controller + @ResponseBody (auto-serializa a JSON)</text>
+    <text x="250" y="510" fill="#81d4fa" font-family="monospace" font-size="9">@GetMapping("/users/{id}")
+        → El {id} se captura con @PathVariable</text>
+    <text x="250" y="525" fill="#81d4fa" font-family="monospace" font-size="9">ResponseEntity&lt;T&gt;
+        permite controlar HTTP status code y headers</text>
+</svg>

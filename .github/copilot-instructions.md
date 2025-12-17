@@ -254,7 +254,7 @@ bootcamp/
 
 ---
 
-### **Semana 6 – Documentación con Swagger/OpenAPI**
+### **Semana 6 – Documentación con Swagger/OpenAPI y CORS**
 
 **Duración**: 5 horas
 
@@ -269,82 +269,104 @@ bootcamp/
   - Interfaz interactiva de documentación
   - Testing de endpoints desde Swagger
   - Exportación de especificación OpenAPI
-- **Docker y documentación**
-  - Swagger UI como servicio separado (opcional)
-  - Versionado de APIs
-  - Buenas prácticas de documentación
+- **CORS (Cross-Origin Resource Sharing)**
+  - ¿Qué es CORS y por qué existe?
+  - Configuración de CORS en Spring Boot
+  - @CrossOrigin y configuración global
+  - Preparación para integración con frontend
 
 **Evidencias**:
 
-- **Conocimiento**: Preguntas sobre OpenAPI y estándares de documentación
-- **Desempeño**: Documentar API existente con Swagger
-- **Producto**: API completamente documentada con Swagger UI funcional
+- **Conocimiento**: Preguntas sobre OpenAPI, CORS y documentación
+- **Desempeño**: Documentar API existente con Swagger y configurar CORS
+- **Producto**: API documentada con Swagger UI y CORS habilitado
 
 **Estrategias**: Talleres prácticos guiados, revisión de APIs profesionales
 
+**🎁 Bonus - Integración Frontend (Parte 1)**:
+- Introducción a la integración frontend-backend
+- Consumir API desde HTML + JavaScript (fetch)
+- Verificar CORS funcionando
+- Carpeta: `bonus-frontend/week-06-cors-basics/`
+
 ---
 
-### **Semana 7 – Testing con TestContainers**
+### **Semana 7 – Seguridad: Spring Security y JWT**
 
 **Duración**: 5 horas
 
 **Temas**:
 
-- **Pirámide de testing**
-  - Tests unitarios, integración, E2E
-  - Estrategia de testing en APIs REST
-- **JUnit 5 y Mockito**
-  - Tests unitarios de servicios
-  - Mocking de dependencias
-  - @MockBean en Spring
+- **Fundamentos de seguridad en APIs**
+  - Autenticación vs Autorización
+  - Stateless vs Stateful
+  - ¿Por qué JWT para APIs REST?
+- **Spring Security**
+  - Configuración básica de Spring Security
+  - SecurityFilterChain y filtros
+  - Deshabilitar CSRF para APIs REST
+  - Proteger endpoints por roles
+- **JWT (JSON Web Tokens)**
+  - Estructura de un JWT (header, payload, signature)
+  - Generación y validación de tokens
+  - Refresh tokens (conceptual)
+- **Implementación de Auth**
+  - Endpoint de registro (/api/auth/register)
+  - Endpoint de login (/api/auth/login)
+  - Endpoint de recuperación de contraseña (básico)
+  - Protección de endpoints con @PreAuthorize
+
+**Evidencias**:
+
+- **Conocimiento**: Cuestionario sobre JWT, Spring Security y autenticación
+- **Desempeño**: Implementar registro y login con JWT
+- **Producto**: API con autenticación JWT funcional
+
+**Estrategias**: Live coding, análisis de flujos de autenticación, debugging de tokens
+
+**🎁 Bonus - Integración Frontend (Parte 2)**:
+- Formularios de Login y Registro en React
+- Almacenamiento de JWT (localStorage vs httpOnly cookies)
+- Envío de token en headers (Authorization: Bearer)
+- Carpeta: `bonus-frontend/week-07-react-auth/`
+
+---
+
+### **Semana 8 – Testing y Docker Avanzado**
+
+**Duración**: 5 horas
+
+**Temas**:
+
+- **Testing en Spring Boot**
+  - Pirámide de testing (unitarios, integración, E2E)
+  - JUnit 5 y Mockito básico
+  - @MockBean y @SpringBootTest
+  - MockMvc para testing de controladores
+  - Tests de autenticación JWT
 - **TestContainers**
   - Tests de integración con contenedores reales
   - PostgreSQL en tests con TestContainers
-  - @DataJpaTest y @SpringBootTest
-  - MockMvc para testing de controladores
-- **Cobertura y CI/CD**
-  - JaCoCo para cobertura de código
-  - Tests en pipeline Docker
-
-**Evidencias**:
-
-- **Conocimiento**: Cuestionario sobre tipos de tests y TestContainers
-- **Desempeño**: Escribir tests con TestContainers
-- **Producto**: Suite de tests con cobertura mínima del 70%
-
-**Estrategias**: TDD, codificación colaborativa, code review
-
----
-
-### **Semana 8 – Docker Avanzado y Preparación para Producción**
-
-**Duración**: 5 horas
-
-**Temas**:
-
-- **Optimización de imágenes**
-  - Multi-stage builds avanzados
-  - Capas y caché de Docker
-  - Imágenes distroless y Alpine
-  - Análisis de vulnerabilidades (docker scout)
 - **Docker Compose avanzado**
-  - Múltiples servicios: app, db, cache, reverse proxy
-  - Dependencias y orden de inicio
-  - Secrets y configs
+  - Múltiples servicios: app + db + frontend
+  - Dependencias y orden de inicio (depends_on, healthcheck)
   - Override files para diferentes entornos
-- **Preparación para producción**
-  - Logging centralizado
-  - Monitoreo básico con healthchecks
-  - Backup de volúmenes
-  - Docker Hub y registros privados
+  - Optimización de imágenes (multi-stage builds)
 
 **Evidencias**:
 
-- **Conocimiento**: Evaluación sobre Docker avanzado y producción
-- **Desempeño**: Optimizar imagen y crear compose multi-servicio
-- **Producto**: Stack completo listo para producción
+- **Conocimiento**: Cuestionario sobre testing y Docker avanzado
+- **Desempeño**: Escribir tests de auth y configurar compose multi-servicio
+- **Producto**: API con tests + docker-compose con frontend integrado
 
-**Estrategias**: Talleres prácticos guiados, análisis de arquitecturas reales
+**Estrategias**: TDD, code review, análisis de arquitecturas reales
+
+**🎁 Bonus - Integración Frontend (Parte 3 - Completo)**:
+- Stack completo: Spring Boot + PostgreSQL + React
+- docker-compose.yml con 3 servicios
+- Flujo completo: Registro → Login → Acceso a recursos protegidos
+- Ejercicio adaptable al proyecto formativo
+- Carpeta: `bonus-frontend/week-08-full-stack-auth/`
 
 ---
 
@@ -446,10 +468,44 @@ bootcamp/
     <artifactId>spring-boot-starter-validation</artifactId>
 </dependency>
 
+<!-- Spring Security -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+<!-- JWT (JSON Web Tokens) -->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.12.3</version>
+</dependency>
+
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.12.3</version>
+    <scope>runtime</scope>
+</dependency>
+
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId>
+    <version>0.12.3</version>
+    <scope>runtime</scope>
+</dependency>
+
 <!-- Testing -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+
+<!-- Spring Security Test -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-test</artifactId>
     <scope>test</scope>
 </dependency>
 

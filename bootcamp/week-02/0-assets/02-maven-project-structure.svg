@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600">
+    <defs>
+        <style>
+            .bg { fill: #1e1e1e; }
+            .title { font-family: 'Segoe UI', sans-serif; font-size: 18px; fill: #ffffff;
+            font-weight: bold; }
+            .folder { font-family: 'Consolas', monospace; font-size: 12px; fill: #dcdcaa; }
+            .file { font-family: 'Consolas', monospace; font-size: 12px; fill: #9cdcfe; }
+            .file-xml { font-family: 'Consolas', monospace; font-size: 12px; fill: #ce9178; }
+            .file-java { font-family: 'Consolas', monospace; font-size: 12px; fill: #4ec9b0; }
+            .file-props { font-family: 'Consolas', monospace; font-size: 12px; fill: #c586c0; }
+            .comment { font-family: 'Segoe UI', sans-serif; font-size: 11px; fill: #6a9955;
+            font-style: italic; }
+            .line { stroke: #4d4d4d; stroke-width: 1; }
+            .icon-folder { fill: #dcb67a; }
+            .icon-file { fill: #519aba; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect class="bg" width="700" height="600" />
+
+    <!-- Title -->
+    <text x="350" y="30" text-anchor="middle" class="title">Estructura de Proyecto Maven - Spring
+        Boot</text>
+
+    <!-- Tree structure -->
+    <g transform="translate(40, 60)">
+        <!-- Root -->
+        <text x="0" y="0" class="folder">📁 mi-proyecto/</text>
+
+        <!-- pom.xml -->
+        <line x1="10" y1="10" x2="10" y2="25" class="line" />
+        <line x1="10" y1="25" x2="25" y2="25" class="line" />
+        <text x="30" y="30" class="file-xml">📄 pom.xml</text>
+        <text x="280" y="30" class="comment">← Configuración Maven</text>
+
+        <!-- mvnw -->
+        <line x1="10" y1="25" x2="10" y2="50" class="line" />
+        <line x1="10" y1="50" x2="25" y2="50" class="line" />
+        <text x="30" y="55" class="file">📄 mvnw</text>
+        <text x="280" y="55" class="comment">← Maven Wrapper (Unix)</text>
+
+        <!-- mvnw.cmd -->
+        <line x1="10" y1="50" x2="10" y2="75" class="line" />
+        <line x1="10" y1="75" x2="25" y2="75" class="line" />
+        <text x="30" y="80" class="file">📄 mvnw.cmd</text>
+        <text x="280" y="80" class="comment">← Maven Wrapper (Windows)</text>
+
+        <!-- src folder -->
+        <line x1="10" y1="75" x2="10" y2="105" class="line" />
+        <line x1="10" y1="105" x2="25" y2="105" class="line" />
+        <text x="30" y="110" class="folder">📁 src/</text>
+
+        <!-- main folder -->
+        <line x1="40" y1="115" x2="40" y2="135" class="line" />
+        <line x1="40" y1="135" x2="55" y2="135" class="line" />
+        <text x="60" y="140" class="folder">📁 main/</text>
+
+        <!-- java folder -->
+        <line x1="70" y1="145" x2="70" y2="165" class="line" />
+        <line x1="70" y1="165" x2="85" y2="165" class="line" />
+        <text x="90" y="170" class="folder">📁 java/</text>
+        <text x="280" y="170" class="comment">← Código fuente</text>
+
+        <!-- package -->
+        <line x1="100" y1="175" x2="100" y2="195" class="line" />
+        <line x1="100" y1="195" x2="115" y2="195" class="line" />
+        <text x="120" y="200" class="folder">📁 com/bootcamp/demo/</text>
+
+        <!-- Application.java -->
+        <line x1="130" y1="205" x2="130" y2="225" class="line" />
+        <line x1="130" y1="225" x2="145" y2="225" class="line" />
+        <text x="150" y="230" class="file-java">📄 DemoApplication.java</text>
+        <text x="410" y="230" class="comment">← Clase principal</text>
+
+        <!-- controller folder -->
+        <line x1="130" y1="225" x2="130" y2="250" class="line" />
+        <line x1="130" y1="250" x2="145" y2="250" class="line" />
+        <text x="150" y="255" class="folder">📁 controller/</text>
+        <text x="410" y="255" class="comment">← Controladores REST</text>
+
+        <!-- service folder -->
+        <line x1="130" y1="250" x2="130" y2="275" class="line" />
+        <line x1="130" y1="275" x2="145" y2="275" class="line" />
+        <text x="150" y="280" class="folder">📁 service/</text>
+        <text x="410" y="280" class="comment">← Lógica de negocio</text>
+
+        <!-- repository folder -->
+        <line x1="130" y1="275" x2="130" y2="300" class="line" />
+        <line x1="130" y1="300" x2="145" y2="300" class="line" />
+        <text x="150" y="305" class="folder">📁 repository/</text>
+        <text x="410" y="305" class="comment">← Acceso a datos</text>
+
+        <!-- resources folder -->
+        <line x1="70" y1="165" x2="70" y2="335" class="line" />
+        <line x1="70" y1="335" x2="85" y2="335" class="line" />
+        <text x="90" y="340" class="folder">📁 resources/</text>
+        <text x="280" y="340" class="comment">← Configuración</text>
+
+        <!-- application.properties -->
+        <line x1="100" y1="345" x2="100" y2="365" class="line" />
+        <line x1="100" y1="365" x2="115" y2="365" class="line" />
+        <text x="120" y="370" class="file-props">📄 application.properties</text>
+        <text x="410" y="370" class="comment">← Propiedades</text>
+
+        <!-- static folder -->
+        <line x1="100" y1="365" x2="100" y2="390" class="line" />
+        <line x1="100" y1="390" x2="115" y2="390" class="line" />
+        <text x="120" y="395" class="folder">📁 static/</text>
+        <text x="410" y="395" class="comment">← CSS, JS, imágenes</text>
+
+        <!-- templates folder -->
+        <line x1="100" y1="390" x2="100" y2="415" class="line" />
+        <line x1="100" y1="415" x2="115" y2="415" class="line" />
+        <text x="120" y="420" class="folder">📁 templates/</text>
+        <text x="410" y="420" class="comment">← Plantillas HTML</text>
+
+        <!-- test folder -->
+        <line x1="40" y1="135" x2="40" y2="450" class="line" />
+        <line x1="40" y1="450" x2="55" y2="450" class="line" />
+        <text x="60" y="455" class="folder">📁 test/</text>
+        <text x="280" y="455" class="comment">← Tests</text>
+
+        <!-- target folder -->
+        <line x1="10" y1="105" x2="10" y2="490" class="line" />
+        <line x1="10" y1="490" x2="25" y2="490" class="line" />
+        <text x="30" y="495" class="folder">📁 target/</text>
+        <text x="280" y="495" class="comment">← Archivos compilados (generado)</text>
+    </g>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <defs>
+        <style>
+            .bg { fill: #1e1e1e; }
+            .title { font-family: 'Segoe UI', sans-serif; font-size: 18px; fill: #ffffff;
+            font-weight: bold; }
+            .label { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #d4d4d4; }
+            .label-bold { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #ffffff;
+            font-weight: bold; }
+            .value { font-family: 'Consolas', monospace; font-size: 11px; fill: #ce9178; }
+            .box { fill: #2d2d2d; stroke: #4d4d4d; stroke-width: 1; rx: 6; }
+            .box-selected { fill: #264f78; stroke: #569cd6; stroke-width: 2; rx: 6; }
+            .header { fill: #3c3c3c; }
+            .input { fill: #3c3c3c; stroke: #569cd6; stroke-width: 1; rx: 4; }
+            .btn { fill: #0e639c; rx: 4; }
+            .btn-text { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #ffffff; }
+            .checkbox { fill: none; stroke: #569cd6; stroke-width: 2; }
+            .check { stroke: #6a9f35; stroke-width: 3; fill: none; }
+            .section { font-family: 'Segoe UI', sans-serif; font-size: 14px; fill: #9cdcfe;
+            font-weight: bold; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect class="bg" width="800" height="500" />
+
+    <!-- Title bar -->
+    <rect x="0" y="0" width="800" height="50" class="header" />
+    <text x="400" y="32" text-anchor="middle" class="title">🍃 Spring Initializr - start.spring.io</text>
+
+    <!-- Left Panel - Project Settings -->
+    <rect x="20" y="70" width="350" height="400" class="box" />
+
+    <text x="40" y="100" class="section">Project</text>
+    <rect x="40" y="110" width="80" height="30" class="box-selected" />
+    <text x="80" y="130" text-anchor="middle" class="label-bold">Maven</text>
+    <rect x="130" y="110" width="80" height="30" class="box" />
+    <text x="170" y="130" text-anchor="middle" class="label">Gradle</text>
+
+    <text x="40" y="165" class="section">Language</text>
+    <rect x="40" y="175" width="60" height="30" class="box-selected" />
+    <text x="70" y="195" text-anchor="middle" class="label-bold">Java</text>
+    <rect x="110" y="175" width="60" height="30" class="box" />
+    <text x="140" y="195" text-anchor="middle" class="label">Kotlin</text>
+    <rect x="180" y="175" width="60" height="30" class="box" />
+    <text x="210" y="195" text-anchor="middle" class="label">Groovy</text>
+
+    <text x="40" y="230" class="section">Spring Boot</text>
+    <rect x="40" y="240" width="60" height="30" class="box" />
+    <text x="70" y="260" text-anchor="middle" class="label">3.3.0</text>
+    <rect x="110" y="240" width="60" height="30" class="box-selected" />
+    <text x="140" y="260" text-anchor="middle" class="label-bold">3.2.x</text>
+    <rect x="180" y="240" width="60" height="30" class="box" />
+    <text x="210" y="260" text-anchor="middle" class="label">3.1.x</text>
+
+    <text x="40" y="295" class="section">Project Metadata</text>
+    <text x="40" y="320" class="label">Group</text>
+    <rect x="120" y="305" width="230" height="25" class="input" />
+    <text x="130" y="322" class="value">com.bootcamp</text>
+
+    <text x="40" y="355" class="label">Artifact</text>
+    <rect x="120" y="340" width="230" height="25" class="input" />
+    <text x="130" y="357" class="value">demo</text>
+
+    <text x="40" y="390" class="label">Java</text>
+    <rect x="120" y="375" width="50" height="25" class="box" />
+    <text x="145" y="392" text-anchor="middle" class="label">22</text>
+    <rect x="180" y="375" width="50" height="25" class="box-selected" />
+    <text x="205" y="392" text-anchor="middle" class="label-bold">21</text>
+    <rect x="240" y="375" width="50" height="25" class="box" />
+    <text x="265" y="392" text-anchor="middle" class="label">17</text>
+
+    <!-- Right Panel - Dependencies -->
+    <rect x="390" y="70" width="390" height="400" class="box" />
+
+    <text x="410" y="100" class="section">Dependencies</text>
+    <rect x="410" y="110" width="350" height="30" class="input" />
+    <text x="420" y="130" class="label">Search dependencies...</text>
+
+    <!-- Selected Dependencies -->
+    <text x="410" y="165" class="label-bold">Selected:</text>
+
+    <rect x="410" y="175" width="350" height="45" class="box-selected" />
+    <rect x="420" y="182" width="16" height="16" class="checkbox" />
+    <polyline points="423,190 428,195 436,183" class="check" />
+    <text x="445" y="195" class="label-bold">Spring Web</text>
+    <text x="445" y="212" class="value">Build web, RESTful, Spring MVC, Tomcat</text>
+
+    <rect x="410" y="230" width="350" height="45" class="box-selected" />
+    <rect x="420" y="237" width="16" height="16" class="checkbox" />
+    <polyline points="423,245 428,250 436,238" class="check" />
+    <text x="445" y="250" class="label-bold">Spring Boot DevTools</text>
+    <text x="445" y="267" class="value">Fast application restarts, LiveReload</text>
+
+    <!-- Available Dependencies -->
+    <text x="410" y="300" class="label-bold">Available:</text>
+
+    <rect x="410" y="310" width="350" height="40" class="box" />
+    <rect x="420" y="320" width="16" height="16" class="checkbox" />
+    <text x="445" y="335" class="label">Spring Data JPA</text>
+
+    <rect x="410" y="360" width="350" height="40" class="box" />
+    <rect x="420" y="370" width="16" height="16" class="checkbox" />
+    <text x="445" y="385" class="label">PostgreSQL Driver</text>
+
+    <rect x="410" y="410" width="350" height="40" class="box" />
+    <rect x="420" y="420" width="16" height="16" class="checkbox" />
+    <text x="445" y="435" class="label">Validation</text>
+
+    <!-- Generate Button -->
+    <rect x="300" y="480" width="200" height="40" class="btn" />
+    <text x="400" y="505" text-anchor="middle" class="btn-text">⬇ GENERATE</text>
+</svg>

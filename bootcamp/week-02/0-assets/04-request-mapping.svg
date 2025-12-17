@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+    <defs>
+        <style>
+            .bg { fill: #1e1e1e; }
+            .title { font-family: 'Segoe UI', sans-serif; font-size: 18px; fill: #ffffff;
+            font-weight: bold; }
+            .label { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #d4d4d4; }
+            .code { font-family: 'Consolas', monospace; font-size: 11px; fill: #9cdcfe; }
+            .annotation { font-family: 'Consolas', monospace; font-size: 12px; fill: #dcdcaa; }
+            .method { font-family: 'Consolas', monospace; font-size: 11px; fill: #4ec9b0; }
+            .string { font-family: 'Consolas', monospace; font-size: 11px; fill: #ce9178; }
+            .box { fill: #2d2d2d; stroke: #569cd6; stroke-width: 2; rx: 8; }
+            .box-get { fill: #1a3a1a; stroke: #6a9f35; stroke-width: 2; rx: 6; }
+            .box-post { fill: #3a3a1a; stroke: #dcdcaa; stroke-width: 2; rx: 6; }
+            .arrow { stroke: #569cd6; stroke-width: 2; fill: none; marker-end: url(#arrowblue); }
+        </style>
+        <marker id="arrowblue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#569cd6" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect class="bg" width="800" height="450" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" class="title">Request Mapping - Anotaciones de Spring
+        MVC</text>
+
+    <!-- Controller Box -->
+    <rect x="50" y="50" width="700" height="380" class="box" />
+    <text x="70" y="80" class="annotation">@RestController</text>
+    <text x="70" y="100" class="annotation">@RequestMapping</text>
+    <text x="195" y="100" class="string">("/api/users")</text>
+    <text x="70" y="120" class="code">public class UserController {</text>
+
+    <!-- GET All -->
+    <rect x="80" y="140" width="290" height="70" class="box-get" />
+    <text x="95" y="165" class="annotation">@GetMapping</text>
+    <text x="95" y="185" class="method">public List&lt;User&gt; getAll()</text>
+    <text x="95" y="200" class="label">GET /api/users</text>
+
+    <!-- GET One -->
+    <rect x="80" y="220" width="290" height="70" class="box-get" />
+    <text x="95" y="245" class="annotation">@GetMapping</text>
+    <text x="185" y="245" class="string">("/{id}")</text>
+    <text x="95" y="265" class="method">public User getOne(@PathVariable Long id)</text>
+    <text x="95" y="280" class="label">GET /api/users/123</text>
+
+    <!-- POST -->
+    <rect x="400" y="140" width="320" height="70" class="box-post" />
+    <text x="415" y="165" class="annotation">@PostMapping</text>
+    <text x="415" y="185" class="method">public User create(@RequestBody User user)</text>
+    <text x="415" y="200" class="label">POST /api/users + JSON body</text>
+
+    <!-- PUT -->
+    <rect x="400" y="220" width="320" height="70" class="box-post" />
+    <text x="415" y="245" class="annotation">@PutMapping</text>
+    <text x="505" y="245" class="string">("/{id}")</text>
+    <text x="415" y="265" class="method">public User update(@PathVariable id, @RequestBody)</text>
+    <text x="415" y="280" class="label">PUT /api/users/123 + JSON body</text>
+
+    <!-- DELETE -->
+    <rect x="80" y="300" width="290" height="70" class="box-get" />
+    <text x="95" y="325" class="annotation">@DeleteMapping</text>
+    <text x="205" y="325" class="string">("/{id}")</text>
+    <text x="95" y="345" class="method">public void delete(@PathVariable Long id)</text>
+    <text x="95" y="360" class="label">DELETE /api/users/123</text>
+
+    <!-- Query Params -->
+    <rect x="400" y="300" width="320" height="70" class="box-get" />
+    <text x="415" y="325" class="annotation">@GetMapping</text>
+    <text x="505" y="325" class="string">("/search")</text>
+    <text x="415" y="345" class="method">public List&lt;User&gt; search(@RequestParam String q)</text>
+    <text x="415" y="360" class="label">GET /api/users/search?q=juan</text>
+
+    <!-- Closing brace -->
+    <text x="70" y="410" class="code">}</text>
+
+    <!-- Legend -->
+    <rect x="550" y="395" width="15" height="15" fill="#1a3a1a" stroke="#6a9f35" />
+    <text x="575" y="407" class="label">GET/DELETE</text>
+    <rect x="660" y="395" width="15" height="15" fill="#3a3a1a" stroke="#dcdcaa" />
+    <text x="685" y="407" class="label">POST/PUT</text>
+</svg>

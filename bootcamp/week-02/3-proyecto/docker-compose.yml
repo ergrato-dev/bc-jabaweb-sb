@@ -1,0 +1,56 @@
+# =============================================================================
+# Docker Compose para Proyecto ToDo API - Semana 02
+# =============================================================================
+# Este archivo configura el entorno de desarrollo con Docker.
+# Completa los TODOs para que funcione correctamente.
+# =============================================================================
+
+services:
+  app:
+    image: eclipse-temurin:21-jdk
+    container_name: todo-api
+    working_dir: /app
+
+    # TODO 1: Configurar los volúmenes
+    # - Monta el directorio actual (.) en /app del contenedor
+    # - Crea un volumen para el caché de Maven en /root/.m2
+    # Pista: Revisa el docker-compose.yml de la Práctica 01
+    volumes:
+      # - ???:/app
+      # - ???:/root/.m2
+      - .:/app # Elimina esta línea cuando completes el TODO
+      - maven-cache:/root/.m2 # Elimina esta línea cuando completes el TODO
+
+    # TODO 2: Configurar el puerto
+    # - Mapea el puerto 8080 del contenedor al 8080 del host
+    # Formato: "host:contenedor"
+    ports:
+      # - "???:???"
+      - "8080:8080" # Elimina esta línea cuando completes el TODO
+
+    # TODO 3: Agregar variables de entorno
+    # - SPRING_PROFILES_ACTIVE=dev
+    # - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+    environment:
+      # - ???
+      # - ???
+      - SPRING_PROFILES_ACTIVE=dev
+      - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+
+    # Comando para ejecutar la aplicación
+    command: ./mvnw spring-boot:run
+
+    # Mantener terminal interactiva
+    tty: true
+
+# TODO 4: Declarar el volumen para Maven
+# Los volúmenes permiten persistir datos entre reinicios del contenedor
+volumes:
+  maven-cache:
+# =============================================================================
+# Comandos útiles:
+# - Iniciar:    docker compose up
+# - Detener:    docker compose down
+# - Reiniciar:  docker compose restart
+# - Logs:       docker compose logs -f
+# =============================================================================
