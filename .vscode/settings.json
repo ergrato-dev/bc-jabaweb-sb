@@ -1,0 +1,210 @@
+{
+  // ═══════════════════════════════════════════════════════════════
+  // 🎨 PEACOCK - Identificación visual del workspace
+  // ═══════════════════════════════════════════════════════════════
+  "peacock.color": "#6DB33F",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#88c75e",
+    "activityBar.background": "#88c75e",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#4273bd",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#88c75e",
+    "sideBar.border": "#88c75e",
+    "statusBar.background": "#6db33f",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#568d32",
+    "statusBarItem.remoteBackground": "#6db33f",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#6db33f",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#6db33f99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  // ═══════════════════════════════════════════════════════════════
+  // ☕ JAVA - Configuración del lenguaje
+  // ═══════════════════════════════════════════════════════════════
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.format.settings.profile": "GoogleStyle",
+  "java.saveActions.organizeImports": true,
+  "java.sources.organizeImports.staticStarThreshold": 3,
+  "java.sources.organizeImports.starThreshold": 5,
+  "java.codeGeneration.hashCodeEquals.useJava7Objects": true,
+  "java.codeGeneration.toString.template": "${object.className} [${member.name()}=${member.value}, ${otherMembers}]",
+  "java.project.importOnFirstTimeStartup": "automatic",
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-21",
+      "default": true
+    }
+  ],
+  // ═══════════════════════════════════════════════════════════════
+  // 🍃 SPRING BOOT
+  // ═══════════════════════════════════════════════════════════════
+  "spring-boot.ls.java.vmargs": "-Xmx1G",
+  "boot-java.rewrite.reconcile": true,
+  // ═══════════════════════════════════════════════════════════════
+  // 🐳 DOCKER
+  // ═══════════════════════════════════════════════════════════════
+  "docker.showStartPage": false,
+  "docker.containers.sortBy": "Label",
+  "docker.images.sortBy": "CreatedTime",
+  // ═══════════════════════════════════════════════════════════════
+  // 📝 EDITOR - Configuración general
+  // ═══════════════════════════════════════════════════════════════
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.rulers": [
+    120
+  ],
+  "editor.wordWrap": "off",
+  "editor.minimap.enabled": true,
+  "editor.minimap.maxColumn": 80,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.suggest.showKeywords": true,
+  "editor.inlineSuggest.enabled": true,
+  // ═══════════════════════════════════════════════════════════════
+  // 📁 FILES - Archivos y exclusiones
+  // ═══════════════════════════════════════════════════════════════
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/target": true,
+    "**/*.class": true
+  },
+  // ═══════════════════════════════════════════════════════════════
+  // 🔍 SEARCH - Exclusiones de búsqueda
+  // ═══════════════════════════════════════════════════════════════
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/target": true,
+    "**/.git": true,
+    "**/build": true,
+    "**/*.jar": true,
+    "**/*.class": true
+  },
+  // ═══════════════════════════════════════════════════════════════
+  // 🖥️ TERMINAL
+  // ═══════════════════════════════════════════════════════════════
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  // ═══════════════════════════════════════════════════════════════
+  // 📋 MARKDOWN
+  // ═══════════════════════════════════════════════════════════════
+  "markdown.preview.fontSize": 14,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    }
+  },
+  // ═══════════════════════════════════════════════════════════════
+  // 📄 YAML & JSON
+  // ═══════════════════════════════════════════════════════════════
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2
+  },
+  // ═══════════════════════════════════════════════════════════════
+  // 🗄️ XML (pom.xml)
+  // ═══════════════════════════════════════════════════════════════
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.tabSize": 4
+  },
+  "xml.format.splitAttributes": false,
+  // ═══════════════════════════════════════════════════════════════
+  // 🔒 SPELL CHECKER (Code Spell Checker)
+  // ═══════════════════════════════════════════════════════════════
+  "cSpell.language": "en,es",
+  "cSpell.enableFiletypes": [
+    "java",
+    "markdown",
+    "yaml",
+    "json",
+    "xml"
+  ],
+  "cSpell.words": [
+    "bootcamp",
+    "springboot",
+    "postgresql",
+    "datasource",
+    "autoconfiguration",
+    "autowired",
+    "restcontroller",
+    "requestmapping",
+    "pathvariable",
+    "requestbody",
+    "responsebody",
+    "getmapping",
+    "postmapping",
+    "putmapping",
+    "deletemapping",
+    "jparepository",
+    "testcontainers",
+    "openapi",
+    "springdoc"
+  ],
+  // ═══════════════════════════════════════════════════════════════
+  // 🔬 SONARLINT - Análisis de código
+  // ═══════════════════════════════════════════════════════════════
+  "sonarlint.rules": {
+    "java:S106": {
+      "level": "off"
+    }
+  },
+  // ═══════════════════════════════════════════════════════════════
+  // 🔌 REST CLIENT
+  // ═══════════════════════════════════════════════════════════════
+  "rest-client.previewResponseInUntitledDocument": true,
+  "rest-client.enableTelemetry": false,
+  // ═══════════════════════════════════════════════════════════════
+  // 🎯 GIT
+  // ═══════════════════════════════════════════════════════════════
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "gitlens.hovers.currentLine.over": "line",
+  // ═══════════════════════════════════════════════════════════════
+  // 🎨 ICONOS
+  // ═══════════════════════════════════════════════════════════════
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.theme": "specific",
+  "material-icon-theme.folders.color": "#6db33f"
+}

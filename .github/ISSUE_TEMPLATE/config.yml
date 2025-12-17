@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discusiones
+    url: https://github.com/tu-usuario/bc-javaweb-sb/discussions
+    about: Para preguntas generales, ideas y conversaciones usa GitHub Discussions
+  - name: 📚 Documentación
+    url: https://github.com/tu-usuario/bc-javaweb-sb/tree/main/_docs
+    about: Revisa la documentación antes de abrir un issue
+  - name: 🍃 Spring Docs
+    url: https://docs.spring.io/spring-boot/docs/current/reference/html/
+    about: Documentación oficial de Spring Boot
+  - name: 🐳 Docker Docs
+    url: https://docs.docker.com/
+    about: Documentación oficial de Docker

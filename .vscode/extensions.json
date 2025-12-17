@@ -1,0 +1,70 @@
+{
+  // Extensiones recomendadas para el Bootcamp Java Web con Spring Boot
+  // Para instalar todas: Ctrl+Shift+P → "Extensions: Show Recommended Extensions"
+  "recommendations": [
+    // ═══════════════════════════════════════════════════════════════
+    // 🔧 JAVA CORE - Fundamentales
+    // ═══════════════════════════════════════════════════════════════
+    "vscjava.vscode-java-pack", // Extension Pack for Java (incluye 6 extensiones)
+    "redhat.java", // Language Support for Java (Red Hat)
+    "vscjava.vscode-java-debug", // Debugger for Java
+    "vscjava.vscode-java-test", // Test Runner for Java
+    "vscjava.vscode-maven", // Maven for Java
+    "vscjava.vscode-java-dependency", // Project Manager for Java
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🍃 SPRING BOOT
+    // ═══════════════════════════════════════════════════════════════
+    "vmware.vscode-spring-boot", // Spring Boot Tools
+    "vscjava.vscode-spring-initializr", // Spring Initializr
+    "vscjava.vscode-spring-boot-dashboard", // Spring Boot Dashboard
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🐳 DOCKER
+    // ═══════════════════════════════════════════════════════════════
+    "ms-azuretools.vscode-docker", // Docker (Microsoft)
+    "ms-vscode-remote.remote-containers", // Dev Containers
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🗄️ BASE DE DATOS
+    // ═══════════════════════════════════════════════════════════════
+    "cweijan.vscode-database-client2", // Database Client (PostgreSQL, SQLite)
+
+    // ═══════════════════════════════════════════════════════════════
+    // 📝 API & DOCUMENTACIÓN
+    // ═══════════════════════════════════════════════════════════════
+    "42Crunch.vscode-openapi", // OpenAPI (Swagger) Editor
+    "Arjun.swagger-viewer", // Swagger Viewer
+    "humao.rest-client", // REST Client (alternativa a Postman)
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🔍 CALIDAD DE CÓDIGO
+    // ═══════════════════════════════════════════════════════════════
+    "sonarsource.sonarlint-vscode", // SonarLint (análisis de código)
+    "redhat.vscode-xml", // XML (para pom.xml)
+    "redhat.vscode-yaml", // YAML (para docker-compose, application.yml)
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🎨 PRODUCTIVIDAD & UI
+    // ═══════════════════════════════════════════════════════════════
+    "johnpapa.vscode-peacock", // Peacock (color de workspace)
+    "PKief.material-icon-theme", // Material Icon Theme
+    "eamodio.gitlens", // GitLens (Git supercharged)
+    "mhutchie.git-graph", // Git Graph (visualizar branches)
+    "streetsidesoftware.code-spell-checker", // Code Spell Checker
+    "streetsidesoftware.code-spell-checker-spanish", // Spanish Dictionary
+
+    // ═══════════════════════════════════════════════════════════════
+    // 📋 MARKDOWN & DOCUMENTACIÓN
+    // ═══════════════════════════════════════════════════════════════
+    "yzhang.markdown-all-in-one", // Markdown All in One
+    "bierner.markdown-mermaid", // Mermaid diagrams in Markdown
+    "DavidAnson.vscode-markdownlint" // Markdown linting
+  ],
+
+  // Extensiones NO recomendadas (pueden causar conflictos)
+  "unwantedRecommendations": [
+    "vscode.java", // Usar Red Hat en su lugar
+    "georgewfraser.vscode-javac" // Conflicto con Language Support
+  ]
+}
