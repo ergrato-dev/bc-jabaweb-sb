@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#60A5FA" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="500" fill="#1a1a2e" />
+
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif"
+        font-size="20" font-weight="bold">PostgreSQL en Docker</text>
+
+    <!-- Host Machine -->
+    <rect x="30" y="60" width="740" height="420" rx="8" fill="#16213e" stroke="#3B82F6"
+        stroke-width="2" />
+    <text x="50" y="85" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Host
+        Machine (tu computadora)</text>
+
+    <!-- Docker Engine -->
+    <rect x="50" y="100" width="700" height="360" rx="6" fill="#1e3a5f" stroke="#0EA5E9"
+        stroke-width="2" stroke-dasharray="5,5" />
+    <text x="70" y="125" fill="#0EA5E9" font-family="system-ui, sans-serif" font-size="14"
+        font-weight="bold">🐳 Docker Engine</text>
+
+    <!-- Spring Boot Container -->
+    <rect x="80" y="150" width="280" height="180" rx="6" fill="#1a1a2e" stroke="#22C55E"
+        stroke-width="2" />
+    <text x="220" y="175" text-anchor="middle" fill="#22C55E" font-family="system-ui, sans-serif"
+        font-size="14" font-weight="bold">Container: api</text>
+
+    <!-- Spring Boot App -->
+    <rect x="100" y="190" width="240" height="120" rx="4" fill="#166534" stroke="#22C55E"
+        stroke-width="1" />
+    <text x="220" y="220" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">🍃 Spring Boot</text>
+    <text x="220" y="245" text-anchor="middle" fill="#BBF7D0" font-family="system-ui, sans-serif"
+        font-size="12">Task Manager API</text>
+    <text x="220" y="270" text-anchor="middle" fill="#86EFAC" font-family="system-ui, sans-serif"
+        font-size="11">JPA + Hibernate</text>
+    <text x="220" y="295" text-anchor="middle" fill="#86EFAC" font-family="system-ui, sans-serif"
+        font-size="11">PostgreSQL Driver</text>
+
+    <!-- PostgreSQL Container -->
+    <rect x="440" y="150" width="280" height="180" rx="6" fill="#1a1a2e" stroke="#3B82F6"
+        stroke-width="2" />
+    <text x="580" y="175" text-anchor="middle" fill="#3B82F6" font-family="system-ui, sans-serif"
+        font-size="14" font-weight="bold">Container: db</text>
+
+    <!-- PostgreSQL -->
+    <rect x="460" y="190" width="240" height="120" rx="4" fill="#1e40af" stroke="#3B82F6"
+        stroke-width="1" />
+    <text x="580" y="220" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">🐘 PostgreSQL 16</text>
+    <text x="580" y="250" text-anchor="middle" fill="#BFDBFE" font-family="system-ui, sans-serif"
+        font-size="12">Database: taskmanager</text>
+    <text x="580" y="275" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif"
+        font-size="11">Port: 5432</text>
+    <text x="580" y="295" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif"
+        font-size="11">User: postgres</text>
+
+    <!-- Connection Arrow -->
+    <line x1="340" y1="250" x2="460" y2="250" stroke="#60A5FA" stroke-width="3"
+        marker-end="url(#arrowhead)" />
+    <text x="400" y="240" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif"
+        font-size="11">JDBC</text>
+    <text x="400" y="270" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif"
+        font-size="10">db:5432</text>
+
+    <!-- Docker Network -->
+    <rect x="80" y="350" width="640" height="40" rx="4" fill="#312e81" stroke="#8B5CF6"
+        stroke-width="1" />
+    <text x="400" y="375" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif"
+        font-size="12">🔗 Docker Network: taskmanager-network (bridge)</text>
+
+    <!-- Volume -->
+    <rect x="440" y="400" width="280" height="50" rx="4" fill="#7c2d12" stroke="#F97316"
+        stroke-width="2" />
+    <text x="580" y="420" text-anchor="middle" fill="#FDBA74" font-family="system-ui, sans-serif"
+        font-size="12" font-weight="bold">📦 Volume: postgres_data</text>
+    <text x="580" y="438" text-anchor="middle" fill="#FED7AA" font-family="system-ui, sans-serif"
+        font-size="10">/var/lib/postgresql/data</text>
+
+    <!-- Volume Arrow -->
+    <line x1="580" y1="330" x2="580" y2="400" stroke="#F97316" stroke-width="2"
+        stroke-dasharray="4,4" />
+
+    <!-- Port Mapping -->
+    <rect x="80" y="400" width="130" height="50" rx="4" fill="#064e3b" stroke="#10B981"
+        stroke-width="1" />
+    <text x="145" y="420" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif"
+        font-size="11" font-weight="bold">Port Mapping</text>
+    <text x="145" y="438" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif"
+        font-size="10">8080:8080</text>
+
+    <rect x="220" y="400" width="130" height="50" rx="4" fill="#064e3b" stroke="#10B981"
+        stroke-width="1" />
+    <text x="285" y="420" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif"
+        font-size="11" font-weight="bold">Port Mapping</text>
+    <text x="285" y="438" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif"
+        font-size="10">5432:5432</text>
+
+    <!-- Legend -->
+    <text x="50" y="490" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">💡 Los
+        contenedores se comunican por nombre (db) en la red Docker. El volumen persiste datos entre
+        reinicios.</text>
+</svg>

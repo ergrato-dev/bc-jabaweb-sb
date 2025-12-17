@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+    <defs>
+        <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#60A5FA" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="550" fill="#1a1a2e" />
+
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif"
+        font-size="20" font-weight="bold">Arquitectura JPA - Capas de Abstracción</text>
+
+    <!-- Application Layer -->
+    <rect x="50" y="60" width="700" height="70" rx="6" fill="#166534" stroke="#22C55E"
+        stroke-width="2" />
+    <text x="400" y="90" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">Tu Aplicación Spring Boot</text>
+    <text x="400" y="115" text-anchor="middle" fill="#BBF7D0" font-family="system-ui, sans-serif"
+        font-size="12">TaskService, TaskController, TaskRepository</text>
+
+    <!-- Arrow -->
+    <line x1="400" y1="130" x2="400" y2="155" stroke="#60A5FA" stroke-width="2"
+        marker-end="url(#arrowhead2)" />
+
+    <!-- Spring Data JPA Layer -->
+    <rect x="50" y="160" width="700" height="70" rx="6" fill="#7c3aed" stroke="#A78BFA"
+        stroke-width="2" />
+    <text x="400" y="190" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">Spring Data JPA</text>
+    <text x="400" y="215" text-anchor="middle" fill="#DDD6FE" font-family="system-ui, sans-serif"
+        font-size="12">JpaRepository, CrudRepository, Query Methods automáticos</text>
+
+    <!-- What Spring Data JPA provides -->
+    <rect x="80" y="175" width="120" height="40" rx="4" fill="#5b21b6" />
+    <text x="140" y="200" text-anchor="middle" fill="#E9D5FF" font-family="system-ui, sans-serif"
+        font-size="10">findById()</text>
+
+    <rect x="220" y="175" width="120" height="40" rx="4" fill="#5b21b6" />
+    <text x="280" y="200" text-anchor="middle" fill="#E9D5FF" font-family="system-ui, sans-serif"
+        font-size="10">save()</text>
+
+    <rect x="460" y="175" width="120" height="40" rx="4" fill="#5b21b6" />
+    <text x="520" y="200" text-anchor="middle" fill="#E9D5FF" font-family="system-ui, sans-serif"
+        font-size="10">deleteById()</text>
+
+    <rect x="600" y="175" width="120" height="40" rx="4" fill="#5b21b6" />
+    <text x="660" y="200" text-anchor="middle" fill="#E9D5FF" font-family="system-ui, sans-serif"
+        font-size="10">findAll()</text>
+
+    <!-- Arrow -->
+    <line x1="400" y1="230" x2="400" y2="255" stroke="#60A5FA" stroke-width="2"
+        marker-end="url(#arrowhead2)" />
+
+    <!-- JPA Specification Layer -->
+    <rect x="50" y="260" width="700" height="70" rx="6" fill="#0369a1" stroke="#38BDF8"
+        stroke-width="2" />
+    <text x="400" y="290" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">JPA (Jakarta Persistence API) - Especificación</text>
+    <text x="400" y="315" text-anchor="middle" fill="#BAE6FD" font-family="system-ui, sans-serif"
+        font-size="12">@Entity, @Id, @Column, EntityManager, JPQL - Define el contrato</text>
+
+    <!-- Arrow -->
+    <line x1="400" y1="330" x2="400" y2="355" stroke="#60A5FA" stroke-width="2"
+        marker-end="url(#arrowhead2)" />
+
+    <!-- Hibernate Layer -->
+    <rect x="50" y="360" width="700" height="70" rx="6" fill="#b45309" stroke="#FBBF24"
+        stroke-width="2" />
+    <text x="400" y="390" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">Hibernate ORM - Implementación</text>
+    <text x="400" y="415" text-anchor="middle" fill="#FEF3C7" font-family="system-ui, sans-serif"
+        font-size="12">Object-Relational Mapping, genera SQL, caché, transacciones</text>
+
+    <!-- Arrow -->
+    <line x1="400" y1="430" x2="400" y2="455" stroke="#60A5FA" stroke-width="2"
+        marker-end="url(#arrowhead2)" />
+
+    <!-- JDBC Layer -->
+    <rect x="50" y="460" width="340" height="60" rx="6" fill="#374151" stroke="#9CA3AF"
+        stroke-width="2" />
+    <text x="220" y="490" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="14" font-weight="bold">JDBC Driver</text>
+    <text x="220" y="510" text-anchor="middle" fill="#D1D5DB" font-family="system-ui, sans-serif"
+        font-size="11">postgresql-jdbc</text>
+
+    <!-- Database -->
+    <rect x="410" y="460" width="340" height="60" rx="6" fill="#1e40af" stroke="#3B82F6"
+        stroke-width="2" />
+    <text x="580" y="490" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif"
+        font-size="14" font-weight="bold">🐘 PostgreSQL</text>
+    <text x="580" y="510" text-anchor="middle" fill="#BFDBFE" font-family="system-ui, sans-serif"
+        font-size="11">Base de Datos</text>
+
+    <!-- Arrow between JDBC and DB -->
+    <line x1="390" y1="490" x2="410" y2="490" stroke="#60A5FA" stroke-width="2"
+        marker-end="url(#arrowhead2)" />
+
+    <!-- Side annotations -->
+    <rect x="760" y="160" width="30" height="70" rx="4" fill="#22c55e" />
+    <text x="775" y="200" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif"
+        font-size="10" transform="rotate(90 775 200)">Abstracción</text>
+
+    <rect x="760" y="260" width="30" height="70" rx="4" fill="#3b82f6" />
+    <text x="775" y="300" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif"
+        font-size="10" transform="rotate(90 775 300)">Estándar</text>
+
+    <rect x="760" y="360" width="30" height="70" rx="4" fill="#f59e0b" />
+    <text x="775" y="400" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif"
+        font-size="10" transform="rotate(90 775 400)">ORM Real</text>
+</svg>

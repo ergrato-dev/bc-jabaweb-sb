@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- Background -->
+    <rect width="800" height="500" fill="#1a1a2e" />
+
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif"
+        font-size="20" font-weight="bold">Mapeo Entidad JPA → Tabla SQL</text>
+
+    <!-- Java Entity Side -->
+    <rect x="30" y="60" width="350" height="400" rx="8" fill="#16213e" stroke="#22C55E"
+        stroke-width="2" />
+    <text x="205" y="90" text-anchor="middle" fill="#22C55E" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">☕ Entidad Java</text>
+
+    <!-- Class definition -->
+    <rect x="50" y="110" width="310" height="330" rx="4" fill="#1a1a2e" stroke="#4ADE80"
+        stroke-width="1" />
+
+    <!-- Annotations and code -->
+    <text x="60" y="135" fill="#F472B6" font-family="monospace" font-size="11">@Entity</text>
+    <text x="60" y="155" fill="#F472B6" font-family="monospace" font-size="11">@Table(name =
+        "tasks")</text>
+    <text x="60" y="180" fill="#60A5FA" font-family="monospace" font-size="12">public class Task {</text>
+
+    <!-- ID field -->
+    <rect x="70" y="195" width="270" height="45" rx="3" fill="#312e81" />
+    <text x="80" y="215" fill="#F472B6" font-family="monospace" font-size="10">@Id</text>
+    <text x="80" y="230" fill="#F472B6" font-family="monospace" font-size="10">@GeneratedValue(UUID)</text>
+    <text x="80" y="245" fill="#A5B4FC" font-family="monospace" font-size="10">private UUID id;</text>
+
+    <!-- Title field -->
+    <rect x="70" y="250" width="270" height="35" rx="3" fill="#1e3a5f" />
+    <text x="80" y="270" fill="#F472B6" font-family="monospace" font-size="10">@Column(nullable=false,
+        length=100)</text>
+    <text x="80" y="285" fill="#A5B4FC" font-family="monospace" font-size="10">private String title;</text>
+
+    <!-- Description field -->
+    <rect x="70" y="295" width="270" height="25" rx="3" fill="#1e3a5f" />
+    <text x="80" y="315" fill="#A5B4FC" font-family="monospace" font-size="10">private String
+        description;</text>
+
+    <!-- Completed field -->
+    <rect x="70" y="330" width="270" height="25" rx="3" fill="#1e3a5f" />
+    <text x="80" y="350" fill="#A5B4FC" font-family="monospace" font-size="10">private boolean
+        completed;</text>
+
+    <!-- CreatedAt field -->
+    <rect x="70" y="365" width="270" height="35" rx="3" fill="#1e3a5f" />
+    <text x="80" y="385" fill="#F472B6" font-family="monospace" font-size="10">
+        @Column(name="created_at")</text>
+    <text x="80" y="400" fill="#A5B4FC" font-family="monospace" font-size="10">private LocalDateTime
+        createdAt;</text>
+
+    <text x="60" y="430" fill="#60A5FA" font-family="monospace" font-size="12">}</text>
+
+    <!-- Arrow in the middle -->
+    <polygon points="400,250 430,235 430,245 480,245 480,255 430,255 430,265" fill="#FBBF24" />
+    <text x="455" y="230" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif"
+        font-size="11">Hibernate</text>
+    <text x="455" y="280" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif"
+        font-size="10">genera</text>
+
+    <!-- SQL Table Side -->
+    <rect x="420" y="60" width="350" height="400" rx="8" fill="#16213e" stroke="#3B82F6"
+        stroke-width="2" />
+    <text x="595" y="90" text-anchor="middle" fill="#3B82F6" font-family="system-ui, sans-serif"
+        font-size="16" font-weight="bold">🐘 Tabla PostgreSQL</text>
+
+    <!-- Table definition -->
+    <rect x="440" y="110" width="310" height="330" rx="4" fill="#1a1a2e" stroke="#60A5FA"
+        stroke-width="1" />
+
+    <!-- SQL code -->
+    <text x="450" y="135" fill="#60A5FA" font-family="monospace" font-size="12">CREATE TABLE tasks (</text>
+
+    <!-- ID column -->
+    <rect x="460" y="150" width="270" height="35" rx="3" fill="#312e81" />
+    <text x="470" y="170" fill="#FDE68A" font-family="monospace" font-size="10">id UUID PRIMARY KEY</text>
+    <text x="470" y="185" fill="#94A3B8" font-family="monospace" font-size="9">DEFAULT
+        gen_random_uuid(),</text>
+
+    <!-- Title column -->
+    <rect x="460" y="195" width="270" height="25" rx="3" fill="#1e3a5f" />
+    <text x="470" y="215" fill="#FDE68A" font-family="monospace" font-size="10">title VARCHAR(100)
+        NOT NULL,</text>
+
+    <!-- Description column -->
+    <rect x="460" y="230" width="270" height="25" rx="3" fill="#1e3a5f" />
+    <text x="470" y="250" fill="#FDE68A" font-family="monospace" font-size="10">description TEXT,</text>
+
+    <!-- Completed column -->
+    <rect x="460" y="265" width="270" height="25" rx="3" fill="#1e3a5f" />
+    <text x="470" y="285" fill="#FDE68A" font-family="monospace" font-size="10">completed BOOLEAN
+        DEFAULT false,</text>
+
+    <!-- CreatedAt column -->
+    <rect x="460" y="300" width="270" height="25" rx="3" fill="#1e3a5f" />
+    <text x="470" y="320" fill="#FDE68A" font-family="monospace" font-size="10">created_at TIMESTAMP</text>
+
+    <text x="450" y="355" fill="#60A5FA" font-family="monospace" font-size="12">);</text>
+
+    <!-- Mapping lines -->
+    <line x1="340" y1="220" x2="460" y2="170" stroke="#FBBF24" stroke-width="1"
+        stroke-dasharray="4,4" />
+    <line x1="340" y1="267" x2="460" y2="207" stroke="#FBBF24" stroke-width="1"
+        stroke-dasharray="4,4" />
+    <line x1="340" y1="307" x2="460" y2="242" stroke="#FBBF24" stroke-width="1"
+        stroke-dasharray="4,4" />
+    <line x1="340" y1="342" x2="460" y2="277" stroke="#FBBF24" stroke-width="1"
+        stroke-dasharray="4,4" />
+    <line x1="340" y1="385" x2="460" y2="312" stroke="#FBBF24" stroke-width="1"
+        stroke-dasharray="4,4" />
+
+    <!-- Legend -->
+    <rect x="440" y="380" width="290" height="50" rx="4" fill="#374151" />
+    <text x="450" y="400" fill="#10B981" font-family="system-ui, sans-serif" font-size="10">✓
+        @Entity → CREATE TABLE</text>
+    <text x="450" y="415" fill="#10B981" font-family="system-ui, sans-serif" font-size="10">✓ Campo
+        Java → Columna SQL</text>
+    <text x="450" y="425" fill="#10B981" font-family="system-ui, sans-serif" font-size="10">✓ Tipos
+        se convierten automáticamente</text>
+
+    <!-- Bottom note -->
+    <text x="400" y="485" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif"
+        font-size="11">💡 ddl-auto=update crea/actualiza tablas automáticamente basándose en las
+        entidades</text>
+</svg>

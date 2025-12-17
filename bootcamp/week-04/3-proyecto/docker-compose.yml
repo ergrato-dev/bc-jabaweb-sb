@@ -1,0 +1,58 @@
+# ══════════════════════════════════════════════════════════════
+# Task Manager API - Docker Compose
+# Semana 04: JPA y PostgreSQL
+# ══════════════════════════════════════════════════════════════
+
+services:
+  # ─────────────────────────────────────────────────────────────
+  # PostgreSQL Database
+  # ─────────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: taskmanager-db
+    environment:
+      POSTGRES_DB: taskmanager
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dev -d taskmanager"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend
+
+  # ─────────────────────────────────────────────────────────────
+  # Spring Boot API
+  # ─────────────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: taskmanager-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/taskmanager
+      SPRING_DATASOURCE_USERNAME: dev
+      SPRING_DATASOURCE_PASSWORD: dev123
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+
+# ─────────────────────────────────────────────────────────────
+# Volumes y Networks
+# ─────────────────────────────────────────────────────────────
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge

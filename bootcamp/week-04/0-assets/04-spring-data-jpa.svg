@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+    <defs>
+        <marker id="arrowhead4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#60A5FA" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="450" fill="#1a1a2e" />
+
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif"
+        font-size="20" font-weight="bold">Spring Data JPA - Query Methods</text>
+
+    <!-- Interface definition -->
+    <rect x="50" y="60" width="700" height="150" rx="8" fill="#16213e" stroke="#A78BFA"
+        stroke-width="2" />
+    <text x="400" y="90" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif"
+        font-size="14" font-weight="bold">TaskRepository.java</text>
+
+    <!-- Code -->
+    <text x="70" y="120" fill="#F472B6" font-family="monospace" font-size="11">public interface</text>
+    <text x="170" y="120" fill="#60A5FA" font-family="monospace" font-size="11">TaskRepository</text>
+    <text x="280" y="120" fill="#F472B6" font-family="monospace" font-size="11">extends</text>
+    <text x="330" y="120" fill="#22C55E" font-family="monospace" font-size="11">JpaRepository&lt;Task,
+        UUID&gt;</text>
+    <text x="515" y="120" fill="#94A3B8" font-family="monospace" font-size="11">{</text>
+
+    <text x="90" y="145" fill="#94A3B8" font-family="monospace" font-size="11">// Métodos heredados:
+        save(), findById(), findAll(), deleteById(), count()...</text>
+
+    <text x="90" y="170" fill="#94A3B8" font-family="monospace" font-size="11">// Query Methods -
+        Spring genera el SQL automáticamente:</text>
+    <text x="90" y="190" fill="#FBBF24" font-family="monospace" font-size="11">List&lt;Task&gt;
+        findByCompleted(boolean completed);</text>
+    <text x="515" y="190" fill="#6B7280" font-family="monospace" font-size="10">// WHERE completed =
+        ?</text>
+
+    <text x="70" y="205" fill="#94A3B8" font-family="monospace" font-size="11">}</text>
+
+    <!-- Arrow down -->
+    <line x1="400" y1="210" x2="400" y2="240" stroke="#60A5FA" stroke-width="2"
+        marker-end="url(#arrowhead4)" />
+    <text x="430" y="230" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Spring
+        genera</text>
+
+    <!-- Generated methods box -->
+    <rect x="50" y="250" width="340" height="180" rx="8" fill="#16213e" stroke="#22C55E"
+        stroke-width="2" />
+    <text x="220" y="275" text-anchor="middle" fill="#22C55E" font-family="system-ui, sans-serif"
+        font-size="14" font-weight="bold">Métodos Heredados (GRATIS)</text>
+
+    <text x="70" y="300" fill="#86EFAC" font-family="monospace" font-size="11">save(Task entity)</text>
+    <text x="70" y="320" fill="#86EFAC" font-family="monospace" font-size="11">findById(UUID id)</text>
+    <text x="70" y="340" fill="#86EFAC" font-family="monospace" font-size="11">findAll()</text>
+    <text x="70" y="360" fill="#86EFAC" font-family="monospace" font-size="11">deleteById(UUID id)</text>
+    <text x="70" y="380" fill="#86EFAC" font-family="monospace" font-size="11">existsById(UUID id)</text>
+    <text x="70" y="400" fill="#86EFAC" font-family="monospace" font-size="11">count()</text>
+    <text x="70" y="420" fill="#6B7280" font-family="monospace" font-size="10">+ paginación,
+        ordenamiento...</text>
+
+    <!-- Query methods naming convention -->
+    <rect x="410" y="250" width="340" height="180" rx="8" fill="#16213e" stroke="#FBBF24"
+        stroke-width="2" />
+    <text x="580" y="275" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif"
+        font-size="14" font-weight="bold">Query Methods (por nombre)</text>
+
+    <text x="430" y="300" fill="#FDE68A" font-family="monospace" font-size="10">findBy</text>
+    <text x="480" y="300" fill="#E2E8F0" font-family="monospace" font-size="10">Title</text>
+    <text x="510" y="300" fill="#94A3B8" font-family="monospace" font-size="10">→ WHERE title = ?</text>
+
+    <text x="430" y="325" fill="#FDE68A" font-family="monospace" font-size="10">findBy</text>
+    <text x="480" y="325" fill="#E2E8F0" font-family="monospace" font-size="10">TitleContaining</text>
+    <text x="590" y="325" fill="#94A3B8" font-family="monospace" font-size="10">→ LIKE %?%</text>
+
+    <text x="430" y="350" fill="#FDE68A" font-family="monospace" font-size="10">findBy</text>
+    <text x="480" y="350" fill="#E2E8F0" font-family="monospace" font-size="10">CompletedTrue</text>
+    <text x="575" y="350" fill="#94A3B8" font-family="monospace" font-size="10">→ WHERE
+        completed=true</text>
+
+    <text x="430" y="375" fill="#FDE68A" font-family="monospace" font-size="10">findBy</text>
+    <text x="480" y="375" fill="#E2E8F0" font-family="monospace" font-size="10">CreatedAtAfter</text>
+    <text x="580" y="375" fill="#94A3B8" font-family="monospace" font-size="10">→ WHERE created_at >
+        ?</text>
+
+    <text x="430" y="400" fill="#FDE68A" font-family="monospace" font-size="10">countBy</text>
+    <text x="490" y="400" fill="#E2E8F0" font-family="monospace" font-size="10">Completed</text>
+    <text x="560" y="400" fill="#94A3B8" font-family="monospace" font-size="10">→ SELECT COUNT(*)</text>
+
+    <text x="430" y="420" fill="#FDE68A" font-family="monospace" font-size="10">deleteBy</text>
+    <text x="495" y="420" fill="#E2E8F0" font-family="monospace" font-size="10">Id</text>
+    <text x="515" y="420" fill="#94A3B8" font-family="monospace" font-size="10">→ DELETE WHERE id =
+        ?</text>
+</svg>
