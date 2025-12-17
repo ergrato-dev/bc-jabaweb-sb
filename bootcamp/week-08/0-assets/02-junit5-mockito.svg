@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+    <rect width="600" height="400" fill="#1e1e1e" />
+
+    <text x="300" y="30" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="18"
+        font-weight="bold" text-anchor="middle">JUnit 5 + Mockito - Flujo de Test</text>
+
+    <!-- Test Class Box -->
+    <rect x="30" y="50" width="540" height="320" fill="#252526" rx="8" stroke="#3c3c3c"
+        stroke-width="2" />
+    <text x="50" y="75" fill="#569cd6" font-family="Consolas, monospace" font-size="12">
+        @ExtendWith(MockitoExtension.class)</text>
+    <text x="50" y="92" fill="#4ec9b0" font-family="Consolas, monospace" font-size="12">class
+        UserServiceTest {</text>
+
+    <!-- @Mock Section -->
+    <rect x="50" y="105" width="220" height="90" fill="#1e3a2f" rx="5" stroke="#10b981"
+        stroke-width="1" />
+    <text x="60" y="125" fill="#c586c0" font-family="Consolas, monospace" font-size="11">@Mock</text>
+    <text x="60" y="142" fill="#9cdcfe" font-family="Consolas, monospace" font-size="11">UserRepository
+        repo;</text>
+    <text x="60" y="165" fill="#c586c0" font-family="Consolas, monospace" font-size="11">@Mock</text>
+    <text x="60" y="182" fill="#9cdcfe" font-family="Consolas, monospace" font-size="11">PasswordEncoder
+        encoder;</text>
+
+    <!-- @InjectMocks Section -->
+    <rect x="290" y="105" width="260" height="90" fill="#2d1f3d" rx="5" stroke="#a855f7"
+        stroke-width="1" />
+    <text x="300" y="125" fill="#c586c0" font-family="Consolas, monospace" font-size="11">
+        @InjectMocks</text>
+    <text x="300" y="142" fill="#9cdcfe" font-family="Consolas, monospace" font-size="11">UserService
+        userService;</text>
+    <text x="300" y="170" fill="#6a9955" font-family="Consolas, monospace" font-size="10">// Inyecta
+        automáticamente</text>
+    <text x="300" y="185" fill="#6a9955" font-family="Consolas, monospace" font-size="10">// los
+        @Mock declarados</text>
+
+    <!-- Test Method -->
+    <rect x="50" y="210" width="500" height="145" fill="#1e1e2e" rx="5" stroke="#3b82f6"
+        stroke-width="1" />
+    <text x="60" y="230" fill="#dcdcaa" font-family="Consolas, monospace" font-size="11">@Test</text>
+    <text x="60" y="247" fill="#dcdcaa" font-family="Consolas, monospace" font-size="11">@DisplayName("Should
+        create user")</text>
+    <text x="60" y="264" fill="#4ec9b0" font-family="Consolas, monospace" font-size="11">void
+        createUser_ValidData_ReturnsUser() {</text>
+
+    <!-- Given -->
+    <text x="75" y="284" fill="#6a9955" font-family="Consolas, monospace" font-size="10">// Given
+        (Arrange)</text>
+    <text x="75" y="299" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">
+        when(repo.save(any())).thenReturn(user);</text>
+
+    <!-- When -->
+    <text x="290" y="284" fill="#6a9955" font-family="Consolas, monospace" font-size="10">// When
+        (Act)</text>
+    <text x="290" y="299" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">var result
+        = userService.create(dto);</text>
+
+    <!-- Then -->
+    <text x="75" y="324" fill="#6a9955" font-family="Consolas, monospace" font-size="10">// Then
+        (Assert)</text>
+    <text x="75" y="339" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">
+        assertThat(result).isNotNull();</text>
+    <text x="290" y="339" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">
+        verify(repo).save(any());</text>
+
+    <text x="50" y="360" fill="#4ec9b0" font-family="Consolas, monospace" font-size="12">}</text>
+
+    <!-- Arrows showing flow -->
+    <defs>
+        <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+        </marker>
+        <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#a855f7" />
+        </marker>
+    </defs>
+
+    <path d="M 270 150 Q 280 160 290 150" stroke="#10b981" stroke-width="2" fill="none"
+        marker-end="url(#arrowGreen)" />
+
+    <!-- Legend -->
+    <rect x="30" y="375" width="150" height="20" fill="#1e3a2f" rx="3" />
+    <text x="40" y="389" fill="#10b981" font-family="Segoe UI, sans-serif" font-size="10">@Mock =
+        Objeto simulado</text>
+
+    <rect x="200" y="375" width="180" height="20" fill="#2d1f3d" rx="3" />
+    <text x="210" y="389" fill="#a855f7" font-family="Segoe UI, sans-serif" font-size="10">@InjectMocks
+        = Clase bajo test</text>
+
+    <rect x="400" y="375" width="170" height="20" fill="#1e1e2e" rx="3" />
+    <text x="410" y="389" fill="#3b82f6" font-family="Segoe UI, sans-serif" font-size="10">Given-When-Then
+        Pattern</text>
+</svg>

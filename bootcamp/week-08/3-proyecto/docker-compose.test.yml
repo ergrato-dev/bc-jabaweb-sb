@@ -1,0 +1,59 @@
+# Docker Compose para Testing (CI/CD)
+# Uso: docker compose -f docker-compose.test.yml up --abort-on-container-exit
+version: "3.8"
+
+services:
+  # ============================================
+  # Test Database
+  # ============================================
+  test-db:
+    image: postgres:16-alpine
+    container_name: week08-test-db
+    environment:
+      - POSTGRES_DB=testdb
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+    tmpfs:
+      - /var/lib/postgresql/data # En memoria para velocidad
+    networks:
+      - test-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test -d testdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+  # ============================================
+  # Test Runner
+  # ============================================
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: week08-test-runner
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://test-db:5432/testdb
+      - SPRING_DATASOURCE_USERNAME=test
+      - SPRING_DATASOURCE_PASSWORD=test
+      - JWT_SECRET=test-secret-for-ci-only-not-for-production-use
+    depends_on:
+      test-db:
+        condition: service_healthy
+    networks:
+      - test-network
+    working_dir: /app
+    command: ["mvn", "verify", "-B"]
+    volumes:
+      - ./target:/app/target
+      - maven_cache:/root/.m2
+
+networks:
+  test-network:
+    driver: bridge
+
+volumes:
+  maven_cache:
+    name: week08-maven-cache

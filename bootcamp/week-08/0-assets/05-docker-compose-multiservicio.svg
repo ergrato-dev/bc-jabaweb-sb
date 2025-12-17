@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450">
+    <rect width="700" height="450" fill="#1e1e1e" />
+
+    <text x="350" y="30" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="18"
+        font-weight="bold" text-anchor="middle">Docker Compose Multi-servicio</text>
+
+    <!-- Main compose box -->
+    <rect x="30" y="50" width="640" height="380" fill="#252526" rx="10" stroke="#0ea5e9"
+        stroke-width="2" />
+    <text x="50" y="75" fill="#0ea5e9" font-family="Segoe UI, sans-serif" font-size="14"
+        font-weight="bold">docker-compose.yml</text>
+
+    <!-- Network -->
+    <rect x="50" y="380" width="600" height="35" fill="#1e3a5f" rx="5" stroke="#3b82f6"
+        stroke-width="1" stroke-dasharray="5,5" />
+    <text x="350" y="402" fill="#60a5fa" font-family="Segoe UI, sans-serif" font-size="12"
+        text-anchor="middle">🌐 bootcamp-network (bridge)</text>
+
+    <!-- App Service -->
+    <rect x="60" y="95" width="180" height="180" fill="#1e3a2f" rx="8" stroke="#10b981"
+        stroke-width="2" />
+    <text x="150" y="120" fill="#10b981" font-family="Segoe UI, sans-serif" font-size="13"
+        font-weight="bold" text-anchor="middle">app</text>
+    <text x="150" y="140" fill="#6ee7b7" font-family="Segoe UI, sans-serif" font-size="20"
+        text-anchor="middle">☕</text>
+    <text x="150" y="160" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">Spring Boot</text>
+
+    <rect x="75" y="175" width="150" height="20" fill="#374151" rx="3" />
+    <text x="150" y="189" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">ports: 8080:8080</text>
+
+    <rect x="75" y="200" width="150" height="20" fill="#374151" rx="3" />
+    <text x="150" y="214" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">depends_on: db</text>
+
+    <rect x="75" y="225" width="150" height="35" fill="#374151" rx="3" />
+    <text x="150" y="239" fill="#22c55e" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">healthcheck:</text>
+    <text x="150" y="252" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">curl /actuator/health</text>
+
+    <!-- DB Service -->
+    <rect x="260" y="95" width="180" height="180" fill="#1e2a3f" rx="8" stroke="#3b82f6"
+        stroke-width="2" />
+    <text x="350" y="120" fill="#3b82f6" font-family="Segoe UI, sans-serif" font-size="13"
+        font-weight="bold" text-anchor="middle">db</text>
+    <text x="350" y="140" fill="#60a5fa" font-family="Segoe UI, sans-serif" font-size="20"
+        text-anchor="middle">🐘</text>
+    <text x="350" y="160" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">PostgreSQL 16</text>
+
+    <rect x="275" y="175" width="150" height="20" fill="#374151" rx="3" />
+    <text x="350" y="189" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">ports: 5432:5432</text>
+
+    <rect x="275" y="200" width="150" height="20" fill="#374151" rx="3" />
+    <text x="350" y="214" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">volumes: pgdata</text>
+
+    <rect x="275" y="225" width="150" height="35" fill="#374151" rx="3" />
+    <text x="350" y="239" fill="#22c55e" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">healthcheck:</text>
+    <text x="350" y="252" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">pg_isready -U postgres</text>
+
+    <!-- PgAdmin Service -->
+    <rect x="460" y="95" width="180" height="180" fill="#3d2f1e" rx="8" stroke="#f59e0b"
+        stroke-width="2" />
+    <text x="550" y="120" fill="#f59e0b" font-family="Segoe UI, sans-serif" font-size="13"
+        font-weight="bold" text-anchor="middle">pgadmin</text>
+    <text x="550" y="140" fill="#fcd34d" font-family="Segoe UI, sans-serif" font-size="20"
+        text-anchor="middle">🔧</text>
+    <text x="550" y="160" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">PgAdmin 4</text>
+
+    <rect x="475" y="175" width="150" height="20" fill="#374151" rx="3" />
+    <text x="550" y="189" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">ports: 5050:80</text>
+
+    <rect x="475" y="200" width="150" height="20" fill="#374151" rx="3" />
+    <text x="550" y="214" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">depends_on: db</text>
+
+    <rect x="475" y="225" width="150" height="35" fill="#374151" rx="3" />
+    <text x="550" y="239" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">environment:</text>
+    <text x="550" y="252" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">PGADMIN_EMAIL=...</text>
+
+    <!-- Connection arrows -->
+    <defs>
+        <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6" />
+        </marker>
+    </defs>
+
+    <line x1="240" y1="185" x2="258" y2="185" stroke="#3b82f6" stroke-width="2"
+        marker-end="url(#arrowBlue)" />
+    <line x1="440" y1="185" x2="458" y2="185" stroke="#3b82f6" stroke-width="2"
+        marker-end="url(#arrowBlue)" />
+
+    <!-- Volumes section -->
+    <rect x="60" y="290" width="130" height="75" fill="#2d1f3d" rx="5" stroke="#a855f7"
+        stroke-width="1" />
+    <text x="125" y="310" fill="#a855f7" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">volumes:</text>
+    <text x="125" y="330" fill="#c4b5fd" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">pgdata:</text>
+    <text x="125" y="345" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">driver: local</text>
+    <text x="125" y="358" fill="#6b7280" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">💾 Persistente</text>
+
+    <!-- Environment file -->
+    <rect x="210" y="290" width="130" height="75" fill="#1e3a2f" rx="5" stroke="#10b981"
+        stroke-width="1" />
+    <text x="275" y="310" fill="#10b981" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">.env</text>
+    <text x="275" y="330" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">DB_PASSWORD=***</text>
+    <text x="275" y="345" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">JWT_SECRET=***</text>
+    <text x="275" y="358" fill="#6b7280" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">🔐 Secrets</text>
+
+    <!-- Override file -->
+    <rect x="360" y="290" width="130" height="75" fill="#3d2f1e" rx="5" stroke="#f59e0b"
+        stroke-width="1" />
+    <text x="425" y="310" fill="#f59e0b" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">override.yml</text>
+    <text x="425" y="330" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">volumes:</text>
+    <text x="425" y="345" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">- ./src:/app/src</text>
+    <text x="425" y="358" fill="#6b7280" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">🔄 Hot Reload</text>
+
+    <!-- Commands -->
+    <rect x="510" y="290" width="150" height="75" fill="#1e1e2e" rx="5" stroke="#6366f1"
+        stroke-width="1" />
+    <text x="585" y="310" fill="#6366f1" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">Comandos</text>
+    <text x="585" y="328" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">docker compose up -d</text>
+    <text x="585" y="343" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">docker compose logs -f</text>
+    <text x="585" y="358" fill="#9ca3af" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">docker compose down -v</text>
+</svg>

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420">
+    <rect width="700" height="420" fill="#1e1e1e" />
+
+    <text x="350" y="30" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="18"
+        font-weight="bold" text-anchor="middle">TestContainers Lifecycle</text>
+
+    <!-- Timeline -->
+    <line x1="50" y1="80" x2="650" y2="80" stroke="#4b5563" stroke-width="2" />
+
+    <!-- Phase 1: Before All -->
+    <circle cx="100" cy="80" r="8" fill="#3b82f6" />
+    <text x="100" y="105" fill="#3b82f6" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">@BeforeAll</text>
+
+    <rect x="50" y="120" width="130" height="80" fill="#1e3a5f" rx="5" stroke="#3b82f6"
+        stroke-width="1" />
+    <text x="115" y="145" fill="#60a5fa" font-family="Segoe UI, sans-serif" font-size="10"
+        text-anchor="middle">🐳 Container Start</text>
+    <text x="115" y="165" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">postgres.start()</text>
+    <text x="115" y="185" fill="#6b7280" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">~2-5 segundos</text>
+
+    <!-- Phase 2: Dynamic Properties -->
+    <circle cx="250" cy="80" r="8" fill="#10b981" />
+    <text x="250" y="105" fill="#10b981" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">@DynamicPropertySource</text>
+
+    <rect x="190" y="120" width="130" height="80" fill="#1e3a2f" rx="5" stroke="#10b981"
+        stroke-width="1" />
+    <text x="255" y="145" fill="#6ee7b7" font-family="Segoe UI, sans-serif" font-size="10"
+        text-anchor="middle">⚙️ Config Inject</text>
+    <text x="255" y="165" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">spring.datasource.url</text>
+    <text x="255" y="185" fill="#6b7280" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">= jdbc:postgresql://...</text>
+
+    <!-- Phase 3: Test Execution -->
+    <circle cx="420" cy="80" r="8" fill="#f59e0b" />
+    <text x="420" y="105" fill="#f59e0b" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">@Test Methods</text>
+
+    <rect x="340" y="120" width="160" height="80" fill="#3d2f1e" rx="5" stroke="#f59e0b"
+        stroke-width="1" />
+    <text x="420" y="145" fill="#fcd34d" font-family="Segoe UI, sans-serif" font-size="10"
+        text-anchor="middle">🧪 Tests Run</text>
+    <text x="420" y="165" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">repository.save()</text>
+    <text x="420" y="185" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">repository.findAll()</text>
+
+    <!-- Phase 4: After All -->
+    <circle cx="580" cy="80" r="8" fill="#ef4444" />
+    <text x="580" y="105" fill="#ef4444" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">@AfterAll</text>
+
+    <rect x="520" y="120" width="130" height="80" fill="#3d1e1e" rx="5" stroke="#ef4444"
+        stroke-width="1" />
+    <text x="585" y="145" fill="#fca5a5" font-family="Segoe UI, sans-serif" font-size="10"
+        text-anchor="middle">🛑 Container Stop</text>
+    <text x="585" y="165" fill="#9ca3af" font-family="Consolas, monospace" font-size="9"
+        text-anchor="middle">postgres.stop()</text>
+    <text x="585" y="185" fill="#6b7280" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">Automático</text>
+
+    <!-- Arrows -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#9ca3af" />
+        </marker>
+    </defs>
+    <line x1="180" y1="160" x2="188" y2="160" stroke="#9ca3af" stroke-width="1.5"
+        marker-end="url(#arrowhead)" />
+    <line x1="320" y1="160" x2="338" y2="160" stroke="#9ca3af" stroke-width="1.5"
+        marker-end="url(#arrowhead)" />
+    <line x1="500" y1="160" x2="518" y2="160" stroke="#9ca3af" stroke-width="1.5"
+        marker-end="url(#arrowhead)" />
+
+    <!-- Code Example -->
+    <rect x="30" y="220" width="640" height="180" fill="#252526" rx="8" stroke="#3c3c3c"
+        stroke-width="1" />
+    <text x="50" y="245" fill="#c586c0" font-family="Consolas, monospace" font-size="11">
+        @Testcontainers</text>
+    <text x="50" y="262" fill="#c586c0" font-family="Consolas, monospace" font-size="11">
+        @SpringBootTest</text>
+    <text x="50" y="279" fill="#4ec9b0" font-family="Consolas, monospace" font-size="11">class
+        UserRepositoryIT {</text>
+
+    <text x="70" y="299" fill="#c586c0" font-family="Consolas, monospace" font-size="10">@Container</text>
+    <text x="70" y="314" fill="#c586c0" font-family="Consolas, monospace" font-size="10">static</text>
+    <text x="105" y="314" fill="#4ec9b0" font-family="Consolas, monospace" font-size="10">
+        PostgreSQLContainer&lt;?&gt;</text>
+    <text x="285" y="314" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">postgres =</text>
+    <text x="370" y="314" fill="#ce9178" font-family="Consolas, monospace" font-size="10">new
+        PostgreSQLContainer&lt;&gt;("postgres:16-alpine");</text>
+
+    <text x="70" y="339" fill="#c586c0" font-family="Consolas, monospace" font-size="10">
+        @DynamicPropertySource</text>
+    <text x="70" y="354" fill="#c586c0" font-family="Consolas, monospace" font-size="10">static void</text>
+    <text x="140" y="354" fill="#dcdcaa" font-family="Consolas, monospace" font-size="10">
+        configureProperties</text>
+    <text x="285" y="354" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">(DynamicPropertyRegistry
+        registry) {</text>
+
+    <text x="90" y="372" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">
+        registry.add(</text>
+    <text x="175" y="372" fill="#ce9178" font-family="Consolas, monospace" font-size="10">
+        "spring.datasource.url"</text>
+    <text x="345" y="372" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">,
+        postgres::getJdbcUrl);</text>
+
+    <text x="90" y="387" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">
+        registry.add(</text>
+    <text x="175" y="387" fill="#ce9178" font-family="Consolas, monospace" font-size="10">
+        "spring.datasource.username"</text>
+    <text x="380" y="387" fill="#9cdcfe" font-family="Consolas, monospace" font-size="10">,
+        postgres::getUsername);</text>
+
+    <text x="50" y="405" fill="#4ec9b0" font-family="Consolas, monospace" font-size="11">}</text>
+</svg>
