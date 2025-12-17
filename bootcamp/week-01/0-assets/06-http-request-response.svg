@@ -1,0 +1,75 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="350" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18"
+        font-weight="bold">Estructura de un HTTP Request y Response</text>
+
+    <!-- Request Box -->
+    <rect x="50" y="55" width="340" height="250" rx="8" fill="#2d2d2d" stroke="#4caf50"
+        stroke-width="2" />
+    <text x="220" y="80" text-anchor="middle" fill="#4caf50" font-family="sans-serif" font-size="14"
+        font-weight="bold">HTTP REQUEST</text>
+
+    <!-- Request Line -->
+    <rect x="70" y="95" width="300" height="30" rx="4" fill="#1b5e20" />
+    <text x="220" y="115" text-anchor="middle" fill="#fff" font-family="monospace" font-size="11">POST
+        /api/users HTTP/1.1</text>
+    <text x="380" y="115" fill="#666" font-family="sans-serif" font-size="9">← Request Line</text>
+
+    <!-- Headers -->
+    <rect x="70" y="130" width="300" height="70" rx="4" fill="#37474f" />
+    <text x="85" y="150" fill="#4fc3f7" font-family="monospace" font-size="10">Host: api.example.com</text>
+    <text x="85" y="165" fill="#4fc3f7" font-family="monospace" font-size="10">Content-Type:
+        application/json</text>
+    <text x="85" y="180" fill="#4fc3f7" font-family="monospace" font-size="10">Authorization: Bearer
+        token123</text>
+    <text x="85" y="195" fill="#4fc3f7" font-family="monospace" font-size="10">Accept:
+        application/json</text>
+    <text x="380" y="165" fill="#666" font-family="sans-serif" font-size="9">← Headers</text>
+
+    <!-- Body -->
+    <rect x="70" y="210" width="300" height="80" rx="4" fill="#0d47a1" />
+    <text x="85" y="230" fill="#90caf9" font-family="monospace" font-size="10">{</text>
+    <text x="95" y="248" fill="#fff" font-family="monospace" font-size="10">"name": "Juan",</text>
+    <text x="95" y="266" fill="#fff" font-family="monospace" font-size="10">"email": "juan@mail.com"</text>
+    <text x="85" y="284" fill="#90caf9" font-family="monospace" font-size="10">}</text>
+    <text x="380" y="250" fill="#666" font-family="sans-serif" font-size="9">← Body (JSON)</text>
+
+    <!-- Response Box -->
+    <rect x="410" y="55" width="340" height="250" rx="8" fill="#2d2d2d" stroke="#ff9800"
+        stroke-width="2" />
+    <text x="580" y="80" text-anchor="middle" fill="#ff9800" font-family="sans-serif" font-size="14"
+        font-weight="bold">HTTP RESPONSE</text>
+
+    <!-- Status Line -->
+    <rect x="430" y="95" width="300" height="30" rx="4" fill="#e65100" />
+    <text x="580" y="115" text-anchor="middle" fill="#fff" font-family="monospace" font-size="11">HTTP/1.1
+        201 Created</text>
+    <text x="740" y="115" fill="#666" font-family="sans-serif" font-size="9">← Status</text>
+
+    <!-- Response Headers -->
+    <rect x="430" y="130" width="300" height="55" rx="4" fill="#37474f" />
+    <text x="445" y="150" fill="#ffb74d" font-family="monospace" font-size="10">Content-Type:
+        application/json</text>
+    <text x="445" y="165" fill="#ffb74d" font-family="monospace" font-size="10">Location:
+        /api/users/123</text>
+    <text x="445" y="180" fill="#ffb74d" font-family="monospace" font-size="10">Date: Tue, 17 Dec
+        2024 10:30:00</text>
+    <text x="740" y="160" fill="#666" font-family="sans-serif" font-size="9">← Headers</text>
+
+    <!-- Response Body -->
+    <rect x="430" y="195" width="300" height="95" rx="4" fill="#0d47a1" />
+    <text x="445" y="215" fill="#90caf9" font-family="monospace" font-size="10">{</text>
+    <text x="455" y="233" fill="#fff" font-family="monospace" font-size="10">"id": 123,</text>
+    <text x="455" y="251" fill="#fff" font-family="monospace" font-size="10">"name": "Juan",</text>
+    <text x="455" y="269" fill="#fff" font-family="monospace" font-size="10">"email":
+        "juan@mail.com"</text>
+    <text x="445" y="287" fill="#90caf9" font-family="monospace" font-size="10">}</text>
+    <text x="740" y="250" fill="#666" font-family="sans-serif" font-size="9">← Body</text>
+
+    <!-- Footer -->
+    <text x="400" y="330" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="11">El
+        Request incluye método + ruta + headers + body opcional</text>
+</svg>

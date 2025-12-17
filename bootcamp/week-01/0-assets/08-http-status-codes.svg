@@ -1,0 +1,69 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="380" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18"
+        font-weight="bold">Códigos de Estado HTTP</text>
+
+    <!-- 2xx Success -->
+    <rect x="50" y="55" width="220" height="140" rx="8" fill="#1b5e20" stroke="#4caf50"
+        stroke-width="2" />
+    <text x="160" y="80" text-anchor="middle" fill="#4caf50" font-family="sans-serif" font-size="14"
+        font-weight="bold">2xx ÉXITO ✓</text>
+    <text x="70" y="105" fill="#a5d6a7" font-family="monospace" font-size="11">200 OK</text>
+    <text x="150" y="105" fill="#81c784" font-family="sans-serif" font-size="10">→ GET exitoso</text>
+    <text x="70" y="125" fill="#a5d6a7" font-family="monospace" font-size="11">201 Created</text>
+    <text x="170" y="125" fill="#81c784" font-family="sans-serif" font-size="10">→ POST ok</text>
+    <text x="70" y="145" fill="#a5d6a7" font-family="monospace" font-size="11">204 No Content</text>
+    <text x="185" y="145" fill="#81c784" font-family="sans-serif" font-size="10">→ DELETE</text>
+    <text x="160" y="180" text-anchor="middle" fill="#66bb6a" font-family="sans-serif" font-size="9">Todo
+        funcionó correctamente</text>
+
+    <!-- 3xx Redirection -->
+    <rect x="290" y="55" width="220" height="140" rx="8" fill="#0d47a1" stroke="#2196f3"
+        stroke-width="2" />
+    <text x="400" y="80" text-anchor="middle" fill="#2196f3" font-family="sans-serif" font-size="14"
+        font-weight="bold">3xx REDIRECCIÓN →</text>
+    <text x="310" y="105" fill="#90caf9" font-family="monospace" font-size="11">301 Moved</text>
+    <text x="390" y="105" fill="#64b5f6" font-family="sans-serif" font-size="10">→ URL cambió</text>
+    <text x="310" y="125" fill="#90caf9" font-family="monospace" font-size="11">302 Found</text>
+    <text x="380" y="125" fill="#64b5f6" font-family="sans-serif" font-size="10">→ Temporal</text>
+    <text x="310" y="145" fill="#90caf9" font-family="monospace" font-size="11">304 Not Modified</text>
+    <text x="435" y="145" fill="#64b5f6" font-family="sans-serif" font-size="10">→ Cache</text>
+    <text x="400" y="180" text-anchor="middle" fill="#42a5f5" font-family="sans-serif" font-size="9">Ve
+        a otra ubicación</text>
+
+    <!-- 4xx Client Error -->
+    <rect x="530" y="55" width="220" height="140" rx="8" fill="#e65100" stroke="#ff9800"
+        stroke-width="2" />
+    <text x="640" y="80" text-anchor="middle" fill="#ff9800" font-family="sans-serif" font-size="14"
+        font-weight="bold">4xx ERROR CLIENTE ✗</text>
+    <text x="550" y="105" fill="#ffe0b2" font-family="monospace" font-size="11">400 Bad Request</text>
+    <text x="550" y="125" fill="#ffe0b2" font-family="monospace" font-size="11">401 Unauthorized</text>
+    <text x="550" y="145" fill="#ffe0b2" font-family="monospace" font-size="11">403 Forbidden</text>
+    <text x="550" y="165" fill="#ffe0b2" font-family="monospace" font-size="11">404 Not Found</text>
+    <text x="640" y="185" text-anchor="middle" fill="#ffb74d" font-family="sans-serif" font-size="9">Error
+        del que envía la petición</text>
+
+    <!-- 5xx Server Error -->
+    <rect x="170" y="210" width="460" height="100" rx="8" fill="#b71c1c" stroke="#f44336"
+        stroke-width="2" />
+    <text x="400" y="235" text-anchor="middle" fill="#f44336" font-family="sans-serif"
+        font-size="14" font-weight="bold">5xx ERROR SERVIDOR 💥</text>
+    <text x="200" y="265" fill="#ffcdd2" font-family="monospace" font-size="11">500 Internal Server
+        Error</text>
+    <text x="440" y="265" fill="#ef9a9a" font-family="sans-serif" font-size="10">→ Error genérico</text>
+    <text x="200" y="285" fill="#ffcdd2" font-family="monospace" font-size="11">502 Bad Gateway</text>
+    <text x="200" y="305" fill="#ffcdd2" font-family="monospace" font-size="11">503 Service
+        Unavailable</text>
+    <text x="400" y="305" fill="#ef9a9a" font-family="sans-serif" font-size="10">→ Servidor caído</text>
+
+    <!-- Legend -->
+    <text x="400" y="340" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">1xx
+        = Informativo | 2xx = Éxito | 3xx = Redirección | 4xx = Error Cliente | 5xx = Error Servidor</text>
+
+    <!-- Footer -->
+    <text x="400" y="365" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="11">El
+        primer dígito indica la categoría de la respuesta</text>
+</svg>

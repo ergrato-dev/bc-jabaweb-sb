@@ -1,0 +1,61 @@
+<svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="320" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18"
+        font-weight="bold">Métodos HTTP y Operaciones CRUD</text>
+
+    <!-- Table Header -->
+    <rect x="100" y="55" width="600" height="40" rx="4" fill="#37474f" />
+    <text x="180" y="80" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12"
+        font-weight="bold">MÉTODO</text>
+    <text x="320" y="80" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12"
+        font-weight="bold">CRUD</text>
+    <text x="520" y="80" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12"
+        font-weight="bold">DESCRIPCIÓN</text>
+
+    <!-- GET Row -->
+    <rect x="100" y="100" width="600" height="40" rx="0" fill="#1b5e20" />
+    <rect x="130" y="108" width="70" height="24" rx="4" fill="#4caf50" />
+    <text x="165" y="125" text-anchor="middle" fill="#fff" font-family="monospace" font-size="13"
+        font-weight="bold">GET</text>
+    <text x="320" y="125" text-anchor="middle" fill="#a5d6a7" font-family="sans-serif"
+        font-size="12">READ</text>
+    <text x="520" y="125" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11">Obtener
+        recursos (no modifica datos)</text>
+
+    <!-- POST Row -->
+    <rect x="100" y="145" width="600" height="40" rx="0" fill="#0d47a1" />
+    <rect x="130" y="153" width="70" height="24" rx="4" fill="#2196f3" />
+    <text x="165" y="170" text-anchor="middle" fill="#fff" font-family="monospace" font-size="13"
+        font-weight="bold">POST</text>
+    <text x="320" y="170" text-anchor="middle" fill="#90caf9" font-family="sans-serif"
+        font-size="12">CREATE</text>
+    <text x="520" y="170" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11">Crear
+        nuevo recurso</text>
+
+    <!-- PUT Row -->
+    <rect x="100" y="190" width="600" height="40" rx="0" fill="#e65100" />
+    <rect x="130" y="198" width="70" height="24" rx="4" fill="#ff9800" />
+    <text x="165" y="215" text-anchor="middle" fill="#fff" font-family="monospace" font-size="13"
+        font-weight="bold">PUT</text>
+    <text x="320" y="215" text-anchor="middle" fill="#ffe0b2" font-family="sans-serif"
+        font-size="12">UPDATE</text>
+    <text x="520" y="215" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11">Reemplazar
+        recurso completo</text>
+
+    <!-- DELETE Row -->
+    <rect x="100" y="235" width="600" height="40" rx="0" fill="#b71c1c" />
+    <rect x="130" y="243" width="70" height="24" rx="4" fill="#f44336" />
+    <text x="165" y="260" text-anchor="middle" fill="#fff" font-family="monospace" font-size="13"
+        font-weight="bold">DELETE</text>
+    <text x="320" y="260" text-anchor="middle" fill="#ffcdd2" font-family="sans-serif"
+        font-size="12">DELETE</text>
+    <text x="520" y="260" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11">Eliminar
+        recurso</text>
+
+    <!-- Footer -->
+    <text x="400" y="300" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="11">PATCH
+        también existe para actualizaciones parciales (similar a PUT)</text>
+</svg>

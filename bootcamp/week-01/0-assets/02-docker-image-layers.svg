@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="300" fill="#1e1e1e" />
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18"
+        font-weight="bold">Capas de una Imagen Docker</text>
+
+    <!-- Image Container -->
+    <rect x="250" y="50" width="300" height="220" rx="10" fill="#2d2d2d" stroke="#2496ED"
+        stroke-width="2" />
+    <text x="400" y="75" text-anchor="middle" fill="#2496ED" font-family="sans-serif" font-size="14"
+        font-weight="bold">IMAGEN</text>
+
+    <!-- Layer 4 - Application -->
+    <rect x="275" y="90" width="250" height="35" rx="4" fill="#6DB33F" stroke="#5a9e32"
+        stroke-width="1" />
+    <text x="400" y="113" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12">Capa
+        4: Tu aplicación (.jar)</text>
+
+    <!-- Layer 3 - Dependencies -->
+    <rect x="275" y="130" width="250" height="35" rx="4" fill="#ff9800" stroke="#e68900"
+        stroke-width="1" />
+    <text x="400" y="153" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12">Capa
+        3: Dependencias (Maven)</text>
+
+    <!-- Layer 2 - JDK -->
+    <rect x="275" y="170" width="250" height="35" rx="4" fill="#e91e63" stroke="#c2185b"
+        stroke-width="1" />
+    <text x="400" y="193" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12">Capa
+        2: JDK 21 (Temurin)</text>
+
+    <!-- Layer 1 - OS -->
+    <rect x="275" y="210" width="250" height="35" rx="4" fill="#607d8b" stroke="#546e7a"
+        stroke-width="1" />
+    <text x="400" y="233" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12">Capa
+        1: Sistema Base (Alpine)</text>
+
+    <!-- Read-only indicator -->
+    <text x="560" y="160" fill="#888" font-family="sans-serif" font-size="11">Solo</text>
+    <text x="560" y="175" fill="#888" font-family="sans-serif" font-size="11">lectura</text>
+
+    <!-- Arrow -->
+    <path d="M 545 130 L 545 200" stroke="#888" stroke-width="1" fill="none" />
+    <path d="M 540 130 L 545 120 L 550 130" fill="#888" />
+    <path d="M 540 200 L 545 210 L 550 200" fill="#888" />
+
+    <!-- Labels -->
+    <text x="180" y="113" text-anchor="end" fill="#6DB33F" font-family="sans-serif" font-size="11">Cambia
+        frecuente</text>
+    <text x="180" y="233" text-anchor="end" fill="#607d8b" font-family="sans-serif" font-size="11">Cambia
+        poco</text>
+
+    <!-- Footer note -->
+    <text x="400" y="285" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="11">Las
+        capas se reutilizan entre imágenes para ahorrar espacio</text>
+</svg>
