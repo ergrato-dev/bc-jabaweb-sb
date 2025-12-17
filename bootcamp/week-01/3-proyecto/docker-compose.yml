@@ -1,109 +1,126 @@
-# ============================================
+# ════════════════════════════════════════════════════════════════════════════
 # Bootcamp Java Web - Semana 01
-# Docker Compose para desarrollo Java
-# ============================================
-# 
-# Uso:
-#   docker compose up app          - Compilar y ejecutar
-#   docker compose run --rm dev    - Entorno de desarrollo
-#   docker compose --profile tools run --rm compile - Solo compilar
-#   docker compose --profile tools run --rm run     - Solo ejecutar
+# EJERCICIO: Completa este archivo docker-compose.yml
+# ════════════════════════════════════════════════════════════════════════════
 #
-# ============================================
+# OBJETIVO: Configurar un entorno de desarrollo Java con Docker Compose
+#
+# INSTRUCCIONES:
+# 1. Completa cada TODO siguiendo las pistas
+# 2. Referencia: https://docs.docker.com/compose/compose-file/
+# 3. Prueba con: docker compose config (valida sintaxis)
+# 4. Ejecuta con: docker compose up dev
+#
+# ESTRUCTURA DE UN SERVICIO:
+#   nombre_servicio:
+#     image: imagen:tag           # Imagen a usar
+#     container_name: nombre      # Nombre del contenedor
+#     working_dir: /path          # Directorio de trabajo
+#     volumes:                    # Montaje de directorios
+#       - ./local:/contenedor
+#     environment:                # Variables de entorno
+#       - VAR=valor
+#     env_file:                   # Archivo con variables
+#       - .env
+#     ports:                      # Mapeo de puertos
+#       - "8080:8080"
+#     stdin_open: true            # Equivale a -i (interactivo)
+#     tty: true                   # Equivale a -t (terminal)
+#     command: comando            # Comando a ejecutar
+#
+# ════════════════════════════════════════════════════════════════════════════
 
 services:
-  # -----------------------------------------
-  # Servicio principal: compila y ejecuta
-  # -----------------------------------------
-  app:
-    image: eclipse-temurin:21-jdk-alpine
-    container_name: week01-app
-    working_dir: /app
-    volumes:
-      - ./src:/app/src:ro       # Código fuente (solo lectura)
-      - ./out:/app/out          # Archivos compilados
-    env_file:
-      - .env
-    command: >
-      sh -c "
-        echo '════════════════════════════════════════════════' &&
-        echo '  Bootcamp Java Web - Semana 01' &&
-        echo '════════════════════════════════════════════════' &&
-        echo '' &&
-        echo '🔨 Compilando...' &&
-        javac src/*.java -d out 2>&1 &&
-        if [ $$? -eq 0 ]; then
-          echo '✅ Compilación exitosa' &&
-          echo '' &&
-          echo '🚀 Ejecutando...' &&
-          echo '' &&
-          java $${JAVA_OPTS} -cp out Main
-        else
-          echo '❌ Error de compilación'
-          exit 1
-        fi
-      "
-
-  # -----------------------------------------
-  # Entorno de desarrollo interactivo
-  # -----------------------------------------
+  # -------------------------------------------------------------------------
+  # SERVICIO 1: Entorno de desarrollo interactivo
+  # -------------------------------------------------------------------------
+  # Este servicio te permite entrar al contenedor y trabajar interactivamente
+  # Uso: docker compose run --rm dev
+  # -------------------------------------------------------------------------
   dev:
-    image: eclipse-temurin:21-jdk
-    container_name: week01-dev
-    working_dir: /app
+    # TODO 1: Especifica la imagen de Java
+    # Usa: eclipse-temurin:21-jdk
+    image: # COMPLETA AQUÍ
+    
+    # TODO 2: Asigna un nombre al contenedor
+    # Sugerencia: week01-dev
+    container_name: # COMPLETA AQUÍ
+    
+    # TODO 3: Establece el directorio de trabajo
+    # Usa: /app
+    working_dir: # COMPLETA AQUÍ
+    
+    # TODO 4: Monta los volúmenes necesarios
+    # Monta estas carpetas locales en el contenedor:
+    #   - ./src  →  /app/src   (código fuente)
+    #   - ./out  →  /app/out   (archivos compilados)
+    # Sintaxis: - ./carpeta_local:/carpeta_contenedor
     volumes:
-      - ./src:/app/src
-      - ./out:/app/out
-      - ./docs:/app/docs
-    env_file:
-      - .env
-    stdin_open: true
-    tty: true
-    command: bash
+      # COMPLETA AQUÍ (dos líneas)
+    
+    # TODO 5: Carga las variables desde archivo .env
+    # Sintaxis: env_file:
+    #             - .env
+    # COMPLETA AQUÍ
+    
+    # TODO 6: Habilita modo interactivo
+    # Necesitas estas dos opciones para poder escribir en el contenedor:
+    #   stdin_open: true
+    #   tty: true
+    # COMPLETA AQUÍ
+    
+    # TODO 7: Define el comando por defecto
+    # Usa: bash (para tener un shell interactivo)
+    command: # COMPLETA AQUÍ
 
-  # -----------------------------------------
-  # Usar imagen personalizada (opcional)
-  # -----------------------------------------
-  custom:
-    build: .
-    container_name: week01-custom
-    working_dir: /app
-    volumes:
-      - ./src:/app/src
-      - ./out:/app/out
-    env_file:
-      - .env
-    stdin_open: true
-    tty: true
-    profiles:
-      - custom
+  # -------------------------------------------------------------------------
+  # SERVICIO 2: Compilar y ejecutar (DESAFÍO)
+  # -------------------------------------------------------------------------
+  # Este servicio compila el código Java y lo ejecuta automáticamente
+  # Uso: docker compose up app
+  # -------------------------------------------------------------------------
+  app:
+    # TODO 8: Configura este servicio para compilar y ejecutar
+    # 
+    # Necesitas:
+    #   - image: eclipse-temurin:21-jdk-alpine (más ligera)
+    #   - container_name: week01-app
+    #   - working_dir: /app
+    #   - volumes: montar src (solo lectura con :ro) y out
+    #   - env_file: cargar .env
+    #   - command: un comando que compile y ejecute
+    #
+    # Para el comando, puedes usar:
+    #   command: sh -c "javac src/*.java -d out && java -cp out Main"
+    #
+    # Esto hace:
+    #   1. javac src/*.java -d out → compila todos los .java
+    #   2. && → si el anterior tuvo éxito, ejecuta el siguiente
+    #   3. java -cp out Main → ejecuta la clase Main
+    #
+    # COMPLETA TODO EL SERVICIO AQUÍ:
+    
 
-  # -----------------------------------------
-  # Herramientas: solo compilar
-  # -----------------------------------------
-  compile:
-    image: eclipse-temurin:21-jdk-alpine
-    working_dir: /app
-    volumes:
-      - ./src:/app/src:ro
-      - ./out:/app/out
-    command: sh -c "javac src/*.java -d out && echo '✅ Compilado correctamente'"
-    profiles:
-      - tools
-
-  # -----------------------------------------
-  # Herramientas: solo ejecutar
-  # -----------------------------------------
-  run:
-    image: eclipse-temurin:21-jdk-alpine
-    working_dir: /app
-    volumes:
-      - ./out:/app/out:ro
-    env_file:
-      - .env
-    command: java -cp out Main
-    profiles:
-      - tools
-
-# Sin volúmenes nombrados ni redes personalizadas
-# (se usarán las opciones por defecto de Docker)
+# ════════════════════════════════════════════════════════════════════════════
+# VERIFICACIÓN:
+#
+# 1. Valida la sintaxis:
+#    docker compose config
+#
+# 2. Prueba el servicio dev:
+#    docker compose run --rm dev
+#    (dentro del contenedor: javac src/Main.java -d out && java -cp out Main)
+#
+# 3. Prueba el servicio app:
+#    docker compose up app
+#
+# ════════════════════════════════════════════════════════════════════════════
+#
+# DESAFÍO EXTRA:
+# Agrega un tercer servicio llamado "compile" que SOLO compile el código
+# sin ejecutarlo. Usa profiles para que no se ejecute por defecto:
+#   profiles:
+#     - tools
+# Ejecución: docker compose --profile tools run --rm compile
+#
+# ════════════════════════════════════════════════════════════════════════════

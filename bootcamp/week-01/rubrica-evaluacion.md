@@ -93,40 +93,50 @@
 
 ### Entregables
 
+> ⚠️ **IMPORTANTE**: Los archivos del proyecto son **plantillas con TODOs** que el estudiante debe completar. El objetivo es escribir el código, no copiarlo.
+
 | Entregable | Puntos | Descripción |
 |------------|--------|-------------|
-| docker-compose.yml | 12 | Archivo funcional con JDK 21 |
-| Programa Java | 10 | HelloWorld que muestre info del sistema |
-| Documento REST | 8 | Resumen de principios REST |
+| Dockerfile | 10 | Completar todos los TODOs (7 instrucciones) |
+| docker-compose.yml | 10 | Completar servicios dev y app |
+| Main.java | 10 | Completar los 9 TODOs del programa |
 | **Total** | **30** | |
 
-### Rúbrica: docker-compose.yml (12 puntos)
-
-| Criterio | Excelente (12) | Bueno (9-11) | Suficiente (7-8) | Insuficiente (<7) |
-|----------|----------------|--------------|------------------|-------------------|
-| Sintaxis | YAML válido sin errores | 1-2 errores menores | Errores que requieren corrección | Sintaxis incorrecta |
-| Servicios | Define servicios correctamente | Servicios funcionales con mejoras posibles | Servicios básicos | No define servicios |
-| Volúmenes | Usa volúmenes para código fuente | Volúmenes configurados | Volúmenes básicos | Sin volúmenes |
-| Variables | Usa .env o environment | Variables definidas | Variables básicas | Sin variables |
-| Ejecutable | `docker compose up` funciona | Funciona con ajustes menores | Funciona con ayuda | No funciona |
-
-### Rúbrica: Programa Java (10 puntos)
+### Rúbrica: Dockerfile (10 puntos)
 
 | Criterio | Excelente (10) | Bueno (7-9) | Suficiente (5-6) | Insuficiente (<5) |
-|----------|----------------|-------------|------------------|-------------------|
-| Compila | Sin errores | Warnings menores | Requiere correcciones | No compila |
-| Ejecuta | Muestra información del sistema | Ejecuta correctamente | Ejecuta con errores menores | No ejecuta |
-| Código | Limpio, comentado, bien estructurado | Legible con mejoras | Funcional pero desordenado | Difícil de leer |
-| Funcionalidad | Lee variables de entorno + argumentos | Lee variables de entorno | Muestra info básica | Solo "Hello World" |
+|----------|----------------|--------------|------------------|-------------------|
+| Imagen base | FROM correcto | FROM con tag incorrecto | FROM incompleto | Sin FROM |
+| Metadatos | LABEL con 3+ campos | LABEL con 2 campos | LABEL básico | Sin LABEL |
+| Directorio | WORKDIR correcto | WORKDIR con path diferente | WORKDIR con errores | Sin WORKDIR |
+| Directorios | RUN mkdir correcto | Crea directorios parciales | Sintaxis incorrecta | No crea directorios |
+| Variables | ENV con 3+ variables | ENV con 2 variables | ENV básico | Sin variables |
+| Puerto | EXPOSE 8080 | EXPOSE otro puerto | Sintaxis incorrecta | Sin EXPOSE |
+| Comando | CMD correcto | CMD alternativo válido | CMD con errores | Sin CMD |
+| Funcionalidad | `docker build` exitoso | Build con warnings | Build con errores menores | No compila |
 
-### Rúbrica: Documento REST (8 puntos)
+### Rúbrica: docker-compose.yml (10 puntos)
 
-| Criterio | Excelente (8) | Bueno (6-7) | Suficiente (4-5) | Insuficiente (<4) |
-|----------|---------------|-------------|------------------|-------------------|
-| Contenido | Cubre los 6 principios REST | Cubre principios principales | Cubre conceptos básicos | Incompleto |
-| Claridad | Explicaciones claras con ejemplos | Explicaciones claras | Explicaciones básicas | Confuso |
-| Formato | Bien estructurado con tablas/listas | Buena estructura | Estructura básica | Sin estructura |
-| Ejemplos | Incluye ejemplos de endpoints | Algunos ejemplos | Pocos ejemplos | Sin ejemplos |
+| Criterio | Excelente (10) | Bueno (7-9) | Suficiente (5-6) | Insuficiente (<5) |
+|----------|----------------|--------------|------------------|-------------------|
+| Servicio dev | Completo y funcional | Funcional con mejoras | Parcialmente completo | Incompleto |
+| Servicio app | Completo con compile+run | Solo compila o solo ejecuta | Parcialmente funcional | No implementado |
+| Volúmenes | Correctos y con :ro donde aplica | Volúmenes básicos | Volúmenes con errores | Sin volúmenes |
+| Variables | env_file configurado | Variables directas | Parcial | Sin variables |
+| Interactivo | stdin_open y tty | Solo uno de los dos | Configuración diferente | Sin configurar |
+| Sintaxis | `docker compose config` OK | Warnings menores | Errores menores | No valida |
+
+### Rúbrica: Main.java (10 puntos)
+
+| Criterio | Excelente (10) | Bueno (7-9) | Suficiente (5-6) | Insuficiente (<5) |
+|----------|----------------|--------------|------------------|-------------------|
+| Banner | Personalizado y decorado | Banner básico | Solo println | Sin banner |
+| System Info | 5+ propiedades mostradas | 3-4 propiedades | 1-2 propiedades | Sin info |
+| Env Vars | 3+ variables con manejo null | 2 variables | 1 variable | Sin variables |
+| Argumentos | Loop con formato [i] | Loop básico | Impresión directa | Sin argumentos |
+| Compila | Sin errores ni warnings | Warnings menores | Requiere correcciones | No compila |
+| Estructura | Métodos bien organizados | Métodos básicos | Todo en main | Desordenado |
+| Desafío extra | Implementa 1+ extras | Intenta extras | No implementa | - |
 
 ---
 
@@ -135,12 +145,27 @@
 ### Estructura esperada
 ```
 entrega-semana01/
-├── docker-compose.yml
-├── .env
-├── src/
-│   └── Main.java
-└── docs/
-    └── REST-PRINCIPLES.md
+├── Dockerfile              # Completado por el estudiante
+├── docker-compose.yml      # Completado por el estudiante
+├── .env                    # Configuración personalizada
+└── src/
+    └── Main.java           # Completado por el estudiante
+```
+
+### Verificación antes de entregar
+```bash
+# 1. El Dockerfile debe construir correctamente
+docker build -t mi-proyecto .
+
+# 2. El docker-compose debe validar sin errores
+docker compose config
+
+# 3. El programa debe compilar y ejecutar
+docker compose run --rm dev
+# Dentro del contenedor:
+javac src/Main.java -d out
+java -cp out Main
+java -cp out Main arg1 arg2
 ```
 
 ### Método de entrega
@@ -179,12 +204,31 @@ entrega-semana01/
 
 Antes de entregar, verifica:
 
-- [ ] Docker Desktop instalado y funcionando
-- [ ] `docker compose up` ejecuta sin errores
-- [ ] Programa Java compila y muestra información
-- [ ] Documento REST incluye los principios principales
-- [ ] Archivos organizados según estructura solicitada
-- [ ] Código con nomenclatura en inglés
+**Dockerfile:**
+- [ ] Tiene instrucción FROM con imagen Java
+- [ ] Tiene al menos 2 LABEL (maintainer, description)
+- [ ] Tiene WORKDIR /app
+- [ ] Crea directorios con RUN mkdir
+- [ ] Define variables con ENV
+- [ ] Tiene EXPOSE 8080
+- [ ] Tiene CMD ["bash"]
+- [ ] `docker build -t mi-proyecto .` funciona
+
+**docker-compose.yml:**
+- [ ] Servicio `dev` completo y funcional
+- [ ] Servicio `app` compila y ejecuta
+- [ ] Volúmenes montados correctamente
+- [ ] Variables de entorno configuradas
+- [ ] `docker compose config` no muestra errores
+
+**Main.java:**
+- [ ] Compila sin errores: `javac src/Main.java -d out`
+- [ ] Muestra banner personalizado con mi nombre
+- [ ] Muestra 5+ propiedades del sistema
+- [ ] Muestra 3+ variables de entorno
+- [ ] Maneja null en variables de entorno
+- [ ] Muestra argumentos si se proporcionan
+- [ ] Código organizado en métodos
 
 ---
 

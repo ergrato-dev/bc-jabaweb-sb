@@ -2,116 +2,157 @@
 
 ## 🎯 Descripción
 
-Este proyecto demuestra la configuración de un entorno de desarrollo Java containerizado usando Docker y Docker Compose. Es el punto de partida para el desarrollo de APIs REST con Spring Boot.
+Este proyecto es un **ejercicio de integración** donde aplicarás todos los conceptos aprendidos durante la semana. Los archivos están diseñados como **plantillas con TODOs** que debes completar.
+
+> ⚠️ **IMPORTANTE**: No copies y pegues código. El objetivo es que escribas cada línea para reforzar tu aprendizaje.
+
+## 🏆 Objetivos del Proyecto
+
+Al completar este proyecto, habrás demostrado que puedes:
+
+1. ✅ Escribir un **Dockerfile** funcional desde cero
+2. ✅ Configurar **Docker Compose** para desarrollo Java
+3. ✅ Crear un programa Java que lea **propiedades del sistema**
+4. ✅ Usar **variables de entorno** en contenedores
+5. ✅ Integrar todos los conceptos de la semana
 
 ## 📁 Estructura del Proyecto
 
 ```
 3-proyecto/
-├── README.md           # Este archivo
-├── Dockerfile          # Construcción de imagen personalizada
-├── docker-compose.yml  # Orquestación de servicios
-├── .env.example        # Variables de entorno de ejemplo
+├── README.md           # Este archivo (instrucciones)
+├── Dockerfile          # 📝 EJERCICIO: Completa los TODOs
+├── docker-compose.yml  # 📝 EJERCICIO: Completa los TODOs
+├── .env.example        # Copia a .env y personaliza
 ├── .gitignore          # Archivos a ignorar
 ├── src/
-│   └── Main.java       # Programa de demostración
+│   └── Main.java       # 📝 EJERCICIO: Completa los TODOs
 ├── docs/
 │   └── COMMANDS.md     # Referencia de comandos
-└── out/                # Archivos compilados (ignorado por git)
+└── out/                # Archivos compilados (se genera automáticamente)
 ```
 
-## 🚀 Inicio Rápido
+## 🚀 Instrucciones Paso a Paso
 
-### Prerrequisitos
-
-- Docker Desktop instalado y funcionando
-- Terminal (bash, zsh, PowerShell)
-
-### Ejecutar el proyecto
+### Paso 1: Preparar el entorno
 
 ```bash
-# 1. Copiar archivo de variables de entorno
+# 1. Entra a la carpeta del proyecto
+cd bootcamp/week-01/3-proyecto
+
+# 2. Copia el archivo de variables de entorno
 cp .env.example .env
 
-# 2. Ejecutar la aplicación
-docker compose up app
-
-# 3. (Alternativa) Entorno de desarrollo interactivo
-docker compose run --rm dev
+# 3. Edita .env con tus datos (opcional)
+nano .env   # o usa tu editor favorito
 ```
 
-## 📋 Comandos Disponibles
+### Paso 2: Completa el Dockerfile
 
-### Usando Docker Compose
+Abre `Dockerfile` y completa cada TODO siguiendo las instrucciones en los comentarios.
+
+**Conceptos que aplicarás:**
+- FROM, LABEL, WORKDIR, RUN, ENV, EXPOSE, CMD
+
+**Verificación:**
+```bash
+# Valida que el Dockerfile esté correcto
+docker build -t bootcamp-java .
+
+# Si funciona, verás "Successfully built..."
+```
+
+### Paso 3: Completa el docker-compose.yml
+
+Abre `docker-compose.yml` y completa cada TODO.
+
+**Conceptos que aplicarás:**
+- services, image, container_name, working_dir
+- volumes, env_file, stdin_open, tty, command
+
+**Verificación:**
+```bash
+# Valida la sintaxis
+docker compose config
+
+# Si hay errores, revisa la indentación (usa espacios, no tabs)
+```
+
+### Paso 4: Completa Main.java
+
+Abre `src/Main.java` y completa los 9 TODOs.
+
+**Conceptos que aplicarás:**
+- System.getProperty() para propiedades del sistema
+- System.getenv() para variables de entorno
+- Manejo de argumentos con args[]
+- Bucles for y condicionales if
+
+### Paso 5: Compila y ejecuta
 
 ```bash
-# Ejecutar aplicación completa (compila + ejecuta)
-docker compose up app
-
-# Solo compilar
-docker compose --profile tools run --rm compile
-
-# Solo ejecutar (requiere compilar primero)
-docker compose --profile tools run --rm run
-
-# Entorno de desarrollo interactivo
+# Opción A: Usando el servicio de desarrollo
 docker compose run --rm dev
 
-# Detener todos los servicios
-docker compose down
+# Dentro del contenedor:
+javac src/Main.java -d out
+java -cp out Main
+java -cp out Main arg1 arg2   # con argumentos
+exit
 
-# Ver logs
-docker compose logs app
-
-# Reconstruir imagen
-docker compose build
+# Opción B: Usando el servicio app (si lo completaste)
+docker compose up app
 ```
 
-### Limpieza
+## ✅ Checklist de Verificación
 
-```bash
-# Eliminar contenedores
-docker compose down
+Antes de entregar, asegúrate de que:
 
-# Eliminar archivos compilados
-rm -rf out
+- [ ] `docker build -t bootcamp-java .` funciona sin errores
+- [ ] `docker compose config` no muestra errores
+- [ ] `docker compose run --rm dev` inicia un contenedor
+- [ ] El programa compila: `javac src/Main.java -d out`
+- [ ] El programa ejecuta y muestra:
+  - [ ] Banner de bienvenida con tu nombre
+  - [ ] Información del sistema (Java version, OS, etc.)
+  - [ ] Variables de entorno (APP_NAME, APP_VERSION, APP_ENV)
+  - [ ] Argumentos (si se proporcionan)
 
-# Eliminar todo (contenedores + volúmenes)
-docker compose down -v
-```
+## 🔧 Troubleshooting
 
-## 🔧 Configuración
+### "No source image provided with `FROM`"
+- Revisa el TODO 1 en el Dockerfile
+- Asegúrate de escribir: `FROM eclipse-temurin:21-jdk`
 
-### Variables de Entorno (.env)
+### "Incorrect type. Expected string"
+- El YAML requiere valores después de los dos puntos
+- Ejemplo: `image: eclipse-temurin:21-jdk` (no dejes el valor vacío)
 
-| Variable | Descripción | Valor por defecto |
-|----------|-------------|-------------------|
-| `APP_NAME` | Nombre de la aplicación | Bootcamp Java Web |
-| `APP_VERSION` | Versión | 1.0.0 |
-| `APP_ENV` | Entorno (development/production) | development |
-| `JAVA_OPTS` | Opciones de JVM | -Xmx256m |
+### "javac: file not found: src/Main.java"
+- Verifica que estés en el directorio correcto (/app)
+- Verifica que los volúmenes estén bien configurados
 
-## 📝 Notas
+### El programa compila pero no muestra variables de entorno
+- Verifica que hayas copiado `.env.example` a `.env`
+- Verifica que `env_file: - .env` esté en docker-compose.yml
 
-- Este proyecto usa **JDK 21** (Eclipse Temurin)
-- Los archivos fuente están en `src/`
-- Los archivos compilados se guardan en `out/`
-- El directorio `out/` está ignorado por git
+## 📚 Recursos de Ayuda
 
-## 🎓 Objetivos de Aprendizaje
+- [docs/COMMANDS.md](docs/COMMANDS.md) - Referencia de comandos
+- [Dockerfile Reference](https://docs.docker.com/engine/reference/dockerfile/)
+- [Docker Compose Reference](https://docs.docker.com/compose/compose-file/)
 
-Al completar este proyecto, deberías ser capaz de:
+## 🎓 Criterios de Evaluación
 
-1. ✅ Entender la estructura de un proyecto Docker para Java
-2. ✅ Usar Docker Compose para gestionar servicios
-3. ✅ Configurar variables de entorno
-4. ✅ Compilar y ejecutar programas Java en contenedores
-5. ✅ Mantener un entorno de desarrollo reproducible
+| Criterio | Puntos |
+|----------|--------|
+| Dockerfile completo y funcional | 4 |
+| docker-compose.yml con 2 servicios | 4 |
+| Main.java con todas las funciones | 4 |
+| Programa ejecuta correctamente | 3 |
+| Código limpio y comentado | 2 |
+| **Total** | **17** |
 
 ---
 
-## 📚 Recursos
-
-- [Docker Documentation](https://docs.docker.com/)
-- [Docker Compose Documentation](https://docs.docker.com/compose/)
-- [Eclipse Temurin](https://adoptium.net/)
+> 💡 **Consejo**: Si te atascas, revisa el material de teoría y las prácticas. Todos los conceptos necesarios están explicados ahí.

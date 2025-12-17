@@ -1,128 +1,146 @@
 /**
  * Bootcamp Java Web con Spring Boot
- * Semana 01 - Proyecto: Entorno Docker
+ * Semana 01 - Proyecto Integrador: Entorno Docker
  * 
- * Este programa demuestra:
- * - Ejecución de Java en contenedores Docker
- * - Lectura de variables de entorno
- * - Información del sistema
+ * ╔════════════════════════════════════════════════════════════════╗
+ * ║  INSTRUCCIONES: Completa los TODOs para crear tu programa     ║
+ * ║  que demuestre el uso de Docker y variables de entorno.       ║
+ * ╚════════════════════════════════════════════════════════════════╝
  * 
- * @author Bootcamp Java Web
+ * OBJETIVOS:
+ * 1. Mostrar un banner de bienvenida
+ * 2. Leer y mostrar propiedades del sistema (System.getProperty)
+ * 3. Leer y mostrar variables de entorno (System.getenv)
+ * 4. Procesar argumentos de línea de comandos (args)
+ * 
+ * PISTAS:
+ * - System.getProperty("java.version") → versión de Java
+ * - System.getProperty("os.name") → nombre del sistema operativo
+ * - System.getenv("NOMBRE_VAR") → valor de variable de entorno
+ * - args.length → cantidad de argumentos recibidos
+ * - args[i] → argumento en posición i
+ * 
+ * @author [Tu nombre aquí]
  * @version 1.0.0
  */
 public class Main {
     
-    // Constantes para formato de salida
-    private static final String LINE = "═".repeat(50);
-    private static final String THIN_LINE = "─".repeat(50);
-    
     public static void main(String[] args) {
-        printBanner();
-        printSystemInfo();
-        printEnvironmentInfo();
+        // TODO 1: Llama al método que imprime el banner
+        // Pista: printBanner();
         
-        if (args.length > 0) {
-            printArguments(args);
-        }
+        // TODO 2: Llama al método que muestra información del sistema
         
-        printFooter();
+        // TODO 3: Llama al método que muestra variables de entorno
+        
+        // TODO 4: Si hay argumentos (args.length > 0), muéstralos
+        // Pista: usa un if y llama a printArguments(args)
+        
+        // TODO 5: Imprime un mensaje de despedida
+        System.out.println("\n✅ Programa completado");
     }
     
     /**
-     * Imprime el banner de bienvenida
+     * TODO 6: Implementa este método para mostrar un banner de bienvenida
+     * 
+     * Debe imprimir algo como:
+     * ════════════════════════════════════════
+     *   BOOTCAMP JAVA WEB - SEMANA 01
+     *   [Tu nombre]
+     * ════════════════════════════════════════
+     * 
+     * Pista: usa System.out.println() múltiples veces
      */
     private static void printBanner() {
-        System.out.println();
-        System.out.println("╔" + LINE + "╗");
-        System.out.println("║" + center("BOOTCAMP JAVA WEB", 50) + "║");
-        System.out.println("║" + center("con Spring Boot", 50) + "║");
-        System.out.println("╠" + LINE + "╣");
-        System.out.println("║" + center("Semana 01: Docker + Fundamentos REST", 50) + "║");
-        System.out.println("╚" + LINE + "╝");
-        System.out.println();
+        // Escribe tu código aquí
+        
     }
     
     /**
-     * Imprime información del sistema Java
+     * TODO 7: Implementa este método para mostrar información del sistema
+     * 
+     * Debe mostrar al menos:
+     * - Versión de Java: System.getProperty("java.version")
+     * - Vendor de Java: System.getProperty("java.vendor")
+     * - Sistema Operativo: System.getProperty("os.name")
+     * - Arquitectura: System.getProperty("os.arch")
+     * - Directorio actual: System.getProperty("user.dir")
+     * 
+     * Formato sugerido:
+     *   Java Version : 21.0.1
+     *   OS Name      : Linux
      */
     private static void printSystemInfo() {
-        System.out.println("📋 Información del Sistema");
-        System.out.println(THIN_LINE);
-        printProperty("Java Version", "java.version");
-        printProperty("Java Vendor", "java.vendor");
-        printProperty("Java Home", "java.home");
-        printProperty("OS Name", "os.name");
-        printProperty("OS Version", "os.version");
-        printProperty("OS Arch", "os.arch");
-        printProperty("User Name", "user.name");
-        printProperty("User Dir", "user.dir");
-        System.out.println();
+        System.out.println("\n📋 Información del Sistema");
+        System.out.println("─".repeat(40));
+        
+        // TODO: Obtén e imprime cada propiedad
+        // Ejemplo: String javaVersion = System.getProperty("java.version");
+        //          System.out.println("   Java Version : " + javaVersion);
+        
     }
     
     /**
-     * Imprime las variables de entorno configuradas
+     * TODO 8: Implementa este método para mostrar variables de entorno
+     * 
+     * Debe mostrar las variables definidas en .env:
+     * - APP_NAME
+     * - APP_VERSION  
+     * - APP_ENV
+     * 
+     * IMPORTANTE: System.getenv() puede retornar null si la variable
+     * no existe. Maneja ese caso mostrando "(no definida)".
+     * 
+     * Pista: 
+     *   String valor = System.getenv("APP_NAME");
+     *   if (valor != null) { ... } else { ... }
+     * 
+     * O usando el operador ternario:
+     *   String resultado = (valor != null) ? valor : "(no definida)";
      */
     private static void printEnvironmentInfo() {
-        System.out.println("🔧 Variables de Entorno");
-        System.out.println(THIN_LINE);
-        printEnvVar("APP_NAME", "(no configurada)");
-        printEnvVar("APP_VERSION", "0.0.0");
-        printEnvVar("APP_ENV", "unknown");
-        printEnvVar("JAVA_OPTS", "(por defecto)");
-        System.out.println();
+        System.out.println("\n🔧 Variables de Entorno");
+        System.out.println("─".repeat(40));
+        
+        // TODO: Obtén e imprime cada variable de entorno
+        
     }
     
     /**
-     * Imprime los argumentos de línea de comandos
-     * @param args argumentos recibidos
+     * TODO 9: Implementa este método para mostrar los argumentos recibidos
+     * 
+     * @param args los argumentos de línea de comandos
+     * 
+     * Debe mostrar cada argumento con su índice:
+     *   [0] primer_argumento
+     *   [1] segundo_argumento
+     * 
+     * Pista: usa un bucle for
+     *   for (int i = 0; i < args.length; i++) {
+     *       // args[i] es el argumento en posición i
+     *   }
      */
     private static void printArguments(String[] args) {
-        System.out.println("📝 Argumentos de Línea de Comandos");
-        System.out.println(THIN_LINE);
-        for (int i = 0; i < args.length; i++) {
-            System.out.printf("   [%d] %s%n", i, args[i]);
-        }
-        System.out.println();
+        System.out.println("\n📝 Argumentos recibidos");
+        System.out.println("─".repeat(40));
+        
+        // TODO: Recorre e imprime cada argumento
+        
     }
     
-    /**
-     * Imprime el pie del programa
-     */
-    private static void printFooter() {
-        System.out.println(THIN_LINE);
-        System.out.println("✅ Entorno Docker configurado correctamente");
-        System.out.println("🚀 ¡Listo para comenzar el bootcamp!");
-        System.out.println();
-    }
-    
-    // ==========================================
-    // Métodos auxiliares
-    // ==========================================
-    
-    /**
-     * Imprime una propiedad del sistema
-     */
-    private static void printProperty(String label, String propertyName) {
-        String value = System.getProperty(propertyName, "(no disponible)");
-        System.out.printf("   %-12s : %s%n", label, value);
-    }
-    
-    /**
-     * Imprime una variable de entorno
-     */
-    private static void printEnvVar(String name, String defaultValue) {
-        String value = System.getenv(name);
-        System.out.printf("   %-12s : %s%n", name, value != null ? value : defaultValue);
-    }
-    
-    /**
-     * Centra un texto en un ancho dado
-     */
-    private static String center(String text, int width) {
-        if (text.length() >= width) {
-            return text.substring(0, width);
-        }
-        int padding = (width - text.length()) / 2;
-        return " ".repeat(padding) + text + " ".repeat(width - text.length() - padding);
-    }
+    // ════════════════════════════════════════════════════════════════
+    // DESAFÍO EXTRA (opcional):
+    // ════════════════════════════════════════════════════════════════
+    // 
+    // 1. Crea un método "printSeparator()" que imprima una línea
+    //    decorativa y úsalo para separar secciones.
+    // 
+    // 2. Agrega un método que calcule y muestre:
+    //    - Memoria total disponible: Runtime.getRuntime().totalMemory()
+    //    - Memoria libre: Runtime.getRuntime().freeMemory()
+    //    - Procesadores disponibles: Runtime.getRuntime().availableProcessors()
+    // 
+    // 3. Implementa un método "center(String text, int width)" que
+    //    centre un texto en un ancho dado (para hacer banners bonitos).
+    // ════════════════════════════════════════════════════════════════
 }
