@@ -40,29 +40,38 @@ Al finalizar esta semana, serás capaz de:
 ```
 week-01/
 ├── README.md                    # Este archivo
-├── rubrica-evaluacion.md        # Criterios de evaluación
-├── 0-assets/                    # Imágenes y diagramas
-│   ├── docker-architecture.svg
-│   ├── client-server.svg
-│   ├── http-request-response.svg
-│   └── rest-principles.svg
+├── rubrica-evaluacion.md        # Criterios de evaluación (30% conocimiento, 40% desempeño, 30% producto)
+├── 0-assets/                    # Imágenes y diagramas SVG
+│   ├── 01-docker-containers.svg
+│   ├── 02-docker-image-layers.svg
+│   ├── 03-docker-container-layers.svg
+│   ├── 04-docker-volumes.svg
+│   ├── 05-client-server-architecture.svg
+│   ├── 06-http-request-response.svg
+│   ├── 07-http-methods-crud.svg
+│   └── 08-http-status-codes.svg
 ├── 1-teoria/                    # Material teórico
-│   ├── 01-docker-fundamentos.md
-│   ├── 02-arquitectura-web-http.md
-│   └── 03-principios-rest.md
+│   ├── 01-docker-fundamentos.md    # Docker: conceptos, instalación, comandos
+│   ├── 02-arquitectura-web-http.md # Cliente-servidor, HTTP, JSON
+│   └── 03-principios-rest.md       # 6 principios REST, URIs, Richardson
 ├── 2-practicas/                 # Ejercicios prácticos
-│   ├── 01-docker-primeros-pasos.md
-│   └── 02-docker-compose-java.md
+│   ├── 01-docker-primeros-pasos.md # 7 ejercicios: imágenes, contenedores, volúmenes
+│   └── 02-docker-compose-java.md   # Docker Compose para desarrollo Java
 ├── 3-proyecto/                  # Proyecto de la semana
-│   ├── README.md
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   └── HelloWorld.java
+│   ├── README.md                   # Instrucciones del proyecto
+│   ├── Dockerfile                  # Imagen personalizada Java
+│   ├── docker-compose.yml          # Orquestación de servicios
+│   ├── .env.example                # Variables de entorno
+│   ├── .gitignore                  # Archivos a ignorar
+│   ├── src/
+│   │   └── Main.java               # Programa de demostración
+│   └── docs/
+│       └── COMMANDS.md             # Referencia de comandos
 ├── 4-recursos/                  # Material complementario
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/                  # Términos clave
+│   ├── ebooks-free/                # Libros electrónicos gratuitos
+│   ├── videografia/                # Videos y tutoriales recomendados
+│   └── webgrafia/                  # Enlaces y documentación
+└── 5-glosario/                  # Términos clave A-Z
     └── README.md
 ```
 

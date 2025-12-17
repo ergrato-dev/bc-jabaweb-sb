@@ -1,0 +1,109 @@
+# ============================================
+# Bootcamp Java Web - Semana 01
+# Docker Compose para desarrollo Java
+# ============================================
+# 
+# Uso:
+#   docker compose up app          - Compilar y ejecutar
+#   docker compose run --rm dev    - Entorno de desarrollo
+#   docker compose --profile tools run --rm compile - Solo compilar
+#   docker compose --profile tools run --rm run     - Solo ejecutar
+#
+# ============================================
+
+services:
+  # -----------------------------------------
+  # Servicio principal: compila y ejecuta
+  # -----------------------------------------
+  app:
+    image: eclipse-temurin:21-jdk-alpine
+    container_name: week01-app
+    working_dir: /app
+    volumes:
+      - ./src:/app/src:ro       # Código fuente (solo lectura)
+      - ./out:/app/out          # Archivos compilados
+    env_file:
+      - .env
+    command: >
+      sh -c "
+        echo '════════════════════════════════════════════════' &&
+        echo '  Bootcamp Java Web - Semana 01' &&
+        echo '════════════════════════════════════════════════' &&
+        echo '' &&
+        echo '🔨 Compilando...' &&
+        javac src/*.java -d out 2>&1 &&
+        if [ $$? -eq 0 ]; then
+          echo '✅ Compilación exitosa' &&
+          echo '' &&
+          echo '🚀 Ejecutando...' &&
+          echo '' &&
+          java $${JAVA_OPTS} -cp out Main
+        else
+          echo '❌ Error de compilación'
+          exit 1
+        fi
+      "
+
+  # -----------------------------------------
+  # Entorno de desarrollo interactivo
+  # -----------------------------------------
+  dev:
+    image: eclipse-temurin:21-jdk
+    container_name: week01-dev
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./out:/app/out
+      - ./docs:/app/docs
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    command: bash
+
+  # -----------------------------------------
+  # Usar imagen personalizada (opcional)
+  # -----------------------------------------
+  custom:
+    build: .
+    container_name: week01-custom
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./out:/app/out
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    profiles:
+      - custom
+
+  # -----------------------------------------
+  # Herramientas: solo compilar
+  # -----------------------------------------
+  compile:
+    image: eclipse-temurin:21-jdk-alpine
+    working_dir: /app
+    volumes:
+      - ./src:/app/src:ro
+      - ./out:/app/out
+    command: sh -c "javac src/*.java -d out && echo '✅ Compilado correctamente'"
+    profiles:
+      - tools
+
+  # -----------------------------------------
+  # Herramientas: solo ejecutar
+  # -----------------------------------------
+  run:
+    image: eclipse-temurin:21-jdk-alpine
+    working_dir: /app
+    volumes:
+      - ./out:/app/out:ro
+    env_file:
+      - .env
+    command: java -cp out Main
+    profiles:
+      - tools
+
+# Sin volúmenes nombrados ni redes personalizadas
+# (se usarán las opciones por defecto de Docker)

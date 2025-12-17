@@ -1,0 +1,64 @@
+# ============================================
+# Bootcamp Java Web - Semana 01
+# Archivos a ignorar por Git
+# ============================================
+
+# Archivos compilados de Java
+out/
+*.class
+*.jar
+*.war
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+
+# Sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Variables de entorno con datos sensibles
+.env
+.env.local
+.env.*.local
+
+# Directorios temporales
+tmp/
+temp/
+
+# Maven (para futuras semanas)
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+
+# Gradle (si se usa)
+.gradle/
+build/
