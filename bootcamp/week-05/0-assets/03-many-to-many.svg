@@ -1,0 +1,101 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .title { font: bold 18px sans-serif; fill: #e0e0e0; }
+        .subtitle { font: 14px sans-serif; fill: #b0b0b0; }
+        .label { font: 12px sans-serif; fill: #ffffff; }
+        .code { font: 10px monospace; fill: #4fc3f7; }
+        .annotation { font: 10px monospace; fill: #ce93d8; }
+        .box { rx: 6; ry: 6; }
+    </style>
+
+    <rect width="800" height="500" fill="#1e1e1e" />
+
+    <text x="400" y="30" text-anchor="middle" class="title">@ManyToMany - Relación con Tabla
+        Intermedia</text>
+
+    <!-- Task Entity -->
+    <rect x="30" y="55" width="280" height="200" fill="#2d2d2d" class="box" stroke="#2196f3"
+        stroke-width="2" />
+    <rect x="30" y="55" width="280" height="28" fill="#2196f3" class="box" />
+    <text x="170" y="75" text-anchor="middle" class="label">Task.java (Lado propietario)</text>
+
+    <text x="45" y="100" class="annotation">@Entity</text>
+    <text x="45" y="115" class="code">public class Task {</text>
+    <text x="55" y="130" class="code">private UUID id;</text>
+    <text x="55" y="145" class="code">private String title;</text>
+    <text x="55" y="165" class="annotation">@ManyToMany</text>
+    <text x="55" y="180" class="annotation">@JoinTable(</text>
+    <text x="65" y="195" class="annotation">name = "task_category",</text>
+    <text x="65" y="210" class="annotation">joinColumns = @JoinColumn(name="task_id"),</text>
+    <text x="65" y="225" class="annotation">inverseJoinColumns = @JoinColumn(name="category_id")</text>
+    <text x="55" y="240" class="annotation">)</text>
+    <text x="55" y="250" class="code">private Set&lt;Category&gt; categories;</text>
+
+    <!-- Category Entity -->
+    <rect x="490" y="55" width="280" height="170" fill="#2d2d2d" class="box" stroke="#ff5722"
+        stroke-width="2" />
+    <rect x="490" y="55" width="280" height="28" fill="#ff5722" class="box" />
+    <text x="630" y="75" text-anchor="middle" class="label">Category.java (Lado inverso)</text>
+
+    <text x="505" y="100" class="annotation">@Entity</text>
+    <text x="505" y="115" class="code">public class Category {</text>
+    <text x="515" y="130" class="code">private UUID id;</text>
+    <text x="515" y="145" class="code">private String name;</text>
+    <text x="515" y="160" class="code">private String color;</text>
+    <text x="515" y="180" class="annotation">@ManyToMany(mappedBy = "categories")</text>
+    <text x="515" y="195" class="code">private Set&lt;Task&gt; tasks;</text>
+    <text x="505" y="215" class="code">}</text>
+
+    <!-- Join Table -->
+    <rect x="320" y="100" width="150" height="80" fill="#ff9800" fill-opacity="0.2" class="box"
+        stroke="#ff9800" stroke-width="2" />
+    <text x="395" y="125" text-anchor="middle" class="label" fill="#ff9800">@JoinTable</text>
+    <text x="395" y="145" text-anchor="middle" class="code" fill="#ff9800">task_category</text>
+    <text x="395" y="165" text-anchor="middle" class="subtitle">(Tabla intermedia)</text>
+
+    <!-- Arrows -->
+    <line x1="310" y1="140" x2="320" y2="140" stroke="#ff9800" stroke-width="2" />
+    <line x1="470" y1="140" x2="490" y2="140" stroke="#ff9800" stroke-width="2" />
+
+    <!-- Database Tables -->
+    <text x="400" y="290" text-anchor="middle" class="title">Tablas en PostgreSQL</text>
+
+    <!-- Tasks Table -->
+    <rect x="50" y="310" width="160" height="100" fill="#2d2d2d" class="box" stroke="#2196f3"
+        stroke-width="2" />
+    <rect x="50" y="310" width="160" height="25" fill="#2196f3" class="box" />
+    <text x="130" y="328" text-anchor="middle" class="label">tasks</text>
+    <text x="65" y="355" class="code">id UUID PK</text>
+    <text x="65" y="375" class="code">title VARCHAR</text>
+    <text x="65" y="395" class="code">user_id UUID FK</text>
+
+    <!-- Join Table DB -->
+    <rect x="300" y="310" width="200" height="100" fill="#2d2d2d" class="box" stroke="#ff9800"
+        stroke-width="2" />
+    <rect x="300" y="310" width="200" height="25" fill="#ff9800" class="box" />
+    <text x="400" y="328" text-anchor="middle" class="label">task_category</text>
+    <text x="315" y="355" class="code">task_id UUID FK</text>
+    <text x="315" y="375" class="code">category_id UUID FK</text>
+    <text x="315" y="395" class="code">PK(task_id, category_id)</text>
+
+    <!-- Categories Table -->
+    <rect x="590" y="310" width="160" height="100" fill="#2d2d2d" class="box" stroke="#ff5722"
+        stroke-width="2" />
+    <rect x="590" y="310" width="160" height="25" fill="#ff5722" class="box" />
+    <text x="670" y="328" text-anchor="middle" class="label">categories</text>
+    <text x="605" y="355" class="code">id UUID PK</text>
+    <text x="605" y="375" class="code">name VARCHAR</text>
+    <text x="605" y="395" class="code">color VARCHAR</text>
+
+    <!-- FK Arrows -->
+    <line x1="210" y1="360" x2="300" y2="360" stroke="#ff9800" stroke-width="2"
+        stroke-dasharray="5,5" />
+    <line x1="500" y1="370" x2="590" y2="370" stroke="#ff9800" stroke-width="2"
+        stroke-dasharray="5,5" />
+
+    <!-- Legend -->
+    <rect x="50" y="440" width="700" height="45" fill="#2d2d2d" class="box" />
+    <text x="70" y="460" class="subtitle">💡 El lado propietario (@JoinTable) controla la tabla
+        intermedia.</text>
+    <text x="70" y="478" class="subtitle"> El lado inverso (mappedBy) solo lee la relación.</text>
+</svg>

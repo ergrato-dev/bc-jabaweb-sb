@@ -1,0 +1,85 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .title { font: bold 18px sans-serif; fill: #e0e0e0; }
+        .subtitle { font: 14px sans-serif; fill: #b0b0b0; }
+        .label { font: 12px sans-serif; fill: #ffffff; }
+        .code { font: 11px monospace; fill: #4fc3f7; }
+        .annotation { font: 11px monospace; fill: #ce93d8; }
+        .box { rx: 6; ry: 6; }
+    </style>
+
+    <rect width="800" height="450" fill="#1e1e1e" />
+
+    <text x="400" y="30" text-anchor="middle" class="title">@OneToMany y @ManyToOne - Relación
+        Bidireccional</text>
+
+    <!-- User Entity -->
+    <rect x="50" y="60" width="300" height="180" fill="#2d2d2d" class="box" stroke="#4caf50"
+        stroke-width="2" />
+    <rect x="50" y="60" width="300" height="30" fill="#4caf50" class="box" />
+    <text x="200" y="82" text-anchor="middle" class="label">User.java (Lado "One")</text>
+
+    <text x="65" y="110" class="annotation">@Entity</text>
+    <text x="65" y="125" class="code">public class User {</text>
+    <text x="80" y="145" class="annotation">@Id @GeneratedValue</text>
+    <text x="80" y="160" class="code">private UUID id;</text>
+    <text x="80" y="180" class="code">private String username;</text>
+    <text x="80" y="200" class="annotation">@OneToMany(mappedBy = "user")</text>
+    <text x="80" y="215" class="code">private List&lt;Task&gt; tasks;</text>
+    <text x="65" y="230" class="code">}</text>
+
+    <!-- Task Entity -->
+    <rect x="450" y="60" width="300" height="180" fill="#2d2d2d" class="box" stroke="#2196f3"
+        stroke-width="2" />
+    <rect x="450" y="60" width="300" height="30" fill="#2196f3" class="box" />
+    <text x="600" y="82" text-anchor="middle" class="label">Task.java (Lado "Many")</text>
+
+    <text x="465" y="110" class="annotation">@Entity</text>
+    <text x="465" y="125" class="code">public class Task {</text>
+    <text x="480" y="145" class="annotation">@Id @GeneratedValue</text>
+    <text x="480" y="160" class="code">private UUID id;</text>
+    <text x="480" y="180" class="code">private String title;</text>
+    <text x="480" y="200" class="annotation">@ManyToOne</text>
+    <text x="480" y="215" class="annotation">@JoinColumn(name = "user_id")</text>
+    <text x="480" y="230" class="code">private User user;</text>
+
+    <!-- Arrow -->
+    <line x1="350" y1="150" x2="450" y2="150" stroke="#ff9800" stroke-width="3" />
+    <polygon points="445,145 455,150 445,155" fill="#ff9800" />
+    <text x="400" y="140" text-anchor="middle" class="subtitle">mappedBy</text>
+
+    <!-- Database Tables -->
+    <text x="400" y="280" text-anchor="middle" class="title">Tablas en PostgreSQL</text>
+
+    <!-- Users Table -->
+    <rect x="100" y="300" width="200" height="120" fill="#2d2d2d" class="box" stroke="#4caf50"
+        stroke-width="2" />
+    <rect x="100" y="300" width="200" height="25" fill="#4caf50" class="box" />
+    <text x="200" y="318" text-anchor="middle" class="label">users</text>
+    <text x="115" y="345" class="code">id UUID PK</text>
+    <text x="115" y="365" class="code">username VARCHAR</text>
+    <text x="115" y="385" class="code">email VARCHAR</text>
+    <text x="115" y="405" class="code">created_at TIMESTAMP</text>
+
+    <!-- Tasks Table -->
+    <rect x="500" y="300" width="200" height="120" fill="#2d2d2d" class="box" stroke="#2196f3"
+        stroke-width="2" />
+    <rect x="500" y="300" width="200" height="25" fill="#2196f3" class="box" />
+    <text x="600" y="318" text-anchor="middle" class="label">tasks</text>
+    <text x="515" y="345" class="code">id UUID PK</text>
+    <text x="515" y="365" class="code">title VARCHAR</text>
+    <text x="515" y="385" class="code">user_id UUID FK</text>
+    <text x="515" y="405" class="code">completed BOOLEAN</text>
+
+    <!-- FK Arrow -->
+    <line x1="300" y1="380" x2="500" y2="380" stroke="#ff9800" stroke-width="2"
+        stroke-dasharray="5,5" />
+    <polygon points="495,375 505,380 495,385" fill="#ff9800" />
+    <text x="400" y="370" text-anchor="middle" class="subtitle">Foreign Key</text>
+
+    <!-- Note -->
+    <rect x="320" y="60" width="120" height="40" fill="#ff9800" fill-opacity="0.2" class="box" />
+    <text x="380" y="77" text-anchor="middle" class="code" fill="#ff9800">Dueño de</text>
+    <text x="380" y="92" text-anchor="middle" class="code" fill="#ff9800">la relación</text>
+    <line x1="380" y1="100" x2="450" y2="130" stroke="#ff9800" stroke-width="1" />
+</svg>

@@ -1,0 +1,124 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .title { font: bold 20px sans-serif; fill: #e0e0e0; }
+        .subtitle { font: 14px sans-serif; fill: #b0b0b0; }
+        .label { font: 12px sans-serif; fill: #ffffff; }
+        .code { font: 11px monospace; fill: #4fc3f7; }
+        .arrow { stroke: #ff9800; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+        .box { rx: 8; ry: 8; }
+    </style>
+
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ff9800" />
+        </marker>
+    </defs>
+
+    <rect width="800" height="500" fill="#1e1e1e" />
+
+    <text x="400" y="35" text-anchor="middle" class="title">Tipos de Relaciones en JPA</text>
+
+    <!-- OneToOne -->
+    <rect x="30" y="70" width="170" height="120" fill="#2d2d2d" class="box" stroke="#4caf50"
+        stroke-width="2" />
+    <text x="115" y="95" text-anchor="middle" class="label" fill="#4caf50">@OneToOne</text>
+    <rect x="45" y="110" width="60" height="35" fill="#1a1a1a" class="box" />
+    <text x="75" y="132" text-anchor="middle" class="code">User</text>
+    <rect x="125" y="110" width="60" height="35" fill="#1a1a1a" class="box" />
+    <text x="155" y="132" text-anchor="middle" class="code">Profile</text>
+    <path d="M105 127 L125 127" class="arrow" />
+    <text x="115" y="170" text-anchor="middle" class="subtitle">1:1</text>
+
+    <!-- OneToMany -->
+    <rect x="220" y="70" width="170" height="120" fill="#2d2d2d" class="box" stroke="#2196f3"
+        stroke-width="2" />
+    <text x="305" y="95" text-anchor="middle" class="label" fill="#2196f3">@OneToMany</text>
+    <rect x="235" y="110" width="60" height="35" fill="#1a1a1a" class="box" />
+    <text x="265" y="132" text-anchor="middle" class="code">User</text>
+    <rect x="315" y="105" width="60" height="20" fill="#1a1a1a" class="box" />
+    <text x="345" y="119" text-anchor="middle" class="code">Task</text>
+    <rect x="315" y="130" width="60" height="20" fill="#1a1a1a" class="box" />
+    <text x="345" y="144" text-anchor="middle" class="code">Task</text>
+    <path d="M295 120 L315 112" class="arrow" />
+    <path d="M295 135 L315 140" class="arrow" />
+    <text x="305" y="170" text-anchor="middle" class="subtitle">1:N</text>
+
+    <!-- ManyToOne -->
+    <rect x="410" y="70" width="170" height="120" fill="#2d2d2d" class="box" stroke="#9c27b0"
+        stroke-width="2" />
+    <text x="495" y="95" text-anchor="middle" class="label" fill="#9c27b0">@ManyToOne</text>
+    <rect x="425" y="105" width="60" height="20" fill="#1a1a1a" class="box" />
+    <text x="455" y="119" text-anchor="middle" class="code">Task</text>
+    <rect x="425" y="130" width="60" height="20" fill="#1a1a1a" class="box" />
+    <text x="455" y="144" text-anchor="middle" class="code">Task</text>
+    <rect x="505" y="110" width="60" height="35" fill="#1a1a1a" class="box" />
+    <text x="535" y="132" text-anchor="middle" class="code">User</text>
+    <path d="M485 112 L505 125" class="arrow" />
+    <path d="M485 140 L505 130" class="arrow" />
+    <text x="495" y="170" text-anchor="middle" class="subtitle">N:1</text>
+
+    <!-- ManyToMany -->
+    <rect x="600" y="70" width="170" height="120" fill="#2d2d2d" class="box" stroke="#ff5722"
+        stroke-width="2" />
+    <text x="685" y="95" text-anchor="middle" class="label" fill="#ff5722">@ManyToMany</text>
+    <rect x="615" y="105" width="50" height="20" fill="#1a1a1a" class="box" />
+    <text x="640" y="119" text-anchor="middle" class="code">Task</text>
+    <rect x="615" y="130" width="50" height="20" fill="#1a1a1a" class="box" />
+    <text x="640" y="144" text-anchor="middle" class="code">Task</text>
+    <rect x="705" y="105" width="50" height="20" fill="#1a1a1a" class="box" />
+    <text x="730" y="119" text-anchor="middle" class="code">Cat</text>
+    <rect x="705" y="130" width="50" height="20" fill="#1a1a1a" class="box" />
+    <text x="730" y="144" text-anchor="middle" class="code">Cat</text>
+    <path d="M665 112 L705 112" class="arrow" />
+    <path d="M665 140 L705 140" class="arrow" />
+    <path d="M665 115 L705 137" stroke="#ff9800" stroke-width="1" fill="none" />
+    <path d="M665 137 L705 115" stroke="#ff9800" stroke-width="1" fill="none" />
+    <text x="685" y="170" text-anchor="middle" class="subtitle">N:M</text>
+
+    <!-- Diagrama ER -->
+    <text x="400" y="230" text-anchor="middle" class="title">Modelo del Proyecto</text>
+
+    <!-- User Entity -->
+    <rect x="80" y="260" width="180" height="140" fill="#2d2d2d" class="box" stroke="#4caf50"
+        stroke-width="2" />
+    <rect x="80" y="260" width="180" height="30" fill="#4caf50" class="box" />
+    <text x="170" y="282" text-anchor="middle" class="label">User</text>
+    <text x="95" y="310" class="code">id: UUID (PK)</text>
+    <text x="95" y="330" class="code">username: String</text>
+    <text x="95" y="350" class="code">email: String</text>
+    <text x="95" y="370" class="code">tasks: List&lt;Task&gt;</text>
+
+    <!-- Task Entity -->
+    <rect x="310" y="260" width="180" height="160" fill="#2d2d2d" class="box" stroke="#2196f3"
+        stroke-width="2" />
+    <rect x="310" y="260" width="180" height="30" fill="#2196f3" class="box" />
+    <text x="400" y="282" text-anchor="middle" class="label">Task</text>
+    <text x="325" y="310" class="code">id: UUID (PK)</text>
+    <text x="325" y="330" class="code">title: String</text>
+    <text x="325" y="350" class="code">user_id: UUID (FK)</text>
+    <text x="325" y="370" class="code">user: User</text>
+    <text x="325" y="390" class="code">categories: Set</text>
+
+    <!-- Category Entity -->
+    <rect x="540" y="260" width="180" height="140" fill="#2d2d2d" class="box" stroke="#ff5722"
+        stroke-width="2" />
+    <rect x="540" y="260" width="180" height="30" fill="#ff5722" class="box" />
+    <text x="630" y="282" text-anchor="middle" class="label">Category</text>
+    <text x="555" y="310" class="code">id: UUID (PK)</text>
+    <text x="555" y="330" class="code">name: String</text>
+    <text x="555" y="350" class="code">color: String</text>
+    <text x="555" y="370" class="code">tasks: Set&lt;Task&gt;</text>
+
+    <!-- Relaciones -->
+    <path d="M260 330 L310 330" class="arrow" />
+    <text x="285" y="320" class="subtitle">1:N</text>
+
+    <path d="M490 350 L540 350" class="arrow" />
+    <text x="515" y="340" class="subtitle">N:M</text>
+
+    <!-- Join Table -->
+    <rect x="490" y="430" width="100" height="50" fill="#2d2d2d" class="box" stroke="#ff9800"
+        stroke-width="1" />
+    <text x="540" y="450" text-anchor="middle" class="code">task_category</text>
+    <text x="540" y="470" text-anchor="middle" class="subtitle">(Join Table)</text>
+</svg>

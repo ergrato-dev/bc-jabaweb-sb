@@ -1,0 +1,77 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .title { font: bold 18px sans-serif; fill: #e0e0e0; }
+        .subtitle { font: 14px sans-serif; fill: #b0b0b0; }
+        .label { font: 12px sans-serif; fill: #ffffff; }
+        .code { font: 11px monospace; fill: #4fc3f7; }
+        .box { rx: 8; ry: 8; }
+    </style>
+
+    <rect width="800" height="500" fill="#1e1e1e" />
+
+    <text x="400" y="30" text-anchor="middle" class="title">Docker Networks - Comunicación entre
+        Contenedores</text>
+
+    <!-- Network Box -->
+    <rect x="50" y="50" width="700" height="280" fill="#2d2d2d" class="box" stroke="#2196f3"
+        stroke-width="2" stroke-dasharray="10,5" />
+    <text x="400" y="75" text-anchor="middle" class="label" fill="#2196f3">backend (Custom Bridge
+        Network)</text>
+
+    <!-- API Container -->
+    <rect x="100" y="100" width="180" height="120" fill="#4caf50" fill-opacity="0.2" class="box"
+        stroke="#4caf50" stroke-width="2" />
+    <text x="190" y="125" text-anchor="middle" class="label" fill="#4caf50">taskmanager-api</text>
+    <rect x="120" y="140" width="140" height="60" fill="#1a1a1a" class="box" />
+    <text x="190" y="165" text-anchor="middle" class="code">Spring Boot</text>
+    <text x="190" y="185" text-anchor="middle" class="subtitle">Port: 8080</text>
+
+    <!-- DB Container -->
+    <rect x="520" y="100" width="180" height="120" fill="#ff9800" fill-opacity="0.2" class="box"
+        stroke="#ff9800" stroke-width="2" />
+    <text x="610" y="125" text-anchor="middle" class="label" fill="#ff9800">taskmanager-db</text>
+    <rect x="540" y="140" width="140" height="60" fill="#1a1a1a" class="box" />
+    <text x="610" y="165" text-anchor="middle" class="code">PostgreSQL</text>
+    <text x="610" y="185" text-anchor="middle" class="subtitle">Port: 5432</text>
+
+    <!-- Connection Arrow -->
+    <line x1="280" y1="160" x2="520" y2="160" stroke="#4fc3f7" stroke-width="3" />
+    <polygon points="515,155 525,160 515,165" fill="#4fc3f7" />
+    <text x="400" y="150" text-anchor="middle" class="code">jdbc:postgresql://db:5432</text>
+
+    <!-- DNS Resolution -->
+    <rect x="340" y="180" width="120" height="40" fill="#9c27b0" fill-opacity="0.3" class="box" />
+    <text x="400" y="200" text-anchor="middle" class="label" fill="#9c27b0">DNS Interno</text>
+    <text x="400" y="215" text-anchor="middle" class="code">"db" → IP</text>
+
+    <!-- Volume -->
+    <rect x="540" y="240" width="140" height="50" fill="#ff5722" fill-opacity="0.2" class="box"
+        stroke="#ff5722" stroke-width="1" />
+    <text x="610" y="265" text-anchor="middle" class="code" fill="#ff5722">postgres_data</text>
+    <text x="610" y="280" text-anchor="middle" class="subtitle">(Volume)</text>
+    <line x1="610" y1="220" x2="610" y2="240" stroke="#ff5722" stroke-width="1" />
+
+    <!-- Host -->
+    <rect x="50" y="350" width="700" height="130" fill="#1a1a1a" class="box" stroke="#616161"
+        stroke-width="1" />
+    <text x="100" y="375" class="label" fill="#616161">Host (tu máquina)</text>
+
+    <!-- Port Mappings -->
+    <rect x="100" y="390" width="120" height="70" fill="#2d2d2d" class="box" />
+    <text x="160" y="415" text-anchor="middle" class="subtitle">localhost:8080</text>
+    <text x="160" y="435" text-anchor="middle" class="code">→ api:8080</text>
+    <line x1="160" y1="350" x2="160" y2="390" stroke="#4caf50" stroke-width="2"
+        stroke-dasharray="5,5" />
+
+    <rect x="580" y="390" width="120" height="70" fill="#2d2d2d" class="box" />
+    <text x="640" y="415" text-anchor="middle" class="subtitle">localhost:5432</text>
+    <text x="640" y="435" text-anchor="middle" class="code">→ db:5432</text>
+    <line x1="640" y1="350" x2="640" y2="390" stroke="#ff9800" stroke-width="2"
+        stroke-dasharray="5,5" />
+
+    <!-- Legend -->
+    <rect x="280" y="390" width="240" height="70" fill="#2d2d2d" class="box" />
+    <text x="400" y="415" text-anchor="middle" class="label">Comunicación Interna</text>
+    <text x="400" y="435" text-anchor="middle" class="code">api → db (por nombre de servicio)</text>
+    <text x="400" y="450" text-anchor="middle" class="subtitle">No necesita puerto expuesto</text>
+</svg>

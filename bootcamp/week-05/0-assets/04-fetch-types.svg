@@ -1,0 +1,86 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .title { font: bold 18px sans-serif; fill: #e0e0e0; }
+        .subtitle { font: 14px sans-serif; fill: #b0b0b0; }
+        .label { font: 12px sans-serif; fill: #ffffff; }
+        .code { font: 11px monospace; fill: #4fc3f7; }
+        .good { fill: #4caf50; }
+        .bad { fill: #f44336; }
+        .box { rx: 6; ry: 6; }
+    </style>
+
+    <rect width="800" height="450" fill="#1e1e1e" />
+
+    <text x="400" y="30" text-anchor="middle" class="title">FetchType: LAZY vs EAGER</text>
+
+    <!-- LAZY Section -->
+    <rect x="30" y="50" width="360" height="180" fill="#2d2d2d" class="box" stroke="#4caf50"
+        stroke-width="2" />
+    <rect x="30" y="50" width="360" height="30" fill="#4caf50" class="box" />
+    <text x="210" y="72" text-anchor="middle" class="label">FetchType.LAZY (Recomendado ✅)</text>
+
+    <text x="50" y="100" class="code">@OneToMany(fetch = FetchType.LAZY)</text>
+    <text x="50" y="120" class="code">private List&lt;Task&gt; tasks;</text>
+
+    <text x="50" y="150" class="subtitle">• Carga bajo demanda (cuando se accede)</text>
+    <text x="50" y="170" class="subtitle">• Menor uso de memoria</text>
+    <text x="50" y="190" class="subtitle">• Mejor rendimiento inicial</text>
+    <text x="50" y="210" class="subtitle">• Default para @OneToMany, @ManyToMany</text>
+
+    <!-- EAGER Section -->
+    <rect x="410" y="50" width="360" height="180" fill="#2d2d2d" class="box" stroke="#ff9800"
+        stroke-width="2" />
+    <rect x="410" y="50" width="360" height="30" fill="#ff9800" class="box" />
+    <text x="590" y="72" text-anchor="middle" class="label">FetchType.EAGER (Con cuidado ⚠️)</text>
+
+    <text x="430" y="100" class="code">@ManyToOne(fetch = FetchType.EAGER)</text>
+    <text x="430" y="120" class="code">private User user;</text>
+
+    <text x="430" y="150" class="subtitle">• Carga inmediata (con la entidad padre)</text>
+    <text x="430" y="170" class="subtitle">• Puede causar N+1 queries</text>
+    <text x="430" y="190" class="subtitle">• Mayor uso de memoria</text>
+    <text x="430" y="210" class="subtitle">• Default para @ManyToOne, @OneToOne</text>
+
+    <!-- Comparison Table -->
+    <text x="400" y="260" text-anchor="middle" class="title">Comparación</text>
+
+    <!-- Table Header -->
+    <rect x="100" y="280" width="200" height="30" fill="#4caf50" class="box" />
+    <text x="200" y="300" text-anchor="middle" class="label">LAZY</text>
+    <rect x="300" y="280" width="200" height="30" fill="#616161" class="box" />
+    <text x="400" y="300" text-anchor="middle" class="label">Aspecto</text>
+    <rect x="500" y="280" width="200" height="30" fill="#ff9800" class="box" />
+    <text x="600" y="300" text-anchor="middle" class="label">EAGER</text>
+
+    <!-- Row 1 -->
+    <rect x="100" y="310" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="200" y="330" text-anchor="middle" class="code good">Bajo demanda</text>
+    <rect x="300" y="310" width="200" height="30" fill="#1a1a1a" class="box" />
+    <text x="400" y="330" text-anchor="middle" class="subtitle">Carga</text>
+    <rect x="500" y="310" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="600" y="330" text-anchor="middle" class="code bad">Inmediata</text>
+
+    <!-- Row 2 -->
+    <rect x="100" y="340" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="200" y="360" text-anchor="middle" class="code good">Menor</text>
+    <rect x="300" y="340" width="200" height="30" fill="#1a1a1a" class="box" />
+    <text x="400" y="360" text-anchor="middle" class="subtitle">Memoria</text>
+    <rect x="500" y="340" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="600" y="360" text-anchor="middle" class="code bad">Mayor</text>
+
+    <!-- Row 3 -->
+    <rect x="100" y="370" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="200" y="390" text-anchor="middle" class="code good">Evita N+1</text>
+    <rect x="300" y="370" width="200" height="30" fill="#1a1a1a" class="box" />
+    <text x="400" y="390" text-anchor="middle" class="subtitle">N+1 Problem</text>
+    <rect x="500" y="370" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="600" y="390" text-anchor="middle" class="code bad">Puede causar</text>
+
+    <!-- Row 4 -->
+    <rect x="100" y="400" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="200" y="420" text-anchor="middle" class="code">JOIN FETCH</text>
+    <rect x="300" y="400" width="200" height="30" fill="#1a1a1a" class="box" />
+    <text x="400" y="420" text-anchor="middle" class="subtitle">Solución</text>
+    <rect x="500" y="400" width="200" height="30" fill="#2d2d2d" class="box" />
+    <text x="600" y="420" text-anchor="middle" class="code">Ya cargado</text>
+</svg>
