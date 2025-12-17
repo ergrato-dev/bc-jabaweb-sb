@@ -1,0 +1,139 @@
+<svg viewBox="0 0 900 450" xmlns="http://www.w3.org/2000/svg">
+    <rect width="900" height="450" fill="#1e1e1e" />
+
+    <text x="450" y="35" fill="#f0f0f0" font-family="Segoe UI, sans-serif" font-size="20"
+        font-weight="bold" text-anchor="middle">Security Filter Chain - Procesamiento de Request</text>
+
+    <!-- HTTP Request -->
+    <rect x="20" y="100" width="90" height="50" rx="8" fill="#2196f3" />
+    <text x="65" y="120" fill="#fff" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">Request</text>
+    <text x="65" y="137" fill="#bbdefb" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">+ JWT Header</text>
+
+    <path d="M110 125 L140 125" stroke="#666" stroke-width="2" marker-end="url(#arrowG)" />
+
+    <!-- Filter 1: CorsFilter -->
+    <rect x="150" y="80" width="100" height="90" rx="8" fill="#2d2d2d" stroke="#424242"
+        stroke-width="1" />
+    <text x="200" y="105" fill="#78909c" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">CorsFilter</text>
+    <text x="200" y="125" fill="#666" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">Verifica</text>
+    <text x="200" y="140" fill="#666" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">origen</text>
+    <text x="200" y="160" fill="#4caf50" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">✓ Pass</text>
+
+    <path d="M250 125 L280 125" stroke="#666" stroke-width="2" marker-end="url(#arrowG)" />
+
+    <!-- Filter 2: CsrfFilter -->
+    <rect x="290" y="80" width="100" height="90" rx="8" fill="#2d2d2d" stroke="#424242"
+        stroke-width="1" />
+    <text x="340" y="105" fill="#78909c" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">CsrfFilter</text>
+    <text x="340" y="125" fill="#666" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">Disabled</text>
+    <text x="340" y="140" fill="#666" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">para APIs</text>
+    <text x="340" y="160" fill="#4caf50" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">✓ Skip</text>
+
+    <path d="M390 125 L420 125" stroke="#666" stroke-width="2" marker-end="url(#arrowG)" />
+
+    <!-- Filter 3: JwtAuthenticationFilter (HIGHLIGHTED) -->
+    <rect x="430" y="70" width="140" height="110" rx="8" fill="#1b5e20" stroke="#4caf50"
+        stroke-width="3" />
+    <text x="500" y="95" fill="#81c784" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">JwtAuthFilter</text>
+    <text x="500" y="115" fill="#a5d6a7" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">★ CUSTOM ★</text>
+    <line x1="450" y1="125" x2="550" y2="125" stroke="#4caf50" stroke-width="1" />
+    <text x="500" y="142" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">1. Extrae token</text>
+    <text x="500" y="155" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">2. Valida JWT</text>
+    <text x="500" y="168" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">3. Set SecurityContext</text>
+
+    <path d="M570 125 L600 125" stroke="#666" stroke-width="2" marker-end="url(#arrowG)" />
+
+    <!-- Filter 4: AuthorizationFilter -->
+    <rect x="610" y="80" width="120" height="90" rx="8" fill="#2d2d2d" stroke="#424242"
+        stroke-width="1" />
+    <text x="670" y="105" fill="#ce93d8" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">Authorization</text>
+    <text x="670" y="125" fill="#666" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">@PreAuthorize</text>
+    <text x="670" y="140" fill="#666" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">hasRole('USER')</text>
+    <text x="670" y="160" fill="#4caf50" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">✓ Authorized</text>
+
+    <path d="M730 125 L760 125" stroke="#666" stroke-width="2" marker-end="url(#arrowG)" />
+
+    <!-- Controller -->
+    <rect x="770" y="100" width="100" height="50" rx="8" fill="#4caf50" />
+    <text x="820" y="120" fill="#fff" font-family="Segoe UI, sans-serif" font-size="11"
+        font-weight="bold" text-anchor="middle">Controller</text>
+    <text x="820" y="137" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="9"
+        text-anchor="middle">@RestController</text>
+
+    <!-- JwtAuthFilter Detail -->
+    <rect x="50" y="220" width="800" height="200" rx="10" fill="#263238" stroke="#4caf50"
+        stroke-width="2" />
+    <text x="450" y="250" fill="#4caf50" font-family="Segoe UI, sans-serif" font-size="14"
+        font-weight="bold" text-anchor="middle">Detalle: JwtAuthenticationFilter.doFilterInternal()</text>
+
+    <!-- Step boxes -->
+    <rect x="80" y="280" width="160" height="80" rx="5" fill="#1b5e20" />
+    <text x="160" y="305" fill="#81c784" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">1. Extraer Token</text>
+    <text x="160" y="325" fill="#a5d6a7" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">Authorization: Bearer xxx</text>
+    <text x="160" y="345" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">→ "xxx"</text>
+
+    <path d="M240 320 L270 320" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowGreen2)" />
+
+    <rect x="280" y="280" width="160" height="80" rx="5" fill="#1b5e20" />
+    <text x="360" y="305" fill="#81c784" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">2. Validar JWT</text>
+    <text x="360" y="325" fill="#a5d6a7" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">jwtService.validateToken()</text>
+    <text x="360" y="345" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">Firma + Expiración</text>
+
+    <path d="M440 320 L470 320" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowGreen2)" />
+
+    <rect x="480" y="280" width="160" height="80" rx="5" fill="#1b5e20" />
+    <text x="560" y="305" fill="#81c784" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">3. Cargar Usuario</text>
+    <text x="560" y="325" fill="#a5d6a7" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">userDetailsService</text>
+    <text x="560" y="345" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">.loadUserByUsername()</text>
+
+    <path d="M640 320 L670 320" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowGreen2)" />
+
+    <rect x="680" y="280" width="150" height="80" rx="5" fill="#1b5e20" />
+    <text x="755" y="305" fill="#81c784" font-family="Segoe UI, sans-serif" font-size="10"
+        font-weight="bold" text-anchor="middle">4. Set Context</text>
+    <text x="755" y="325" fill="#a5d6a7" font-family="Consolas, monospace" font-size="8"
+        text-anchor="middle">SecurityContextHolder</text>
+    <text x="755" y="345" fill="#c8e6c9" font-family="Segoe UI, sans-serif" font-size="8"
+        text-anchor="middle">.setAuthentication()</text>
+
+    <!-- Error path -->
+    <text x="450" y="395" fill="#f44336" font-family="Segoe UI, sans-serif" font-size="10"
+        text-anchor="middle">❌ Si token inválido/expirado → 401 Unauthorized (no continúa la cadena)</text>
+
+    <defs>
+        <marker id="arrowG" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#666" />
+        </marker>
+        <marker id="arrowGreen2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#4caf50" />
+        </marker>
+    </defs>
+</svg>
