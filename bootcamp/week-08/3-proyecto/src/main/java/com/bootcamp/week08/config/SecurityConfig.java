@@ -9,24 +9,24 @@ import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * Configuración de Spring Security.
- * 
+ *
  * Para la semana 8, mantenemos una configuración básica sin JWT
  * para enfocarnos en testing.
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             // Deshabilitar CSRF para API REST
             .csrf(csrf -> csrf.disable())
-            
+
             // Sesión stateless
-            .sessionManagement(session -> 
+            .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            
+
             // Autorización de endpoints
             .authorizeHttpRequests(auth -> auth
                 // Endpoints públicos
@@ -36,7 +36,7 @@ public class SecurityConfig {
                 // Todo lo demás requiere autenticación
                 .anyRequest().authenticated()
             );
-        
+
         return http.build();
     }
 }

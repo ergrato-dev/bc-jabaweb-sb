@@ -8,23 +8,23 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 /**
  * Clase base abstracta para tests de integración con TestContainers.
- * 
+ *
  * Proporciona un contenedor PostgreSQL compartido para todos los tests
  * que extiendan esta clase.
- * 
+ *
  * El contenedor se inicia una sola vez (singleton pattern) para
  * mejorar el rendimiento de la suite de tests.
  */
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class AbstractIntegrationTest {
-    
+
     /**
      * Contenedor PostgreSQL singleton.
      * Se inicia una vez y se reutiliza en todos los tests.
      */
     static final PostgreSQLContainer<?> postgres;
-    
+
     static {
         postgres = new PostgreSQLContainer<>("postgres:16-alpine")
             .withDatabaseName("testdb")
@@ -33,7 +33,7 @@ public abstract class AbstractIntegrationTest {
             .withReuse(true);  // Reutilizar entre ejecuciones
         postgres.start();
     }
-    
+
     /**
      * Configura las propiedades de conexión dinámicamente
      * basándose en el contenedor PostgreSQL.
@@ -44,7 +44,7 @@ public abstract class AbstractIntegrationTest {
         registry.add("spring.datasource.username", postgres::getUsername);
         registry.add("spring.datasource.password", postgres::getPassword);
         registry.add("spring.jpa.hibernate.ddl-auto", () -> "create-drop");
-        registry.add("spring.jpa.database-platform", 
+        registry.add("spring.jpa.database-platform",
             () -> "org.hibernate.dialect.PostgreSQLDialect");
     }
 }

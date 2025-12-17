@@ -19,45 +19,45 @@ import static org.assertj.core.api.Assertions.*;
 
 /**
  * Tests de integración para ProductRepository.
- * 
+ *
  * Usa PostgreSQL real en contenedor Docker via TestContainers.
  */
 @DisplayName("ProductRepository Integration Tests")
 class ProductRepositoryIT extends AbstractIntegrationTest {
-    
+
     @Autowired
     private ProductRepository productRepository;
-    
+
     @BeforeEach
     void setUp() {
         productRepository.deleteAll();
     }
-    
+
     // ====================================================
     // CRUD Tests
     // ====================================================
     @Nested
     @DisplayName("CRUD Operations")
     class CrudTests {
-        
+
         @Test
         @DisplayName("should save and retrieve product")
         void saveAndFind_ValidProduct_Success() {
             // TODO: Implementar
             // Given
             Product product = createProduct("Test Product", "Electronics", 99.99);
-            
+
             // When
             Product saved = productRepository.save(product);
-            
+
             // Then
             assertThat(saved.getId()).isNotNull();
-            
+
             // Optional<Product> found = productRepository.findById(saved.getId());
             // assertThat(found).isPresent();
             // assertThat(found.get().getName()).isEqualTo("Test Product");
         }
-        
+
         @Test
         @DisplayName("should update existing product")
         void update_ExistingProduct_Success() {
@@ -66,18 +66,18 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
             Product product = productRepository.save(
                 createProduct("Original", "Category", 50.0)
             );
-            
+
             // When
             product.setName("Updated");
             product.setPrice(75.0);
             productRepository.save(product);
-            
+
             // Then
             // Product updated = productRepository.findById(product.getId()).orElseThrow();
             // assertThat(updated.getName()).isEqualTo("Updated");
             // assertThat(updated.getPrice()).isEqualTo(75.0);
         }
-        
+
         @Test
         @DisplayName("should delete product by id")
         void deleteById_ExistingProduct_Success() {
@@ -87,22 +87,22 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
                 createProduct("To Delete", null, 30.0)
             );
             Long id = product.getId();
-            
+
             // When
             productRepository.deleteById(id);
-            
+
             // Then
             // assertThat(productRepository.findById(id)).isEmpty();
         }
     }
-    
+
     // ====================================================
     // Custom Query Tests
     // ====================================================
     @Nested
     @DisplayName("Custom Queries")
     class CustomQueryTests {
-        
+
         @Test
         @DisplayName("should find products by category")
         void findByCategory_ExistingCategory_ReturnsProducts() {
@@ -113,16 +113,16 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
                 createProduct("Phone", "Electronics", 699.0),
                 createProduct("Chair", "Furniture", 199.0)
             ));
-            
+
             // When
             List<Product> result = productRepository.findByCategory("Electronics");
-            
+
             // Then
             // assertThat(result).hasSize(2);
             // assertThat(result).extracting(Product::getName)
             //     .containsExactlyInAnyOrder("Laptop", "Phone");
         }
-        
+
         @Test
         @DisplayName("should find products by price range")
         void findByPriceBetween_ValidRange_ReturnsProducts() {
@@ -133,15 +133,15 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
                 createProduct("Medium", null, 50.0),
                 createProduct("Expensive", null, 100.0)
             ));
-            
+
             // When
             List<Product> result = productRepository.findByPriceBetween(20.0, 80.0);
-            
+
             // Then
             // assertThat(result).hasSize(1);
             // assertThat(result.get(0).getName()).isEqualTo("Medium");
         }
-        
+
         @Test
         @DisplayName("should find by name containing (case insensitive)")
         void findByNameContaining_Pattern_ReturnsMatches() {
@@ -152,26 +152,26 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
                 createProduct("Samsung Galaxy", null, 899.0),
                 createProduct("Apple MacBook", null, 1999.0)
             ));
-            
+
             // When
             List<Product> result = productRepository.findByNameContainingIgnoreCase("apple");
-            
+
             // Then
             // assertThat(result).hasSize(2);
         }
-        
+
         @Test
         @DisplayName("should check existence by name")
         void existsByName_ExistingName_ReturnsTrue() {
             // TODO: Implementar
             // Given
             productRepository.save(createProduct("Unique Product", null, 50.0));
-            
+
             // When & Then
             // assertThat(productRepository.existsByName("Unique Product")).isTrue();
             // assertThat(productRepository.existsByName("Non Existing")).isFalse();
         }
-        
+
         @Test
         @DisplayName("should find products with low stock")
         void findLowStock_BelowThreshold_ReturnsProducts() {
@@ -179,28 +179,28 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
             // Given
             Product lowStock = createProduct("Low Stock", null, 20.0);
             lowStock.setStock(5);
-            
+
             Product normalStock = createProduct("Normal Stock", null, 30.0);
             normalStock.setStock(100);
-            
+
             productRepository.saveAll(List.of(lowStock, normalStock));
-            
+
             // When
             List<Product> result = productRepository.findLowStock(10);
-            
+
             // Then
             // assertThat(result).hasSize(1);
             // assertThat(result.get(0).getName()).isEqualTo("Low Stock");
         }
     }
-    
+
     // ====================================================
     // Pagination Tests
     // ====================================================
     @Nested
     @DisplayName("Pagination and Sorting")
     class PaginationTests {
-        
+
         @BeforeEach
         void setUpData() {
             // Crear 25 productos
@@ -210,23 +210,23 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
                 );
             }
         }
-        
+
         @Test
         @DisplayName("should return paginated results")
         void findAll_WithPagination_ReturnsPaginatedResults() {
             // TODO: Implementar
             // Given
             PageRequest pageRequest = PageRequest.of(0, 10);
-            
+
             // When
             Page<Product> page = productRepository.findAll(pageRequest);
-            
+
             // Then
             assertThat(page.getContent()).hasSize(10);
             assertThat(page.getTotalElements()).isEqualTo(25);
             assertThat(page.getTotalPages()).isEqualTo(3);
         }
-        
+
         @Test
         @DisplayName("should return sorted results")
         void findAll_WithSorting_ReturnsSortedResults() {
@@ -235,15 +235,15 @@ class ProductRepositoryIT extends AbstractIntegrationTest {
             PageRequest pageRequest = PageRequest.of(
                 0, 5, Sort.by(Sort.Direction.DESC, "price")
             );
-            
+
             // When
             Page<Product> page = productRepository.findAll(pageRequest);
-            
+
             // Then
             // assertThat(page.getContent().get(0).getPrice()).isEqualTo(250.0);
         }
     }
-    
+
     // ====================================================
     // Helper Methods
     // ====================================================
