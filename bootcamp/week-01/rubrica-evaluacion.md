@@ -2,7 +2,7 @@
 
 ## Entorno de Desarrollo con Docker y Fundamentos REST
 
-**Duración**: 5 horas  
+**Duración**: 5 horas
 **Peso Total**: 100 puntos
 
 ---

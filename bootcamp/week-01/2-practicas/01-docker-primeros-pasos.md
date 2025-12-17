@@ -224,19 +224,19 @@ import java.util.Scanner;
 public class Greeting {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         System.out.print("¿Cuál es tu nombre? ");
         String name = scanner.nextLine();
-        
+
         System.out.print("¿Cuál es tu lenguaje favorito? ");
         String language = scanner.nextLine();
-        
+
         System.out.println();
         System.out.println("¡Hola " + name + "!");
         System.out.println("¡" + language + " es genial!");
-        System.out.println("Ejecutándose en Docker con Java " + 
+        System.out.println("Ejecutándose en Docker con Java " +
                           System.getProperty("java.version"));
-        
+
         scanner.close();
     }
 }
@@ -352,17 +352,17 @@ import java.util.Scanner;
 public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         try {
             System.out.print("Ingresa el primer número: ");
             double num1 = Double.parseDouble(scanner.nextLine());
-            
+
             System.out.print("Ingresa el segundo número: ");
             double num2 = Double.parseDouble(scanner.nextLine());
-            
+
             System.out.print("Ingresa la operación (+, -, *, /): ");
             String operation = scanner.nextLine();
-            
+
             double result;
             switch (operation) {
                 case "+":
@@ -385,10 +385,10 @@ public class Calculator {
                     System.out.println("Error: Operación no válida");
                     return;
             }
-            
-            System.out.printf("Resultado: %.2f %s %.2f = %.2f%n", 
+
+            System.out.printf("Resultado: %.2f %s %.2f = %.2f%n",
                             num1, operation, num2, result);
-                            
+
         } catch (NumberFormatException e) {
             System.out.println("Error: Ingresa números válidos");
         } finally {

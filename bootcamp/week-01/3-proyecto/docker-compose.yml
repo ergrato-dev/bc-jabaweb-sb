@@ -41,15 +41,15 @@ services:
     # TODO 1: Especifica la imagen de Java
     # Usa: eclipse-temurin:21-jdk
     image: # COMPLETA AQUÍ
-    
+
     # TODO 2: Asigna un nombre al contenedor
     # Sugerencia: week01-dev
     container_name: # COMPLETA AQUÍ
-    
+
     # TODO 3: Establece el directorio de trabajo
     # Usa: /app
     working_dir: # COMPLETA AQUÍ
-    
+
     # TODO 4: Monta los volúmenes necesarios
     # Monta estas carpetas locales en el contenedor:
     #   - ./src  →  /app/src   (código fuente)
@@ -57,18 +57,18 @@ services:
     # Sintaxis: - ./carpeta_local:/carpeta_contenedor
     volumes:
       # COMPLETA AQUÍ (dos líneas)
-    
+
     # TODO 5: Carga las variables desde archivo .env
     # Sintaxis: env_file:
     #             - .env
     # COMPLETA AQUÍ
-    
+
     # TODO 6: Habilita modo interactivo
     # Necesitas estas dos opciones para poder escribir en el contenedor:
     #   stdin_open: true
     #   tty: true
     # COMPLETA AQUÍ
-    
+
     # TODO 7: Define el comando por defecto
     # Usa: bash (para tener un shell interactivo)
     command: # COMPLETA AQUÍ
@@ -81,7 +81,7 @@ services:
   # -------------------------------------------------------------------------
   app:
     # TODO 8: Configura este servicio para compilar y ejecutar
-    # 
+    #
     # Necesitas:
     #   - image: eclipse-temurin:21-jdk-alpine (más ligera)
     #   - container_name: week01-app
@@ -99,8 +99,6 @@ services:
     #   3. java -cp out Main → ejecuta la clase Main
     #
     # COMPLETA TODO EL SERVICIO AQUÍ:
-    
-
 # ════════════════════════════════════════════════════════════════════════════
 # VERIFICACIÓN:
 #

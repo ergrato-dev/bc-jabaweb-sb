@@ -121,11 +121,11 @@ public class Main {
         System.out.println("║  OS: " + System.getProperty("os.name") + "                       ║");
         System.out.println("║  User: " + System.getProperty("user.name") + "                          ║");
         System.out.println("╚═══════════════════════════════════════╝");
-        
+
         // Mostrar variables de entorno
         String appEnv = System.getenv("APP_ENV");
         String appName = System.getenv("APP_NAME");
-        
+
         if (appEnv != null) {
             System.out.println("\n📦 Environment: " + appEnv);
         }
@@ -320,13 +320,13 @@ public class Utils {
     public static void printSeparator() {
         System.out.println("─".repeat(40));
     }
-    
+
     public static void printHeader(String title) {
         printSeparator();
         System.out.println("  " + title);
         printSeparator();
     }
-    
+
     public static String getEnvOrDefault(String key, String defaultValue) {
         String value = System.getenv(key);
         return value != null ? value : defaultValue;
@@ -339,14 +339,14 @@ cat > src/Main.java << 'EOF'
 public class Main {
     public static void main(String[] args) {
         Utils.printHeader("Bootcamp Java Web con Docker");
-        
+
         System.out.println("  Java: " + System.getProperty("java.version"));
         System.out.println("  OS: " + System.getProperty("os.name"));
         System.out.println("  Entorno: " + Utils.getEnvOrDefault("APP_ENV", "unknown"));
         System.out.println("  Versión: " + Utils.getEnvOrDefault("APP_VERSION", "0.0.0"));
-        
+
         Utils.printSeparator();
-        
+
         if (args.length > 0) {
             System.out.println("\n📝 Argumentos recibidos:");
             for (int i = 0; i < args.length; i++) {
@@ -586,7 +586,7 @@ cat > src/Main.java << 'EOF'
 /**
  * Bootcamp Java Web con Spring Boot
  * Semana 01 - Proyecto Final
- * 
+ *
  * Demuestra el uso de Docker y Docker Compose
  * para entornos de desarrollo Java reproducibles.
  */
@@ -595,12 +595,12 @@ public class Main {
         printBanner();
         printSystemInfo();
         printEnvironmentInfo();
-        
+
         if (args.length > 0) {
             printArguments(args);
         }
     }
-    
+
     private static void printBanner() {
         System.out.println();
         System.out.println("╔══════════════════════════════════════════════╗");
@@ -609,7 +609,7 @@ public class Main {
         System.out.println("╚══════════════════════════════════════════════╝");
         System.out.println();
     }
-    
+
     private static void printSystemInfo() {
         System.out.println("📋 Información del Sistema:");
         System.out.println("   Java Version: " + System.getProperty("java.version"));
@@ -618,7 +618,7 @@ public class Main {
         System.out.println("   OS Arch:      " + System.getProperty("os.arch"));
         System.out.println();
     }
-    
+
     private static void printEnvironmentInfo() {
         System.out.println("🔧 Variables de Entorno:");
         printEnvVar("APP_NAME");
@@ -626,12 +626,12 @@ public class Main {
         printEnvVar("APP_ENV");
         System.out.println();
     }
-    
+
     private static void printEnvVar(String name) {
         String value = System.getenv(name);
         System.out.println("   " + name + ": " + (value != null ? value : "(no definida)"));
     }
-    
+
     private static void printArguments(String[] args) {
         System.out.println("📝 Argumentos recibidos:");
         for (int i = 0; i < args.length; i++) {

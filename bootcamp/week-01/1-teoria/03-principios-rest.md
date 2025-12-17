@@ -322,13 +322,13 @@ GET /api/users?version=1
 ```
 Nivel 3: HATEOAS
          └── Hypermedia controls (links en respuestas)
-         
+
 Nivel 2: Verbos HTTP
          └── GET, POST, PUT, DELETE correctamente
-         
+
 Nivel 1: Recursos
          └── URIs para diferentes recursos
-         
+
 Nivel 0: RPC sobre HTTP
          └── POST /api con acción en body (SOAP, XML-RPC)
 ```
