@@ -284,6 +284,7 @@ bootcamp/
 **Estrategias**: Talleres prácticos guiados, revisión de APIs profesionales
 
 **🎁 Bonus - Integración Frontend (Parte 1)**:
+
 - Introducción a la integración frontend-backend
 - Consumir API desde HTML + JavaScript (fetch)
 - Verificar CORS funcionando
@@ -325,6 +326,7 @@ bootcamp/
 **Estrategias**: Live coding, análisis de flujos de autenticación, debugging de tokens
 
 **🎁 Bonus - Integración Frontend (Parte 2)**:
+
 - Formularios de Login y Registro en React
 - Almacenamiento de JWT (localStorage vs httpOnly cookies)
 - Envío de token en headers (Authorization: Bearer)
@@ -362,6 +364,7 @@ bootcamp/
 **Estrategias**: TDD, code review, análisis de arquitecturas reales
 
 **🎁 Bonus - Integración Frontend (Parte 3 - Completo)**:
+
 - Stack completo: Spring Boot + PostgreSQL + React
 - docker-compose.yml con 3 servicios
 - Flujo completo: Registro → Login → Acceso a recursos protegidos
@@ -420,6 +423,24 @@ bootcamp/
 | Mockito           | 5.x     | Mocking para tests                            |
 | TestContainers    | 1.19+   | Testing de integración con contenedores       |
 | Maven             | 3.9+    | Gestión de dependencias (build en contenedor) |
+
+### Tecnologías Frontend (Bonus)
+
+| Tecnología | Versión | Propósito                             |
+| ---------- | ------- | ------------------------------------- |
+| React      | 18+     | Librería UI para bonus de integración |
+| Vite       | 5+      | Build tool para React                 |
+| Axios      | 1.x     | Cliente HTTP para consumir APIs       |
+
+> ⚡ **Gestor de paquetes**: Usamos **pnpm** o **yarn** por rendimiento. **NO usamos npm**.
+
+```bash
+# Instalar pnpm (recomendado)
+corepack enable && corepack prepare pnpm@latest --activate
+
+# Alternativa: yarn
+corepack enable && corepack prepare yarn@stable --activate
+```
 
 ### Dependencias Maven Recomendadas
 
