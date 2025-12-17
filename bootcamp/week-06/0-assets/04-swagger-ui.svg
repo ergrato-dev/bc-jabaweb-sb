@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+    <!-- Background -->
+    <rect width="900" height="600" fill="#1a1a2e" />
+
+    <!-- Title -->
+    <text x="450" y="40" font-family="system-ui, sans-serif" font-size="24" font-weight="bold"
+        fill="#ffffff" text-anchor="middle">Swagger UI - Interface</text>
+    <text x="450" y="65" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8"
+        text-anchor="middle">Documentación interactiva de APIs</text>
+
+    <!-- Browser Window -->
+    <rect x="50" y="90" width="800" height="480" rx="10" fill="#1e293b" stroke="#475569"
+        stroke-width="2" />
+
+    <!-- Browser Header -->
+    <rect x="50" y="90" width="800" height="35" rx="10" fill="#334155" />
+    <circle cx="75" cy="107" r="6" fill="#ef4444" />
+    <circle cx="95" cy="107" r="6" fill="#f59e0b" />
+    <circle cx="115" cy="107" r="6" fill="#10b981" />
+    <rect x="140" y="97" width="500" height="20" rx="4" fill="#1e293b" />
+    <text x="155" y="112" font-family="monospace" font-size="11" fill="#94a3b8">
+        http://localhost:8080/swagger-ui.html</text>
+
+    <!-- Swagger Header -->
+    <rect x="60" y="135" width="780" height="60" rx="6" fill="#16213e" />
+    <text x="80" y="165" font-family="system-ui, sans-serif" font-size="20" font-weight="bold"
+        fill="#10b981">Task Manager API</text>
+    <text x="80" y="185" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">v1.0.0 -
+        API para gestión de tareas</text>
+    <rect x="720" y="145" width="100" height="30" rx="4" fill="#3b82f6" />
+    <text x="745" y="165" font-family="system-ui, sans-serif" font-size="11" fill="#ffffff">
+        Authorize</text>
+
+    <!-- Tags Section -->
+    <rect x="60" y="205" width="780" height="45" rx="6" fill="#1e3a5f" />
+    <text x="80" y="233" font-family="system-ui, sans-serif" font-size="14" font-weight="bold"
+        fill="#10b981">tasks</text>
+    <text x="130" y="233" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Task
+        management operations</text>
+    <text x="780" y="233" font-family="system-ui, sans-serif" font-size="16" fill="#64748b">▼</text>
+
+    <!-- GET Endpoint -->
+    <rect x="70" y="260" width="760" height="50" rx="6" fill="#16213e" stroke="#10b981"
+        stroke-width="1" />
+    <rect x="80" y="270" width="50" height="28" rx="4" fill="#10b981" />
+    <text x="93" y="290" font-family="system-ui, sans-serif" font-size="12" font-weight="bold"
+        fill="#ffffff">GET</text>
+    <text x="145" y="290" font-family="monospace" font-size="13" fill="#e2e8f0">/api/v1/tasks</text>
+    <text x="350" y="290" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">List all
+        tasks</text>
+
+    <!-- GET by ID Endpoint -->
+    <rect x="70" y="320" width="760" height="50" rx="6" fill="#16213e" stroke="#10b981"
+        stroke-width="1" />
+    <rect x="80" y="330" width="50" height="28" rx="4" fill="#10b981" />
+    <text x="93" y="350" font-family="system-ui, sans-serif" font-size="12" font-weight="bold"
+        fill="#ffffff">GET</text>
+    <text x="145" y="350" font-family="monospace" font-size="13" fill="#e2e8f0">/api/v1/tasks/{id}</text>
+    <text x="350" y="350" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Get task
+        by ID</text>
+
+    <!-- POST Endpoint -->
+    <rect x="70" y="380" width="760" height="50" rx="6" fill="#16213e" stroke="#f59e0b"
+        stroke-width="1" />
+    <rect x="80" y="390" width="50" height="28" rx="4" fill="#f59e0b" />
+    <text x="88" y="410" font-family="system-ui, sans-serif" font-size="12" font-weight="bold"
+        fill="#ffffff">POST</text>
+    <text x="145" y="410" font-family="monospace" font-size="13" fill="#e2e8f0">/api/v1/tasks</text>
+    <text x="350" y="410" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Create
+        new task</text>
+
+    <!-- PUT Endpoint -->
+    <rect x="70" y="440" width="760" height="50" rx="6" fill="#16213e" stroke="#3b82f6"
+        stroke-width="1" />
+    <rect x="80" y="450" width="50" height="28" rx="4" fill="#3b82f6" />
+    <text x="93" y="470" font-family="system-ui, sans-serif" font-size="12" font-weight="bold"
+        fill="#ffffff">PUT</text>
+    <text x="145" y="470" font-family="monospace" font-size="13" fill="#e2e8f0">/api/v1/tasks/{id}</text>
+    <text x="350" y="470" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Update
+        task</text>
+
+    <!-- DELETE Endpoint -->
+    <rect x="70" y="500" width="760" height="50" rx="6" fill="#16213e" stroke="#ef4444"
+        stroke-width="1" />
+    <rect x="80" y="510" width="60" height="28" rx="4" fill="#ef4444" />
+    <text x="88" y="530" font-family="system-ui, sans-serif" font-size="11" font-weight="bold"
+        fill="#ffffff">DELETE</text>
+    <text x="155" y="530" font-family="monospace" font-size="13" fill="#e2e8f0">/api/v1/tasks/{id}</text>
+    <text x="360" y="530" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Delete
+        task</text>
+
+    <!-- Legend -->
+    <rect x="650" y="205" width="180" height="35" rx="4" fill="#0f172a" />
+    <circle cx="670" cy="222" r="6" fill="#10b981" />
+    <text x="685" y="227" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">GET</text>
+    <circle cx="720" cy="222" r="6" fill="#f59e0b" />
+    <text x="735" y="227" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">POST</text>
+    <circle cx="775" cy="222" r="6" fill="#3b82f6" />
+    <text x="790" y="227" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">PUT</text>
+</svg>
